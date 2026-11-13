@@ -1,0 +1,4 @@
+## Fire Detector
+Sensor operates by sampling air to determine the presence of combustion particles, but unlike earlier equipment the Brunswick Incipient Fire Detector, originally used in space shuttle orbiters, can discriminate between combustion particles and extraneous matters such as dust. This gives an important advantage; it is less susceptible to false alarms. For large area applications such as mines, any number of sensors can be linked to a central processor/display unit to provide a central fire watch system that would instantly warn of incipient fire and pinpoint the location. Fire detector represents an advancement over commercially available smoke detectors in that it senses and signals the presence of a fire condition before appearance of flame and smoke.
+Full article: http://hdl.handle.net/hdl:2060/20070018916
+Fire Detector
