@@ -1,0 +1,25 @@
+{
+  "_about": "Crew environments used to rank investigations. Atmosphere figures come from the challenge statement unless marked as an assumption.",
+  "scenarios": [
+    {"id": "station", "o2": [19, 24], "pressure_atm": [0.95, 1.05],
+     "en": {"name": "Space station", "gravity": "microgravity", "atmosphere": "~21% O2 at 14.7 psi (Earth-like)", "note": "Sea-level pressure of 14.7 psi is quoted in the challenge; ~21% O2 is the Earth baseline."},
+     "ar": {"name": "محطة فضائية", "gravity": "جاذبية صغرى", "atmosphere": "نحو 21% أكسجين عند 14.7 psi (مثل الأرض)", "note": "ضغط سطح البحر 14.7 psi مذكور في التحدي، و21% أكسجين هو خط الأساس الأرضي."},
+     "need": "Fire safety on a crewed space station in microgravity with an Earth-like atmosphere of about 21 percent oxygen and low-speed ventilation: flammability and flame spread of cabin fabrics and plastics, smoke detection and fire suppression."},
+    {"id": "spacecraft", "o2": [19, 24], "pressure_atm": [0.95, 1.05],
+     "en": {"name": "Transit spacecraft", "gravity": "microgravity", "atmosphere": "~21% O2 at 14.7 psi (assumed)", "note": "Assumption: Earth-like cabin. The challenge gives no figures for transit vehicles."},
+     "ar": {"name": "مركبة فضائية في رحلة", "gravity": "جاذبية صغرى", "atmosphere": "نحو 21% أكسجين عند 14.7 psi (افتراض)", "note": "افتراض: جو مقصورة مثل الأرض، لأن التحدي لا يعطي أرقاماً لمركبات العبور."},
+     "need": "Fire safety inside a small crewed spacecraft in microgravity far from Earth: how fast a large fire grows in a confined vehicle, material flammability limits compared with NASA ground screening tests, smoke detection and extinguishing a fire."},
+    {"id": "lunar_base", "o2": [30, 100], "pressure_atm": [0.29, 0.70],
+     "en": {"name": "Lunar surface base", "gravity": "partial gravity (1/6 g)", "atmosphere": "≥30% O2 at ≤10.2 psi", "note": "Challenge: the oxygen concentration on the Moon will likely be 30% or greater at 10.2 psi or less. PSI holds no partial-gravity data yet."},
+     "ar": {"name": "قاعدة على سطح القمر", "gravity": "جاذبية جزئية (1/6 من الأرض)", "atmosphere": "أكسجين ≥30% عند ضغط ≤10.2 psi", "note": "من التحدي: الأكسجين في القاعدة القمرية سيكون غالباً 30% أو أكثر عند 10.2 psi أو أقل. لا توجد في PSI بيانات جاذبية جزئية بعد."},
+     "need": "Fire safety in a Moon base with an oxygen-enriched, reduced-pressure atmosphere of 30 percent oxygen or more at 10.2 psi or less, in partial lunar gravity: material flammability at elevated oxygen and reduced pressure, partial-gravity flames, detection and suppression."},
+    {"id": "rover", "o2": [30, 100], "pressure_atm": [0.29, 0.70],
+     "en": {"name": "Pressurized rover", "gravity": "partial gravity (1/6 g)", "atmosphere": "≥30% O2 at ≤10.2 psi", "note": "Challenge: Moon bases and rovers sit between spacesuit (100% O2 at 4.3 psi) and Earth (14.7 psi) conditions."},
+     "ar": {"name": "مركبة جوّالة مضغوطة", "gravity": "جاذبية جزئية (1/6 من الأرض)", "atmosphere": "أكسجين ≥30% عند ضغط ≤10.2 psi", "note": "من التحدي: القاعدة والجوّالات بين ظروف بدلة الفضاء (100% أكسجين عند 4.3 psi) والأرض (14.7 psi)."},
+     "need": "Fire safety in a small pressurized rover cabin with an oxygen-enriched reduced-pressure atmosphere of 30 percent oxygen or more: ignition and flame spread over materials at high oxygen, fire growth in a small confined volume, fast detection and suppression."},
+    {"id": "mars_base", "o2": [30, 100], "pressure_atm": [0.29, 0.70],
+     "en": {"name": "Mars surface base", "gravity": "partial gravity (3/8 g)", "atmosphere": "assumed ≥30% O2 exploration atmosphere", "note": "Assumption: same atmosphere as the Moon base. The challenge says microgravity and normal-gravity results could bound intermediate gravity."},
+     "ar": {"name": "قاعدة على سطح المريخ", "gravity": "جاذبية جزئية (3/8 من الأرض)", "atmosphere": "جو استكشافي ≥30% أكسجين (افتراض)", "note": "افتراض: نفس جو القاعدة القمرية. التحدي يقول إن نتائج الجاذبية الصغرى والأرضية قد تحدّ الجاذبية المتوسطة."},
+     "need": "Fire safety in a long-duration Mars habitat in partial gravity with an oxygen-enriched exploration atmosphere and no resupply: material flammability at elevated oxygen, partial-gravity flames bounded by microgravity and normal-gravity results, predictive fire models, detection and suppression."}
+  ]
+}
