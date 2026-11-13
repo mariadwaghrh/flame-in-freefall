@@ -30,17 +30,20 @@ const evidenceList = (list) => h("div", { class: "evidence" }, list.map((e) => {
 export function verified(res, { pendingAr = false } = {}) {
   const box = h("div", { class: "ai" }, h("div", { class: "ai-head" }, badge(res.decision), h("span", { class: "why", text: why(res) })));
   if (res.decision === "abstained") box.append(h("div", { class: "ai-text", text: AR() ? res.final_ar || "الأدلة المسترجعة غير كافية لإجابة موثوقة." : res.final }));
-  else if (!AR()) box.append(h("div", { class: "ai-text", dir: "ltr", text: res.final }));
-  else if (res.final_ar) {
-    box.append(h("div", { class: "ai-text", text: res.final_ar }),
-      h("div", { class: "stats", text: res.translation_ok === false ? "بعض الجمل بقيت بالإنجليزية لأن ترجمتها الآلية لم تجتز الفحص (رقم ناقص أو اسم مضاف)." : "ترجمة آلية لكل جملة، مع فحص الأرقام والأسماء. النص الإنجليزي المفحوص هو المرجع." }));
-  } else if (pendingAr) box.append(h("div", { class: "why" }, h("span", { class: "spinner" }), " جاري الترجمة إلى العربية…"));
-  if (AR() && res.decision !== "abstained") box.append(h("details", {}, h("summary", { text: "النص الإنجليزي الذي تم فحصه" }), h("div", { class: "ai-text en", dir: "ltr", text: res.final })));
+  else {
+    // the checked text is English, so it is always shown as the answer; the Arabic below is a convenience translation
+    box.append(h("div", { class: "ai-text", dir: "ltr", text: res.final }));
+    if (AR() && res.final_ar) box.append(h("details", { class: "ai-ar" },
+      h("summary", { class: "ai-ar-label", text: "ترجمة آلية تقريبية إلى العربية (اضغط للعرض)" }),
+      h("div", { class: "ai-text", text: res.final_ar }),
+      h("div", { class: "stats", text: "النص الإنجليزي أعلاه هو الذي فُحص وهو المرجع. الترجمة يكتبها نموذج صغير يعمل على الحاسوب: تُفحص فيها الأرقام والأسماء، لكنها قد تخطئ في المعنى." + (res.translation_ok === false ? " بعض الجمل بقيت بالإنجليزية لأن ترجمتها لم تجتز الفحص." : "") })));
+    else if (AR() && pendingAr) box.append(h("div", { class: "why" }, h("span", { class: "spinner" }), " جاري الترجمة إلى العربية…"));
+  }
   if (res.claims && res.claims.length) box.append(h("details", {}, h("summary", { text: L(`التحقق جملة بجملة (${res.claims.length})`, `Sentence-by-sentence check (${res.claims.length})`) }),
     h("div", { class: "claims" }, res.claims.map((c) => h("div", { class: "claim " + c.verdict }, badge(c.verdict),
       h("div", {}, h("div", { class: "c-text", dir: "ltr", text: c.text }),
         h("div", { class: "c-src", dir: "ltr" }, (c.why.startsWith("number_missing") ? `Number not in the evidence (${c.why.split(":")[1]}). ` : "") + `Closest evidence (${fmt(c.score, 2)}): `,
-          h("a", { href: c.evidence.url, target: "_blank", rel: "noopener", text: `${c.evidence.cite} / ${c.evidence.section}` }))))))));
+          c.evidence ? h("a", { href: c.evidence.url, target: "_blank", rel: "noopener", text: `${c.evidence.cite} / ${c.evidence.section}` }) : c.cite || "")))))));
   if (res.stats && res.stats.total_seconds) box.append(h("div", { class: "stats", dir: "ltr", text: `Local ${state.status ? state.status.llm_model : "LLM"}: ${res.stats.prompt_tokens} tokens read, ${res.stats.answer_tokens} written at ${res.stats.tok_per_sec} tok/s · guardrail ${res.stats.guardrail_seconds}s · total ${res.stats.total_seconds}s` }));
   return box;
 }
@@ -63,6 +66,8 @@ function render() {
         h("p", { class: "sub", text: L("يبحث في 24 تجربة و8 موارد للتحدي، ثم يكتب نموذج محلي (بدون إنترنت) جواباً منها فقط، ثم يفحص صمام الأمان كل جملة وكل رقم. الجمل غير المدعومة تُحذف أمامك، وإذا بقي القليل يمتنع بدل أن يخمّن.",
           "Searches 24 investigations and 8 challenge resources, a local model (no internet) drafts an answer from them only, then the guardrail checks every sentence and every number. Unsupported sentences are removed in front of you; if too little survives, it declines instead of guessing.") })),
         h("label", { class: "field" }, h("span", { text: L("ابحث في", "Search in") }), sel)),
+      state.static && h("div", { class: "warn", text: L("هذه نسخة عامة تعمل بلا نموذج محلي: الأسئلة المقترحة تعرض تشغيلاً حقيقياً محفوظاً من النظام. لطرح أي سؤال، شغّل المشروع على حاسوبك (الخطوات في README).",
+        "This is a public copy without the local model: the suggested questions replay saved real runs of the system. To ask anything, run the project on your computer (steps in the README).") }),
       h("div", { class: "ask-form" }, ta, send),
       h("div", { class: "chips", style: "margin-top:12px" }, SUGGEST[state.lang].map((q) => h("button", { class: "chip btn", text: q, onclick: () => go1(q) }))),
       evalBox),
@@ -95,8 +100,23 @@ async function ask(question, log, sendBtn) {
   log.prepend(card); setStep(arQ ? 0 : 1);
   const say = (t) => mount(status, h("span", { class: "spinner" }), " " + t);
   let res = null, tokens = 0;
+  if (state.static) {                                   // no server: replay the saved real run of a suggested question
+    const i = SUGGEST[state.lang].indexOf(question), saved = await api("/api/examples").catch(() => ({}));
+    const ex = (saved.examples || []).find((e) => e.q === (i >= 0 ? SUGGEST.en[i] : question));
+    scope.busy = false; sendBtn.disabled = false;
+    if (ex) {
+      setStep(5);
+      if (ex.evidence && ex.evidence.length && ex.evidence[0].text) mount(evBox, h("details", {}, h("summary", { text: L(`المقاطع المسترجعة من ناسا (${ex.evidence.length})`, `Passages retrieved from NASA (${ex.evidence.length})`) }), evidenceList(ex.evidence)));
+      mount(body, verified(ex), h("div", { class: "stats", text: L(`تشغيل حقيقي محفوظ بتاريخ ${saved.date} على ${saved.model}.`, `A real run saved on ${saved.date} with ${saved.model}.`) }));
+    } else {
+      steps.forEach((el) => { el.className = ""; });
+      mount(body, h("div", { class: "warn", text: L("هذه النسخة العامة تعرض فقط التشغيل المحفوظ للأسئلة المقترحة. لطرح سؤالك، شغّل المشروع على حاسوبك (الخطوات في README).",
+        "This public copy only replays the saved runs of the suggested questions. To ask your own question, run the project on your computer (steps in the README).") }));
+    }
+    return;
+  }
   try {
-    const r = await fetch("/api/ask", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ question, lang: state.lang, only: scope.only ? [scope.only] : null }) });
+    const r = await fetch("api/ask", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ question, lang: state.lang, only: scope.only ? [scope.only] : null }) });
     if (!r.ok) throw new Error(await r.text());
     const reader = r.body.getReader(), dec = new TextDecoder();
     let buf = "";
@@ -132,6 +152,7 @@ drawerExtras.push((inv) => {
   const draw = () => {
     const s = SUMMARIES[inv.acc];
     if (s && (!AR() || s.final_ar || s.decision === "abstained")) return mount(box, verified(s));
+    if (state.static) return mount(box, h("div", { class: "ai" }, h("div", { class: "why", text: L("الملخص الموثّق يُنشأ بالنموذج المحلي عند تشغيل المشروع على حاسوبك.", "The verified summary is generated by the local model when you run the project on your computer.") })));
     const btn = h("button", { class: "btn primary", text: L("إنشاء ملخص موثّق", "Generate verified summary") });
     btn.addEventListener("click", async () => {
       btn.disabled = true;

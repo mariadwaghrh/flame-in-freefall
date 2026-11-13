@@ -393,3 +393,8 @@ main:has(> #view-story:not([hidden])) { max-width: none; padding: 0; }
 @media (prefers-reduced-motion: reduce) {
   .st-layer, .st-panel, .vbar-track i, .gap-track i, .pipe li { transition: none !important; } .st-hint { animation: none; }
 }
+
+/* Arabic machine translation shown under the checked English answer */
+.ai-ar { margin-top: 10px; padding: 10px 12px; border-radius: 10px; background: var(--surface-2); display: grid; gap: 4px; }
+.ai-ar-label { color: var(--warning-ink); font-weight: 800; font-size: 12.5px; cursor: pointer; }
+.ai-ar { display: block; } .ai-ar[open] .ai-text { margin-top: 6px; }

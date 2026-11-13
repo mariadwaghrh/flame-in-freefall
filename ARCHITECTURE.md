@@ -117,6 +117,7 @@ sequenceDiagram
 | | `src/index.py` | embeddings (bge-m3) and the 100-point relevance score per crew environment |
 | | `src/evaluate.py` | runs the team's test questions through Ask and grades the verified answers |
 | | `src/examples.py` | saves real runs of a fixed set of questions, shown as the worked example on the home page |
+| | `src/export_static.py` | exports the site's JSON to `web/api/` so the site also runs without the server (public copy) |
 | Ask | `src/rag/embedder.py` | text to vector |
 | | `src/rag/retrieval.py` | hybrid search: meaning + exact words + investigation names |
 | | `src/rag/generate.py` | local Llama 3.2 drafts from the passages only |
@@ -147,6 +148,6 @@ sequenceDiagram
 
 - On a laptop CPU an answer takes 1 to 2 minutes.
 - The guardrail uses embedding similarity plus a number check, not a trained entailment model; its thresholds were set by hand on a few examples, not on a labelled benchmark.
-- Arabic answers are machine translations by a small model; sentences that fail the number and name check stay in English.
+- The checked answer is English. Its Arabic translation comes from a small model: numbers and names are re-checked, but the meaning can still be wrong, so it is shown under the English text and labelled as approximate.
 - PSI has no partial-gravity data yet, and its flame outcomes are recorded in only a few tables (FLEX, CFI-G, Saffire-II).
 - PSI has no documented API; the download scripts use the endpoints of the psi.nasa.gov web app, which may change.

@@ -1,7 +1,7 @@
 """Run a fixed set of questions once and save the real, checked results (including the ones the system declines).
 
-The home page shows one of these runs as a worked example of the guardrail (nothing on that page is mocked up),
-and judges can see a result without waiting for the local model.
+The home page shows one of these runs as a worked example of the guardrail (nothing on that page is mocked up).
+The public static copy of the site (no local model there) answers the suggested questions from these saved runs.
 
 Usage (from the project folder, Ollama running):  python src/examples.py
 Writes data/processed/examples.json.
@@ -21,7 +21,7 @@ QUESTIONS = [
     "What solid materials were burned in BASS-II and over what oxygen range?",
     "How was smoke measured in SAME and SAME-R?",
     "What did NASA learn from the Apollo 1 fire?",
-    "Why are flames spherical in microgravity?",
+    "What caused the fire on Mir in 1997?",
     "What is the best recipe for chocolate cake?",          # outside the knowledge base: must be declined
 ]
 
@@ -33,11 +33,14 @@ def main():
         final, evidence = {}, []
         for ev in rag.ask(q, lang="en"):
             if ev["stage"] == "evidence":
-                evidence = [{"cite": c["cite"], "section": c["section"], "similarity": c["similarity"]} for c in ev["evidence"]]
+                evidence = ev["evidence"]
             elif ev["stage"] == "final":
                 final = ev
+        answered = final.get("decision") in ("accepted", "partial")
+        final_ar, ar_ok = rag.arabic(final["final"]) if answered else (final.get("final_ar"), True)
         out.append({"q": q, "decision": final.get("decision"), "why": final.get("why"), "draft": final.get("draft", ""), "final": final.get("final", ""),
-                    "claims": [{"text": c["text"], "verdict": c["verdict"], "score": c["score"], "why": c["why"], "cite": c["evidence"]["cite"]} for c in final.get("claims", [])],
+                    "final_ar": final_ar, "translation_ok": ar_ok, "removed": final.get("removed", 0), "ratio": final.get("ratio"),
+                    "claims": [{**c, "cite": c["evidence"]["cite"]} for c in final.get("claims", [])],
                     "stats": final.get("stats", {}), "evidence": evidence})
         print(f"{final.get('decision', '?'):10} removed={final.get('removed', 0)}  {q}", flush=True)
     json.dump({"model": config.LLM_MODEL, "date": time.strftime("%Y-%m-%d"), "examples": out},

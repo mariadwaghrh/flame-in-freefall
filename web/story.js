@@ -102,7 +102,7 @@ function honesty() {
   return h("div", { class: "st-viz tiles" },
     evalTile,
     h("div", { class: "tile" }, h("b", { text: L("1–2 دقيقة", "1–2 min") }), h("span", { text: L("لكل جواب على لابتوب عادي بدون إنترنت", "per answer on an ordinary laptop, offline") })),
-    h("div", { class: "tile" }, h("b", { text: L("ترجمة آلية", "Machine translation") }), h("span", { text: L("الجواب العربي يترجمه نموذج صغير، والجملة التي تفشل في فحص الأرقام والأسماء تبقى بالإنجليزية", "Arabic answers come from a small model; a sentence that fails the number and name check stays in English") })),
+    h("div", { class: "tile" }, h("b", { text: L("ترجمة آلية", "Machine translation") }), h("span", { text: L("الجواب المفحوص بالإنجليزية. الترجمة العربية يكتبها نموذج صغير وقد تخطئ في المعنى، فنعرضها تحت النص الإنجليزي لا بدلاً منه", "the checked answer is English. The Arabic translation comes from a small model and can be wrong in meaning, so it is shown under the English text, not instead of it") })),
     h("div", { class: "tile" }, h("b", { text: L("لا جاذبية قمرية", "No lunar gravity") }), h("span", { text: L("لا توجد في PSI بيانات جاذبية جزئية بعد، فلا نتنبأ بها", "PSI has no partial-gravity data yet, so we do not predict it") })),
     h("div", { class: "tile" }, h("b", { text: L("ليس NLI", "Not NLI") }), h("span", { text: L("الفحص تشابه معنى + مطابقة أرقام، وعتباته ضُبطت يدوياً", "the check is meaning similarity plus number matching, with hand-set thresholds") })));
 }

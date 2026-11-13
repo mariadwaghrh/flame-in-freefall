@@ -52,6 +52,9 @@ Save real example runs for the home page (writes `data/processed/examples.json`)
 python src/examples.py
 ```
 
+## Public copy (no server)
+`python src/export_static.py` writes the JSON the site reads into `web/api/`, plus a root `index.html` that forwards to `web/`. With these files the site runs on any static host such as GitHub Pages: every page works, and the Ask page replays the saved real runs from `src/examples.py`, because a static host has no local model. The site detects this by itself (if `api/status` does not answer, it reads the exported files). Run the export again after rebuilding the data.
+
 ## Presentation
 `presentation/TrustFlame_deck.pptx` is the 7-slide deck in the site's theme. `node presentation/capture.mjs` re-takes the screenshots from the running site (any story scene opens directly with `?scene=gap`, `?scene=moon`, …) and `node presentation/build_deck.cjs` rebuilds the deck (needs `npm install pptxgenjs`).
 
@@ -72,7 +75,7 @@ Known errors inside NASA files (spreadsheet auto-fill, lost subscripts, samples 
 ## Limitations
 - An answer takes 1 to 2 minutes on a laptop CPU.
 - The answer check uses meaning similarity plus a check of every number, not a trained entailment model; thresholds were set by hand.
-- Arabic answers are machine translations by a small local model; sentences that fail the number and name check stay in English.
+- The checked answer is English. Its Arabic translation comes from a small local model: numbers and names are re-checked, but the meaning can still be wrong, so the site shows the translation under the English text and labels it as approximate.
 - PSI has no partial-gravity (Moon or Mars gravity) data yet, and records flame outcomes in only a few tables.
 - No PSI table pairs air speed with flame-spread rate, so the site does not draw that relation.
 

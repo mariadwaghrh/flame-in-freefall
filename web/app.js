@@ -9,6 +9,7 @@ const qs = new URLSearchParams(location.search);
 export const state = {
   lang: ["ar", "en"].includes(qs.get("lang")) ? qs.get("lang") : localStorage.getItem("lang") || "ar",
   meta: null, catalog: [], byAcc: {}, materials: [], view: "overview", scenario: "lunar_base",
+  static: false, status: null,                          // static = no Python server behind the page (set in init)
   filters: { q: "", pillar: "", phase: "", tier: "", kind: "" },
 };
 export const L = (ar, en) => (state.lang === "en" ? en : ar);
@@ -57,6 +58,11 @@ function noteText(n) {
 
 // ---------- helpers ----------
 export async function api(path, opts) {
+  path = path.replace(/^\//, "");                       // relative, so the site also works under a sub-path
+  if (state.static) {                                   // public copy without the Python server: read the exported JSON files
+    if (opts && opts.method === "POST") throw new Error(L("هذه النسخة العامة تعمل بلا نموذج محلي. شغّل المشروع على حاسوبك (الخطوات في README).", "This public copy runs without the local model. Run the project on your computer (steps in the README)."));
+    path = path.split("?")[0] + ".json";
+  }
   const r = await fetch(path, opts);
   if (!r.ok) throw new Error((await r.text()) || r.statusText);
   return r.json();
@@ -284,6 +290,8 @@ function setLang(lang) {
 export async function init(extraLoaders = []) {
   applyLang();
   $("lang").addEventListener("click", () => setLang(AR() ? "en" : "ar"));
+  state.status = await fetch("api/status").then((r) => (r.ok ? r.json() : null), () => null);
+  state.static = !state.status;
   [state.meta, state.catalog, state.materials] = await Promise.all([api("/api/meta"), api("/api/catalog"), api("/api/materials")]);
   state.byAcc = Object.fromEntries(state.catalog.map((i) => [i.acc, i]));
   await Promise.all(extraLoaders.map((fn) => fn()));
