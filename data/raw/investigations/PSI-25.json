@@ -1,0 +1,153 @@
+{
+ "accession": "PSI-25",
+ "title": "Burning and Suppression of Solids - II",
+ "acronym": "BASS-II",
+ "project_type": "Microgravity Investigation",
+ "sub_area": "Spacecraft Fire Safety",
+ "platform": "International Space Station (ISS)",
+ "center": "Glenn Research Center (GRC)",
+ "start": "01-01-2010",
+ "end": "12-31-2022",
+ "related": "PSI-26",
+ "hardware": "Microgravity Science Glovebox (MSG)",
+ "objective": "BASS-II results contribute to the combustion computational models used in the design of fire detection and suppression systems in microgravity and on Earth.\nObjectives Include:\n  1) Study the ignition, flame growth, flame spread, and extinction limits for solid fuels burning in low-velocity forced flows in microgravity.\n  2) Begin to bridge the gap between the normal gravity NASA-STD-6001 Test #1 method, ground-based microgravity tests, and actual material flammability in microgravity.\n  3) Provide SoFIE PIs with preliminary data to refine Science Requirements.\n  4)  Practical, realistic (thicker) fuels in typical geometries will be examined, including slabs, cylinders, and spherical sections.\n\nThe primary variables include:\n     • Forced flow velocity (speed and direction)\n     • Ambient oxygen concentration (via working volume nitrogen vitiation)\n     • Sample geometry (rods, spherical section, slabs, films, and fabric sheets",
+ "approach": "To summarize, BASS-II's approach, microgravity combustion tests were performed aboard the International Space Station. Active crew support for real-time “lab partner” operations. The wind tunnel was installed in the Microgravity Science Glovebox which supplied power, imaging, and a level of containment. Fuel samples were mounted inside a small wind tunnel which could impose airflow speeds up to 40 cm/s. Main variables are airflow speed and oxygen concentration (oxygen varied below 21% by adding nitrogen). Flame appearance, flame growth, and spread rates were determined in both the opposed and concurrent flow.",
+ "hypothesis": "BASS–II tests the hypothesis that materials in microgravity, with adequate ventilation, burn as well if not better than the same material in normal gravity with other conditions being identical (pressure, O2\nconcentration, temperature, etc.). NASA tests and controls materials from a flammability perspective using an upward burning test in normal gravity, which is considered to be the worst-case geometry for\nflammability of the material on Earth. However, it may not be conservative for flammability in space. Testing at constant O2 mole fractions permits studying flame spread and extinction at low and high flow speed. We are interested in finding the fundamental limit for a given material.",
+ "impacts": "A primary goal of BASS-II is improved spacecraft fire safety, improved understanding of combustion in space and how to avoid it. If you’re on a mission far from Earth, a fire can be catastrophic. BASS-II helps engineers select the safest materials and improve firefighting methods on future space missions. In outer space, fuels burn as oval balls rather than with an upward pointed cone flame as they do on Earth. This simpler combustion process enables researchers to evaluate computer models of fuel burning. These models can then be used to more accurately study flames on Earth, such as in wildfires, building fires, energy recapture from waste recycling, and other combustion problems.",
+ "doi": "10.60555/4qc4-de67",
+ "license": "CC0-1.0",
+ "keywords": [
+  "Flame Spread",
+  "extinction limits",
+  "MSG",
+  "Fire Suppression",
+  "Solid Fuels",
+  "Forced Flow Velocity",
+  "BASS",
+  "Fire Safety"
+ ],
+ "publications": [
+  {
+   "title": "Microgravity flammability boundary for PMMA rods in axial stagnation flow: Experimental results and energy balance analyses",
+   "doi": "10.1016/j.combustflame.2017.03.001"
+  },
+  {
+   "title": "Temperature and CO2 fields of a downward spreading flame over thin cellulose: A comparison of experimental and computational results",
+   "doi": "10.1016/j.proci.2014.05.093"
+  },
+  {
+   "title": "Opposed-flow flame spread: A comparison of microgravity and normal gravity experiments to establish the thermal regime",
+   "doi": "10.1016/j.firesaf.2015.11.011"
+  },
+  {
+   "title": "The critical flow velocity for radiative extinction in opposed-flow flame spread in a microgravity environment: A comparison of experimental, computational, and theoretical results",
+   "doi": "10.1016/j.combustflame.2015.10.023"
+  },
+  {
+   "title": "Experimental validation of a correlation capturing the boundary layer effect on spread rate in the kinetic regime of opposed-flow flame spread",
+   "doi": "10.1016/j.proci.2014.06.125"
+  },
+  {
+   "title": "Results from on-board CSA-CP and CDM Sensor Readings during the Burning and Suppression of Solids - II (BASS-II) Experiment in the Microgravity Science Glovebox (MSG)",
+   "doi": ""
+  },
+  {
+   "title": "Modeling and Analysis of Intermediate Thickness PMMA Sheets Burning in Microgravity Opposed Flow",
+   "doi": ""
+  },
+  {
+   "title": "Concurrent flame growth, spread and extinction over composite fabric samples in low speed purely forced flow in microgravity",
+   "doi": ""
+  },
+  {
+   "title": "Radiative, thermal, and kinetic regimes of opposed-flow flame spread: A comparison between experiment and theory",
+   "doi": "10.1016/j.proci.2016.06.025"
+  },
+  {
+   "title": "Concurrent flame growth, spread, and quenching over composite fabric samples in low speed purely forced flow in microgravity",
+   "doi": "10.1016/j.proci.2016.06.028"
+  },
+  {
+   "title": "A Study of the Effectiveness of a Narrow Channel Apparatus in Simulating Microgravity Flame Spread over Thin Fuels",
+   "doi": "10.2514/6.2012-3493"
+  },
+  {
+   "title": "BASS-II Summary Report",
+   "doi": ""
+  },
+  {
+   "title": "Correlation of normal gravity mixed convection blowoff limits with microgravity forced flow blowoff limits",
+   "doi": ""
+  },
+  {
+   "title": "Fire in Microgravity",
+   "doi": "10.1511/2016.118.44"
+  },
+  {
+   "title": "Microgravity Flammability of PMMA Rods in Concurrent Flow",
+   "doi": ""
+  },
+  {
+   "title": "Using a Narrow Channel Apparatus to Study Thermally-Intermediate Fuel Combustion in a Simulated 0g Environment",
+   "doi": ""
+  },
+  {
+   "title": "Burning and Suppression of Solids – II Fire Safety Investigation for the Microgravity Science Glovebox",
+   "doi": ""
+  }
+ ],
+ "archive_bytes": 274631106141.0,
+ "archive": {
+  "files": 694,
+  "by_folder": {
+   "metadata": {
+    "files": 1,
+    "bytes": 13439.0
+   },
+   "Engineering Documents": {
+    "files": 2,
+    "bytes": 2235212.0
+   },
+   "Raw Data": {
+    "files": 685,
+    "bytes": 274578648152.0
+   },
+   "Reference Data": {
+    "files": 1,
+    "bytes": 23973.0
+   },
+   "Science Documents": {
+    "files": 3,
+    "bytes": 1158834.0
+   },
+   "Reports": {
+    "files": 1,
+    "bytes": 48972416.0
+   },
+   "Representative Image(s)": {
+    "files": 1,
+    "bytes": 37525.0
+   }
+  },
+  "by_type": {
+   "mp4": 296,
+   "zip": 265,
+   "pdf": 127,
+   "xlsx": 2,
+   "docx": 2,
+   "pptx": 1,
+   "jpg": 1
+  }
+ },
+ "images": [
+  {
+   "file_name": "PSI-25_Representative Image(s)_BASS-II_flame testing.jpg",
+   "version": 1,
+   "bytes": 37525.0
+  }
+ ],
+ "tables": [
+  "PSI-25_Experimental table_BASS-II.csv"
+ ],
+ "psi_url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-25"
+}

@@ -1,0 +1,111 @@
+{
+ "accession": "PSI-101",
+ "title": "Smoke Aerosol Measurement Experiment-Reflight",
+ "acronym": "SAME-R",
+ "project_type": "Microgravity Investigation",
+ "sub_area": "Spacecraft Fire Safety",
+ "platform": "International Space Station (ISS)",
+ "center": "Glenn Research Center (GRC)",
+ "start": "07-01-2010",
+ "end": "09-30-2010",
+ "related": "PSI-102",
+ "hardware": "Comparitive Soot Diagnostic Hardware; Refer to final report",
+ "objective": "Similar to the original SAME investigation, the primary objective of the SAME-R investigation was to quantify the sizes that the liquid smoke particulate achieves in low gravity and to relate the droplet size distribution to the smoke generation and smoke transport conditions in the experiment. One of the problems encountered during the SAME investigation was that after the thermal precipitators were returned to the ground, it was found that all the TEM grids were severely contaminated with some unidentified foreign particles, making these grids unusable although some of them showed shapes of certain types of smoke particles. Based on that experience the SAME-R investigation employed several modification covering new materials, extended operating conditions, and diagnostic equipments.",
+ "approach": "SAME-R utilized the SAME hardware used on-orbit. Based on the experience gained from SAME, SAME-R included the following modifications: 1) a new test material,\nPyrell®, an intumescent fire-retardant foam by Foamex, was introduced to replace DBP samples, 2) test conditions were broadened including higher heating temperatures and no-flow during sample heating time, and 3) a new instrument, M-pass, developed in-house GRC, was used to replace one of the two Commercial Diagnostic Enclosures that includes a DustTrak and an ionization detector used in SAME. SAME-R flight tests were conducted from July 16, to September 9, 2010, successfully completing 66 test points. After SAME-R flight tests, three major post–flight ground tests were performed to improve data reduction process and to validate the lognormal distribution assumption, the key to the moment method employed by SAME and SAME-R.",
+ "hypothesis": "The three hypotheses that motivated the original SAME investigation is also applicable for the reflight SAME-R investigation:\nIn a μg environment, with the absence of the strong buoyancy-induced flows, smoke particle growth from a pyrolyzing/smoldering source, as a result of nucleation, condensation, and coagulation, will lead to larger particles compared to those produced in 1g. The formation of the larger particles is favored by the expected higher vapor concentration and smoke residence times near the source due to the reduced velocities and mixing at μg conditions. In particular, it is hypothesized that liquid aerosol smokes produced in microgravity will exhibit substantially larger droplet sizes than under the same conditions in normal gravity (with a corresponding decrease in the particle number density for the same mass of smoke). The change in the size distribution and number density will, in turn, affect the response of the smoke detectors and possibly result in some detectors not producing an alarm when exposed to this smoke.",
+ "impacts": "Along with the results from the original SAME investigation, the results from SAME-R can lead to technology for an advanced fire detector for future spacecraft that will be used for long duration missions. SAME will provide quantitative data on the sensitivity of these detectors to reduced gravity smokes that will allow evaluation of the adequacy of these existing technologies using relevant data. The current Fire Prevention, Detection, and Suppression (FPDS) program plan allows for the re-evaluation of future sensor technology, to allow new technology and capability to be utilized. The results from SAME are needed to provide the reduced gravity baseline data against which future detection technology developments can be evaluated. The smoke detectors developed from the results of SAME can also be useful in other extreme environments on Earth, such as submarines or underwater laboratories. Accurate detection of smoke in these environments can save lives.",
+ "doi": "10.60555/2np7-jv14",
+ "license": "CC0-1.0",
+ "keywords": [
+  "Soot",
+  "Flames",
+  "Pyrell",
+  "SAME",
+  "Transmission Electron Microscopy",
+  "Silicon Rubber",
+  "Spacecraft Fire Safety",
+  "Teflon",
+  "Cotton",
+  "Smoke",
+  "Kapton",
+  "SAME-2"
+ ],
+ "publications": [
+  {
+   "title": "Smoke Aerosol Measurement Experiment-2: Comparison of Flight Experiment Results with Ground Test Results",
+   "doi": "10.2514/6.2013-3433"
+  },
+  {
+   "title": "Evaluation of Low-Gravity Smoke Particulate for Spacecraft Fire Detection",
+   "doi": ""
+  },
+  {
+   "title": "Particle Morphology and Size Results from the Smoke Aerosol Measurement Experiment-2",
+   "doi": "10.2514/6.2012-3536"
+  },
+  {
+   "title": "Preliminary Results from the Smoke Aerosol Measurement Experiment - Reflight",
+   "doi": ""
+  },
+  {
+   "title": "Detection of Smoke from Microgravity Fires",
+   "doi": ""
+  },
+  {
+   "title": "Evaluation of spacecraft smoke detector performance in the low-gravity environment",
+   "doi": "10.1016/j.firesaf.2018.04.004"
+  }
+ ],
+ "archive_bytes": 6308124750.0,
+ "archive": {
+  "files": 342,
+  "by_folder": {
+   "Engineering Documents": {
+    "files": 24,
+    "bytes": 55122338.0
+   },
+   "Reports": {
+    "files": 1,
+    "bytes": 4578437.0
+   },
+   "Presentations": {
+    "files": 4,
+    "bytes": 33297074.0
+   },
+   "Analyzed Data": {
+    "files": 86,
+    "bytes": 495127960.0
+   },
+   "Raw Data": {
+    "files": 223,
+    "bytes": 5718363731.0
+   },
+   "Science Documents": {
+    "files": 2,
+    "bytes": 947126.0
+   },
+   "Reference Data": {
+    "files": 2,
+    "bytes": 671373.0
+   }
+  },
+  "by_type": {
+   "zip": 79,
+   "xls": 77,
+   "pptx": 76,
+   "csv": 44,
+   "pdf": 36,
+   "xlsx": 15,
+   "mp4": 8,
+   "tif": 3,
+   "ppt": 2,
+   "docx": 1,
+   "doc": 1
+  }
+ },
+ "images": [],
+ "tables": [
+  "PSI-101_Experimental table_SAME-R.csv"
+ ],
+ "psi_url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-101"
+}

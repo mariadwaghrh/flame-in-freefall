@@ -1,0 +1,103 @@
+{
+ "accession": "PSI-159",
+ "title": "Advanced Combustion via Microgravity Experiments / Cool Flames Investigation with Gases",
+ "acronym": "ACME CFI-G",
+ "project_type": "Microgravity Investigation",
+ "sub_area": "Flames of Gaseous Fuels",
+ "platform": "International Space Station (ISS)",
+ "center": "Glenn Research Center (GRC)",
+ "start": "",
+ "end": "",
+ "related": "",
+ "hardware": "ACME, Combustion Integrated Rack (CIR)",
+ "objective": "1. Plan and support flight testing on the International Space Station (ISS).\n2. Determine the conditions for which cool diffusion flames occur for propane, n-butane, and n-pentane; normal and inverse flames; and a broad range of Zst, Tad, and fluent flow rate.\n3. Support the flight tests with advanced CFD simulations.\n4. Identify or develop a chemical kinetics mechanism that yields good agreement between the CFD predictions and the ISS measurements.\n5. Disseminate the results as widely as possible.",
+ "approach": "Perform spherical diffusion flame tests aboard the International Space Station. Consider multiple fuels, a range of reactant dilutions, flow rates, and pressures for normal and inverse convection directions. Observe the flames with a broad suite of cameras, radiometers, photomultiplier tubes, and thermocouples.",
+ "hypothesis": "The hypotheses of this research are that testing aboard the ISS can demonstrate the following for the first time, contributing to an improved understanding of cool flame kinetics.\n  1. Steady-state cool diffusion flames on spherical porous burners.\n  2. Cool diffusion flames burning propane, n-butane, and n-pentane.\n  3. Cool diffusion flames for a wide range of Zst, Tad, and pressures.\n  4. Inverse cool diffusion flames.\n  5. Cool diffusion flames for which a decrease in fluent flow rate will cause extinction, whereas an increase will cause a transition to a hot diffusion flame, with oscillation possible between hot and cool flames.",
+ "impacts": "Combustion provides 86% of the world’s energy and an even higher fraction of the energy used for transportation. The internal combustion engines used for transportation generally have thermal efficiencies of 38% or lower because of thermal losses. These efficiencies may increase to 60% if future engines can take advantage of ultra-lean combustion. However, this progress is being impeded by the limited understanding of the chemistry of cool flames. Research into cool diffusion flames (whose peak temperatures are 500 – 1000 K) has grown exponentially since they were discovered in 2012.  The measurements performed for this project will help to test and advance cool flame kinetics mechanisms. This should facilitate the development of more efficient internal combustion engines.",
+ "doi": "10.60555/cyt1-kh64",
+ "license": "CC0-1.0",
+ "keywords": [
+  "chemical kinetics",
+  "ethane",
+  "heat loss",
+  "low-temperature combustion",
+  "porous burner",
+  "dilution",
+  "formaldehyde",
+  "intensified video camera",
+  "n-butane",
+  "negative-temperature coefficient"
+ ],
+ "publications": [
+  {
+   "title": "Spherical gas-fueled cool diffusion flames",
+   "doi": "10.1016/j.proci.2022.07.015"
+  },
+  {
+   "title": "Cool diffusion flames in a stably stratified stagnation flow",
+   "doi": "10.1016/j.combustflame.2023.112852"
+  }
+ ],
+ "archive_bytes": 2085592429259.0,
+ "archive": {
+  "files": 3756,
+  "by_folder": {
+   "metadata": {
+    "files": 1,
+    "bytes": 8404.0
+   },
+   "Reports": {
+    "files": 1,
+    "bytes": 3894907.0
+   },
+   "Engineering Documents": {
+    "files": 1,
+    "bytes": 7496324.0
+   },
+   "Experimental table": {
+    "files": 2,
+    "bytes": 61588.0
+   },
+   "Raw Data": {
+    "files": 3749,
+    "bytes": 2085580830202.0
+   },
+   "Representative Image(s)": {
+    "files": 2,
+    "bytes": 137834.0
+   }
+  },
+  "by_type": {
+   "txt": 1022,
+   "zip": 987,
+   "csv": 680,
+   "mdipsug": 610,
+   "ts": 336,
+   "pdf": 93,
+   "log": 22,
+   "xlsx": 1,
+   "errors": 1,
+   "mp4": 1,
+   "next": 1,
+   "png": 1,
+   "jpg": 1
+  }
+ },
+ "images": [
+  {
+   "file_name": "PSI-159_Representative Image(s)_ACME logo.png",
+   "version": 1,
+   "bytes": 127968.0
+  },
+  {
+   "file_name": "PSI-159_Representative Image(s)_CFI-G_Observation of non-premixed quasi-steady spherical cool flames on porous burners.jpg",
+   "version": 1,
+   "bytes": 9866.0
+  }
+ ],
+ "tables": [
+  "PSI-159_Experimental table_CFI-G_Normal Flames.csv",
+  "PSI-159_Experimental table_CFI-G_Inverse Flames.csv"
+ ],
+ "psi_url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-159"
+}

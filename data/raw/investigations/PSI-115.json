@@ -1,0 +1,61 @@
+{
+ "accession": "PSI-115",
+ "title": "Utilization of the Smoke Aerosol Measurement Experiment Data for Advanced Modeling and Simulation of Smoke Generation in Micro-Gravity",
+ "acronym": "",
+ "project_type": "Ground Investigation",
+ "sub_area": "Smoke Aerosol, Combustion Simulation",
+ "platform": "Not Applicable",
+ "center": "Glenn Research Center (GRC)",
+ "start": "01-30-2017",
+ "end": "12-31-2019",
+ "related": "PSI-102",
+ "hardware": "",
+ "objective": "The objective of this investigation was to use numerical simulation to explore the influence of gravity on pyrolysis smoke growth from a fundamental perspective. The intention of this effort is to quantify the differences between microgravity and Earth gravity smoke, and to identify the fluid dynamic mechanisms that cause the differences.",
+ "approach": "The formation and growth of dibutyl-phthalate (DBP) particles in Earth gravity and microgravity environments was simulated. Direct numerical simulation via a Navier-Stokes nodal approach was utlilized. The smoke originates from pyrolysis vapor expelled from a heated sample in a geometry similar to that considered in the SAME experiments. This study considered two cross-flow velocities of sufficiently low speed that buoyancy cannot be neglected in the presence of gravity. Simulations are presented to assess the dependence of particle size distributions on thermophoresis, particle settling, and flow geometry. The final report for this investigation introduces the simulation and modeling methodology, followed by a description of the flow geometry and the parameter space under consideration.The differences in the wake geometry attributable to buoyancy for the lower of two flow speeds was examined.  Instantaneous scalar fields were used to describe particle accumulation and growth in the buoyant and non-buoyant wakes that form downstream of the hot vapor source.",
+ "hypothesis": "Without buoyancy, mixing and heat transfer are reduced, the time-temperature history of the combustion vapors (or particle precursors) and particle trajectories are significantly altered, changing the composition of the smoke. The chemical composition of the burning material also affects the characteristics of the smoke generated.",
+ "impacts": "Models and tools that characterize particles generated as smoke can be used to ascertain how temperature, gravity, and material properties affect the smoke produced. This would directly lead to better smoke detection devices and prevent fires that can lead to loss of materiel and loss of life.",
+ "doi": "10.60555/q0v5-1v28",
+ "license": "CC0-1.0",
+ "keywords": [
+  "SAME Data",
+  "Nanoparticles",
+  "Ground-based research",
+  "Dibutyl pthalate",
+  "thermophoresis",
+  "Aerosol Smoke Generation",
+  "Navier-Stokes nodal approach",
+  "Numerical Simulation",
+  "Particle settling"
+ ],
+ "publications": [],
+ "archive_bytes": 264404901.0,
+ "archive": {
+  "files": 47,
+  "by_folder": {
+   "metadata": {
+    "files": 1,
+    "bytes": 7021.0
+   },
+   "Analyzed Data": {
+    "files": 44,
+    "bytes": 253683467.0
+   },
+   "Reports": {
+    "files": 1,
+    "bytes": 10617514.0
+   },
+   "Science Documents": {
+    "files": 1,
+    "bytes": 96899.0
+   }
+  },
+  "by_type": {
+   "dat": 44,
+   "pdf": 2,
+   "zip": 1
+  }
+ },
+ "images": [],
+ "tables": [],
+ "psi_url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-115"
+}

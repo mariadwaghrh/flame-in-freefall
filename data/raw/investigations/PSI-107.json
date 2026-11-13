@@ -1,0 +1,112 @@
+{
+ "accession": "PSI-107",
+ "title": "Smoke Point In Co-flow Experiment",
+ "acronym": "SPICE",
+ "project_type": "Microgravity Investigation",
+ "sub_area": "Fire Safety",
+ "platform": "International Space Station (ISS)",
+ "center": "Glenn Research Center (GRC)",
+ "start": "",
+ "end": "",
+ "related": "",
+ "hardware": "Microgravity Science Glovebox (MSG)",
+ "objective": "The objective of SPICE is to better understand the complex process of combustion by observing flames in a microgravity environment aboard the International Space Station (ISS) and analogous ground experiments.\n\nSpecific objectives were:\n(1) Identify the laminar smoke-point properties of non-buoyant jet diffusion flames under various co-flow conditions in microgravity.\n(2) Determine the effects of burner diameter and co-flow velocity on the luminous flame lengths and smoke points.\n(3) Quantify the sooting propensity of different fuels, such as ethylene, propane, and propylene mixtures.\n(4) Validate the correlation between luminous flame shape and residence time under microgravity conditions.\n(5) Investigate the impact of air and fuel flow rate variations on smoke point phenomena in space.",
+ "approach": "The experimental setup in the microgravity science glovebox consisted of an apparatus with a flow duct with integrated nozzles, cameras, and fuel delivery systems. Fuels tested included methane, ethylene, propane, propylene, and propylene mixtures. Each flame was ignited in a controlled co-flow air environment, with burner diameters of 0.41 mm, 0.76 mm, and 1.6 mm and co-flow velocities ranging from 5.4 cm/s to 65 cm/s. Fuel flow rates were adjusted to identify the smoke point, marked by the flame's transition to emitting soot. Data such as flame lengths were recorded using still and video cameras. Measurements included flame height, radiative heat losses, and co-flow air velocity distributions. In total 526 flames were studied.",
+ "hypothesis": "The research hypothesizes that by minimizing gravity-driven transport phenomena scientists can study the laminar smoke-point properties of non-buoyant jet diffusion flames. Flame properties are expected to differ significantly from those observed under normal gravity.",
+ "impacts": "(1) Will improve our understanding of soot formation mechanisms and help design safer spacecraft environments.\n(2) Will contribute to refining our computational models for predicting flame behaviors under non-buoyant conditions.\n(3) Will enhance our knowledge of soot generation\n(4) Could possibly provide insights to better fuel formulations and combustion processes.",
+ "doi": "10.60555/9kbh-e962",
+ "license": "CC0-1.0",
+ "keywords": [
+  "Soot",
+  "Emisssions",
+  "Laminar diffusion flames",
+  "butane-lighter flame"
+ ],
+ "publications": [
+  {
+   "title": "Laminar Smoke Points in Coflow Measured Aboard the International Space Station",
+   "doi": "10.2514/6.2010-1105"
+  },
+  {
+   "title": "Scaling of Gas-Jet Flame Lengths in Elevated Gravity",
+   "doi": "10.1007/978-1-4020-8682-3_22"
+  },
+  {
+   "title": "The Microgravity Science Glovebox (MSG), a Resource for Gravity-Dependent Phenomena Research on the International Space Station (ISS)",
+   "doi": ""
+  },
+  {
+   "title": "The Microgravity Science Glovebox as a Platform for Exploration Research on the International Space Station",
+   "doi": "10.2514/6.2006-941"
+  },
+  {
+   "title": "A Combined Experimental and Computational Study of Soot Formation in Normal and Microgravity Conditions",
+   "doi": "10.1080/00102202.2022.2041621"
+  },
+  {
+   "title": "Shapes of nonbuoyant round hydrocarbon-fueled laminar-jet diffusion flames in still air",
+   "doi": "10.1016/j.combustflame.2004.12.009"
+  },
+  {
+   "title": "Shapes of nonbuoyant round luminous hydrocarbon/air laminar jet diffusion flames",
+   "doi": "10.1016/S0010-2180(98)00100-X"
+  },
+  {
+   "title": "Smoke Points of Microgravity and Normal Gravity Coflow Diffusion",
+   "doi": ""
+  },
+  {
+   "title": "Laminar smoke points of coflowing flames in microgravity",
+   "doi": "10.1016/j.firesaf.2011.08.002"
+  }
+ ],
+ "archive_bytes": 6946864573.0,
+ "archive": {
+  "files": 186,
+  "by_folder": {
+   "Reports": {
+    "files": 3,
+    "bytes": 2990401.0
+   },
+   "Science Documents": {
+    "files": 1,
+    "bytes": 1112064.0
+   },
+   "Presentations": {
+    "files": 5,
+    "bytes": 36912183.0
+   },
+   "Raw Data": {
+    "files": 172,
+    "bytes": 6899317356.0
+   },
+   "Engineering Documents": {
+    "files": 4,
+    "bytes": 5431916.0
+   },
+   "Reference Data": {
+    "files": 1,
+    "bytes": 1060135.0
+   }
+  },
+  "by_type": {
+   "zip": 100,
+   "xls": 27,
+   "pdf": 18,
+   "mp4": 18,
+   "ppt": 9,
+   "xlsx": 6,
+   "pptx": 2,
+   "txt": 2,
+   "doc": 1,
+   "docx": 1,
+   "nef": 1,
+   "avi": 1
+  }
+ },
+ "images": [],
+ "tables": [
+  "PSI-107_Experimental table_Spice.csv"
+ ],
+ "psi_url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-107"
+}
