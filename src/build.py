@@ -272,6 +272,26 @@ def main():
     for p in ch["passages"]:
         add(f"{p['title']}: {p['text']}", p["title"], "challenge", "Flame in Freefall challenge statement", ch["url"], None, "NASA Space Apps challenge statement")
 
+    # ---- research to equipment: only the NASA quotes, each checked word for word by applications.py ----
+    from applications import load_checked
+    apps = load_checked()
+    short_of = {i["acc"]: i["short"] for i in catalog}
+    def app_passage(item, topic):
+        who = f"{short_of[item['acc']]} ({item['acc']})" if item.get("acc") else item["source_title"]
+        cite = f"PSI {item['acc']} {short_of[item['acc']]}" if item.get("acc") else item["source_title"]
+        for q in item.get("quotes", [item.get("quote")]):
+            add(f"{topic}. {who} states: {q}", f"Research to equipment: {topic}", "application", item["source_title"], item["url"], item.get("acc"), cite)
+    app_passage(apps["key_insight"], "Ventilation shut-off and oxygen-enriched atmospheres")
+    for c in apps["categories"]:
+        for l in c["links"]:
+            app_passage(l, f"{c['name_en']} for spacecraft")
+        for l in c["earth"]:
+            app_passage(l, f"{c['name_en']}, uses on Earth")
+    for l in apps["lessons"]:
+        app_passage(l, f"Lesson from the {l['title_en']} fire")
+    with open(os.path.join(config.PROCESSED, "applications.json"), "w", encoding="utf-8") as f:
+        json.dump(apps, f, ensure_ascii=False)
+
     for fname, obj in (("catalog.json", catalog), ("materials.json", materials), ("tables.json", tables_out), ("chunks.json", chunks)):
         with open(os.path.join(config.PROCESSED, fname), "w", encoding="utf-8") as f:
             json.dump(obj, f, ensure_ascii=False, indent=None if fname != "chunks.json" else 1)

@@ -34,6 +34,7 @@ CURATED = load(config.CURATED, "investigations.json")
 SCENARIOS = load(config.CURATED, "scenarios.json")["scenarios"]
 CHUNKS = load(config.PROCESSED, "chunks.json")
 RESOURCES = load(config.RAW, "resources", "index.json")
+APPLICATIONS = load(config.PROCESSED, "applications.json")   # quotes checked by src/applications.py
 
 
 @app.middleware("http")
@@ -63,6 +64,11 @@ def meta():
 @app.get("/api/catalog")
 def catalog():
     return CATALOG
+
+
+@app.get("/api/applications")
+def applications():
+    return APPLICATIONS
 
 
 @app.get("/api/materials")

@@ -19,7 +19,7 @@ flowchart TB
         F2["fetch_resources.py<br/>resource pages and PDF as text"]
         F3["fetch_media.py<br/>flame images and videos"]
         T["tables.py<br/>one scale for O2, pressure, flow, fuel names<br/>flame outcomes, fixes for errors in NASA files"]
-        B["build.py<br/>catalog · Moon readiness per material<br/>433 knowledge passages"]
+        B["build.py<br/>catalog · Moon readiness per material<br/>464 knowledge passages"]
         A["applications.py<br/>30 quotes checked word for word<br/>research to equipment"]
         I["index.py<br/>bge-m3 embeddings<br/>100-point relevance score per crew environment"]
     end
@@ -82,7 +82,7 @@ sequenceDiagram
     opt question in Arabic
         P->>T: translate the question to English
     end
-    P->>R: search 433 NASA passages
+    P->>R: search 464 NASA passages
     R-->>P: top 5 passages (meaning + exact words)
     alt best passage too far from the question
         P-->>W: decline: outside the knowledge base
@@ -112,7 +112,7 @@ sequenceDiagram
 | | `src/fetch_resources.py` | downloads every resource in the challenge's Resources tab as text |
 | | `src/fetch_media.py` | downloads 12 real flame images and videos (43 MB of the 12.3 TiB archive) |
 | | `src/tables.py` | puts O2, pressure, flow and fuel names on one scale; reads flame outcomes; fixes known errors in NASA files |
-| | `src/build.py` | builds the catalog, the Moon-readiness list and the 433 knowledge passages |
+| | `src/build.py` | builds the catalog, the Moon-readiness list and the 464 knowledge passages |
 | | `src/applications.py` | checks each research-to-equipment quote word for word against its NASA source |
 | | `src/index.py` | embeddings (bge-m3) and the 100-point relevance score per crew environment |
 | Ask | `src/rag/embedder.py` | text to vector |

@@ -244,3 +244,23 @@ table.data th.norm { background: #22325c; }
 .ev p { color: var(--text-2); margin-top: 3px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .ev.open p { display: block; }
 @media (max-width: 900px) { .claim { grid-template-columns: minmax(0, 1fr); } }
+
+/* research to equipment */
+.eq-kpis { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.eq-key { border-inline-start: 4px solid var(--flame); display: grid; gap: 10px; }
+.eq-key h2 { font-size: 22px; font-weight: 900; line-height: 1.4; }
+.eq-nav { margin: 4px 0; }
+.eq-cat { scroll-margin-top: 90px; }
+.eq-cat .sub { color: var(--text-2); font-size: 14px; margin-top: 4px; }
+.eq-cols { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 22px; }
+@media (max-width: 1000px) { .eq-cols { grid-template-columns: minmax(0, 1fr); } }
+.eq-col-title { font-size: 13.5px; color: var(--lime); font-weight: 800; margin-bottom: 2px; }
+.eq-link { border-top: 1px solid var(--border); padding: 12px 0; display: grid; gap: 6px; }
+.eq-link p { font-size: 14px; }
+.eq-link-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.eq-acc { color: var(--muted); font-size: 12px; }
+.quote { margin: 0; padding: 2px 0 2px 12px; border-left: 3px solid var(--s3); color: var(--text-2); font-size: 13.5px; font-style: italic; line-height: 1.6; text-align: left; }
+.eq-src { font-size: 12.5px; }
+.chip.spin { background: rgba(25, 158, 112, .18); color: #7fe0bd; }
+.eq-section { font-size: 20px; font-weight: 900; margin-top: 10px; }
+.eq-lesson { display: grid; gap: 8px; align-content: start; }
