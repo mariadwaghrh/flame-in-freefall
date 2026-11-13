@@ -1,0 +1,397 @@
+{
+ "model": "llama3.2:3b",
+ "date": "2026-11-13",
+ "examples": [
+  {
+   "q": "Which investigations tested 30% oxygen or more, and with which fuels?",
+   "decision": "accepted",
+   "why": null,
+   "draft": "ACME Flame Design tested 30% oxygen or more with gas fuel, and FLEX tested 30% oxygen or more with liquid fuel. ACME BRE tested 30% oxygen or more with gas fuel. FLEX-2 tested 30% oxygen or more with liquid fuel.",
+   "final": "ACME Flame Design tested 30% oxygen or more with gas fuel, and FLEX tested 30% oxygen or more with liquid fuel. ACME BRE tested 30% oxygen or more with gas fuel. FLEX-2 tested 30% oxygen or more with liquid fuel.",
+   "claims": [
+    {
+     "text": "ACME Flame Design tested 30% oxygen or more with gas fuel, and FLEX tested 30% oxygen or more with liquid fuel.",
+     "verdict": "supported",
+     "score": 0.864,
+     "why": "match",
+     "cite": "Computed from PSI tables"
+    },
+    {
+     "text": "ACME BRE tested 30% oxygen or more with gas fuel.",
+     "verdict": "supported",
+     "score": 0.818,
+     "why": "match",
+     "cite": "Computed from PSI tables"
+    },
+    {
+     "text": "FLEX-2 tested 30% oxygen or more with liquid fuel.",
+     "verdict": "supported",
+     "score": 0.834,
+     "why": "match",
+     "cite": "Computed from PSI tables"
+    }
+   ],
+   "stats": {
+    "prompt_tokens": 1063,
+    "answer_tokens": 59,
+    "tok_per_sec": 4.6,
+    "seconds": 14.4,
+    "guardrail_seconds": 12.4,
+    "total_seconds": 27.3
+   },
+   "evidence": [
+    {
+     "cite": "Computed from PSI tables",
+     "section": "Computed: Moon readiness of solid materials",
+     "similarity": 0.602
+    },
+    {
+     "cite": "Computed from PSI tables",
+     "section": "Computed: Oxygen coverage",
+     "similarity": 0.653
+    },
+    {
+     "cite": "Computed from PSI tables",
+     "section": "Computed: Liquid fuels",
+     "similarity": 0.556
+    },
+    {
+     "cite": "NASA Space Apps challenge statement",
+     "section": "Highest-oxygen microgravity tests",
+     "similarity": 0.621
+    },
+    {
+     "cite": "PSI PSI-20 ACME BRE",
+     "section": "Experimental table: ACME BRE",
+     "similarity": 0.535
+    }
+   ]
+  },
+  {
+   "q": "Does shutting off ventilation put out a fire in high oxygen?",
+   "decision": "accepted",
+   "why": null,
+   "draft": "Shutting off ventilation does not necessarily put out a fire in high oxygen, as observed in elevated-oxygen atmospheres where flames continued to burn without air flow.",
+   "final": "Shutting off ventilation does not necessarily put out a fire in high oxygen, as observed in elevated-oxygen atmospheres where flames continued to burn without air flow.",
+   "claims": [
+    {
+     "text": "Shutting off ventilation does not necessarily put out a fire in high oxygen, as observed in elevated-oxygen atmospheres where flames continued to burn without air flow.",
+     "verdict": "supported",
+     "score": 0.748,
+     "why": "match",
+     "cite": "PSI PSI-20 ACME BRE"
+    }
+   ],
+   "stats": {
+    "prompt_tokens": 811,
+    "answer_tokens": 33,
+    "tok_per_sec": 4.9,
+    "seconds": 39.4,
+    "guardrail_seconds": 2.7,
+    "total_seconds": 42.6
+   },
+   "evidence": [
+    {
+     "cite": "PSI PSI-20 ACME BRE",
+     "section": "Research to equipment: Ventilation shut-off and oxygen-enriched atmospheres",
+     "similarity": 0.585
+    },
+    {
+     "cite": "A Researcher's Guide to: International Space Station Combustion Science (NASA, 2015), p. 35",
+     "section": "page 35",
+     "similarity": 0.531
+    },
+    {
+     "cite": "PSI PSI-20 ACME BRE",
+     "section": "Research to equipment: Ventilation shut-off and oxygen-enriched atmospheres",
+     "similarity": 0.65
+    },
+    {
+     "cite": "NASA Space Apps challenge statement",
+     "section": "Real spacecraft fires",
+     "similarity": 0.527
+    },
+    {
+     "cite": "PSI PSI-20 ACME BRE",
+     "section": "Research impacts / Earth benefits",
+     "similarity": 0.527
+    }
+   ]
+  },
+  {
+   "q": "What solid materials were burned in BASS-II and over what oxygen range?",
+   "decision": "accepted",
+   "why": null,
+   "draft": "The solid materials burned in BASS-II were Wax (candle), PMMA (acrylic), and SIBAL cotton-fiberglass fabric. The oxygen concentration ranged 17.4% for Wax (candle), 13.6-22.2% for PMMA (acrylic), and 16.4-20.8% for SIBAL cotton-fiberglass fabric.",
+   "final": "The solid materials burned in BASS-II were Wax (candle), PMMA (acrylic), and SIBAL cotton-fiberglass fabric. The oxygen concentration ranged 17.4% for Wax (candle), 13.6-22.2% for PMMA (acrylic), and 16.4-20.8% for SIBAL cotton-fiberglass fabric.",
+   "claims": [
+    {
+     "text": "The solid materials burned in BASS-II were Wax (candle), PMMA (acrylic), and SIBAL cotton-fiberglass fabric.",
+     "verdict": "supported",
+     "score": 0.727,
+     "why": "match",
+     "cite": "PSI PSI-25 BASS-II"
+    },
+    {
+     "text": "The oxygen concentration ranged 17.4% for Wax (candle), 13.6-22.2% for PMMA (acrylic), and 16.4-20.8% for SIBAL cotton-fiberglass fabric.",
+     "verdict": "supported",
+     "score": 0.777,
+     "why": "match",
+     "cite": "PSI PSI-25 BASS-II"
+    }
+   ],
+   "stats": {
+    "prompt_tokens": 755,
+    "answer_tokens": 82,
+    "tok_per_sec": 6.1,
+    "seconds": 33.0,
+    "guardrail_seconds": 2.0,
+    "total_seconds": 35.7
+   },
+   "evidence": [
+    {
+     "cite": "PSI PSI-25 BASS-II",
+     "section": "Overview",
+     "similarity": 0.609
+    },
+    {
+     "cite": "PSI PSI-25 BASS-II",
+     "section": "Experimental table: BASS-II / Wax (candle)",
+     "similarity": 0.622
+    },
+    {
+     "cite": "PSI PSI-25 BASS-II",
+     "section": "Objectives",
+     "similarity": 0.621
+    },
+    {
+     "cite": "PSI PSI-25 BASS-II",
+     "section": "Experimental table: BASS-II / PMMA (acrylic)",
+     "similarity": 0.609
+    },
+    {
+     "cite": "PSI PSI-25 BASS-II",
+     "section": "Experimental table: BASS-II / SIBAL cotton-fiberglass fabric",
+     "similarity": 0.595
+    }
+   ]
+  },
+  {
+   "q": "How was smoke measured in SAME and SAME-R?",
+   "decision": "accepted",
+   "why": null,
+   "draft": "The smoke was measured using Transmission Electron Microscopy (TEM) in SAME and SAME-R.",
+   "final": "The smoke was measured using Transmission Electron Microscopy (TEM) in SAME and SAME-R.",
+   "claims": [
+    {
+     "text": "The smoke was measured using Transmission Electron Microscopy (TEM) in SAME and SAME-R.",
+     "verdict": "supported",
+     "score": 0.708,
+     "why": "match",
+     "cite": "NASA Space Apps challenge statement"
+    }
+   ],
+   "stats": {
+    "prompt_tokens": 917,
+    "answer_tokens": 19,
+    "tok_per_sec": 4.0,
+    "seconds": 45.8,
+    "guardrail_seconds": 4.1,
+    "total_seconds": 50.3
+   },
+   "evidence": [
+    {
+     "cite": "PSI PSI-101 SAME-R",
+     "section": "Overview",
+     "similarity": 0.671
+    },
+    {
+     "cite": "PSI PSI-101 SAME-R",
+     "section": "Objectives",
+     "similarity": 0.64
+    },
+    {
+     "cite": "PSI PSI-102 SAME",
+     "section": "Overview",
+     "similarity": 0.668
+    },
+    {
+     "cite": "PSI PSI-101 SAME-R",
+     "section": "Research impacts / Earth benefits",
+     "similarity": 0.609
+    },
+    {
+     "cite": "NASA Space Apps challenge statement",
+     "section": "Other relevant investigations",
+     "similarity": 0.633
+    }
+   ]
+  },
+  {
+   "q": "What did NASA learn from the Apollo 1 fire?",
+   "decision": "accepted",
+   "why": null,
+   "draft": "NASA learned that a flash fire swept through the spacecraft so quickly, there was no time to open the hatches. The fire was caused by a combination of technical and management lapses. The astronauts perished from asphyxia due to carbon monoxide and toxic gases. NASA replaced the three-piece hatch with a unified hatch that could be opened from the inside or outside within three seconds. The agency also redesigned the Apollo spacecraft to severely restrict combustible materials.",
+   "final": "NASA learned that a flash fire swept through the spacecraft so quickly, there was no time to open the hatches. The fire was caused by a combination of technical and management lapses. The astronauts perished from asphyxia due to carbon monoxide and toxic gases. NASA replaced the three-piece hatch with a unified hatch that could be opened from the inside or outside within three seconds. The agency also redesigned the Apollo spacecraft to severely restrict combustible materials.",
+   "claims": [
+    {
+     "text": "NASA learned that a flash fire swept through the spacecraft so quickly, there was no time to open the hatches.",
+     "verdict": "supported",
+     "score": 0.9,
+     "why": "match",
+     "cite": "Apollo 1: lessons learned (NASA Safety and Mission Assurance)"
+    },
+    {
+     "text": "The fire was caused by a combination of technical and management lapses.",
+     "verdict": "supported",
+     "score": 0.766,
+     "why": "match",
+     "cite": "Apollo 1: lessons learned (NASA Safety and Mission Assurance)"
+    },
+    {
+     "text": "The astronauts perished from asphyxia due to carbon monoxide and toxic gases.",
+     "verdict": "supported",
+     "score": 0.873,
+     "why": "match",
+     "cite": "Apollo 1: lessons learned (NASA Safety and Mission Assurance)"
+    },
+    {
+     "text": "NASA replaced the three-piece hatch with a unified hatch that could be opened from the inside or outside within three seconds.",
+     "verdict": "supported",
+     "score": 0.992,
+     "why": "match",
+     "cite": "Apollo 1: lessons learned (NASA Safety and Mission Assurance)"
+    },
+    {
+     "text": "The agency also redesigned the Apollo spacecraft to severely restrict combustible materials.",
+     "verdict": "supported",
+     "score": 0.751,
+     "why": "match",
+     "cite": "Apollo 1: lessons learned (NASA Safety and Mission Assurance)"
+    }
+   ],
+   "stats": {
+    "prompt_tokens": 847,
+    "answer_tokens": 92,
+    "tok_per_sec": 5.9,
+    "seconds": 50.1,
+    "guardrail_seconds": 9.5,
+    "total_seconds": 59.9
+   },
+   "evidence": [
+    {
+     "cite": "Apollo 1: lessons learned (NASA Safety and Mission Assurance)",
+     "section": "Research to equipment: Lesson from the Apollo 1 (1967) fire",
+     "similarity": 0.692
+    },
+    {
+     "cite": "Apollo 1: lessons learned (NASA Safety and Mission Assurance)",
+     "section": "page",
+     "similarity": 0.628
+    },
+    {
+     "cite": "Apollo 1: lessons learned (NASA Safety and Mission Assurance)",
+     "section": "page",
+     "similarity": 0.625
+    },
+    {
+     "cite": "A Researcher's Guide to: International Space Station Combustion Science (NASA, 2015), p. 34",
+     "section": "page 34",
+     "similarity": 0.604
+    },
+    {
+     "cite": "NASA Space Apps challenge statement",
+     "section": "Real spacecraft fires",
+     "similarity": 0.578
+    }
+   ]
+  },
+  {
+   "q": "Why are flames spherical in microgravity?",
+   "decision": "abstained",
+   "why": "model_insufficient",
+   "draft": "The evidence is insufficient.",
+   "final": "The retrieved NASA evidence is not enough to answer this reliably. Try rephrasing, or open the cited investigations in PSI.",
+   "claims": [
+    {
+     "text": "The evidence is insufficient.",
+     "verdict": "meta",
+     "score": 0.404,
+     "why": "states_insufficient",
+     "cite": "PSI PSI-10 ACME Flame Design"
+    }
+   ],
+   "stats": {
+    "prompt_tokens": 1184,
+    "answer_tokens": 6,
+    "tok_per_sec": 3.9,
+    "seconds": 56.5,
+    "guardrail_seconds": 11.0,
+    "total_seconds": 67.9
+   },
+   "evidence": [
+    {
+     "cite": "PSI PSI-23 ACME s-Flame",
+     "section": "Publications",
+     "similarity": 0.618
+    },
+    {
+     "cite": "PSI PSI-23 ACME s-Flame",
+     "section": "Publications",
+     "similarity": 0.569
+    },
+    {
+     "cite": "PSI PSI-23 ACME s-Flame",
+     "section": "Publications",
+     "similarity": 0.601
+    },
+    {
+     "cite": "PSI PSI-10 ACME Flame Design",
+     "section": "Publications",
+     "similarity": 0.559
+    },
+    {
+     "cite": "PSI PSI-10 ACME Flame Design",
+     "section": "Publications",
+     "similarity": 0.542
+    }
+   ]
+  },
+  {
+   "q": "What is the best recipe for chocolate cake?",
+   "decision": "abstained",
+   "why": "off_topic",
+   "draft": "",
+   "final": "The retrieved NASA evidence is not enough to answer this reliably. Try rephrasing, or open the cited investigations in PSI.",
+   "claims": [],
+   "stats": {},
+   "evidence": [
+    {
+     "cite": "A Researcher's Guide to: International Space Station Combustion Science (NASA, 2015), p. 22",
+     "section": "page 22",
+     "similarity": 0.249
+    },
+    {
+     "cite": "PSI PSI-23 ACME s-Flame",
+     "section": "Hypothesis",
+     "similarity": 0.264
+    },
+    {
+     "cite": "A Researcher's Guide to: International Space Station Combustion Science (NASA, 2015), p. 14",
+     "section": "page 14",
+     "similarity": 0.335
+    },
+    {
+     "cite": "A Researcher's Guide to: International Space Station Combustion Science (NASA, 2015), p. 2",
+     "section": "page 2",
+     "similarity": 0.331
+    },
+    {
+     "cite": "NASA Space Apps challenge statement",
+     "section": "Highest-oxygen microgravity tests",
+     "similarity": 0.324
+    }
+   ]
+  }
+ ]
+}

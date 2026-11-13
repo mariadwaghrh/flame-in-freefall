@@ -116,6 +116,7 @@ sequenceDiagram
 | | `src/applications.py` | checks each research-to-equipment quote word for word against its NASA source |
 | | `src/index.py` | embeddings (bge-m3) and the 100-point relevance score per crew environment |
 | | `src/evaluate.py` | runs the team's test questions through Ask and grades the verified answers |
+| | `src/examples.py` | saves real runs of a fixed set of questions, shown as the worked example on the home page |
 | Ask | `src/rag/embedder.py` | text to vector |
 | | `src/rag/retrieval.py` | hybrid search: meaning + exact words + investigation names |
 | | `src/rag/generate.py` | local Llama 3.2 drafts from the passages only |
@@ -124,10 +125,12 @@ sequenceDiagram
 | | `src/rag/pipeline.py` | runs the steps and streams progress |
 | | `src/rag/settings.py` | every threshold in one place |
 | Website | `app.py` | FastAPI server: pages, JSON API, video streaming |
+| | `web/story.js` | home page: the story told by scrolling, with real NASA video, quotes and a saved real run |
 | | `web/app.js` | overview, investigations, details panel, Arabic / English |
 | | `web/moon.js` | Moon readiness tool |
 | | `web/data.js` | test-data explorer and CSV export |
-| | `web/ask.js` | Ask page and verified summaries |
+| | `web/equipment.js` | research-to-equipment page |
+| | `web/ask.js` | Ask page, verified summaries, team test results |
 | | `web/charts.js` | charts without any library |
 
 ## Design choices

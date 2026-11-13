@@ -9,6 +9,7 @@ A bilingual (Arabic / English) dashboard that summarises, ranks and interprets t
 
 | Page | What it shows |
 |---|---|
+| Story (home) | the case told by scrolling: a real ISS flame video, Apollo 1 and Mir in NASA's own words, the Moon atmosphere, the data gap, how the guardrail works, a saved real run, and the system's limits |
 | Overview | key findings, oxygen range of every investigation, top-ranked investigations, real flame images and videos |
 | Investigations | the 24 investigations ranked 0–100 for a chosen crew environment (station, spacecraft, Moon base, rover, Mars base), with filters and details |
 | Moon readiness | how many NASA tests reached a chosen oxygen level and pressure, which materials were tested, what happened to the flame, oxygen share vs oxygen amount |
@@ -45,6 +46,10 @@ Open http://127.0.0.1:8000 (add `?lang=en` for English).
 Test the Ask page on the team's questions (writes `data/processed/eval_results.json`):
 ```
 python src/evaluate.py
+```
+Save real example runs for the home page (writes `data/processed/examples.json`):
+```
+python src/examples.py
 ```
 
 ## Data and sources

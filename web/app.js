@@ -17,6 +17,7 @@ export const AR = () => state.lang === "ar";
 const CHROME = {
   brand_sub: ["لهب في السقوط الحر · تحدي ناسا Space Apps 2026", "Flame in Freefall · NASA Space Apps Challenge 2026"],
   tab_overview: ["نظرة عامة", "Overview"], tab_investigations: ["التجارب", "Investigations"], tab_moon: ["جاهزية القمر", "Moon readiness"],
+  tab_story: ["القصة", "Story"],
   tab_equipment: ["من البحث إلى المعدّات", "Research to equipment"], tab_data: ["بيانات الاختبارات", "Test data"], tab_ask: ["اسأل", "Ask"],
   scenario_label: ["بيئة الطاقم", "Crew environment"],
 };
@@ -247,8 +248,8 @@ export function closeDrawer() { $("drawer").hidden = true; $("scrim").hidden = t
 // ---------- views added by later steps ----------
 export const RENDER = { overview: renderOverview, investigations: renderInvestigations };
 const PLACEHOLDER = (v) => () => mount($("view-" + v), h("div", { class: "card empty", text: L("قيد البناء خلال الهاكاثون…", "Being built during the hackathon…") }));
-for (const v of ["moon", "equipment", "data", "ask"]) RENDER[v] = PLACEHOLDER(v);
-const HIDE_FILTERS = new Set(["ask", "data", "equipment", "moon"]);
+for (const v of ["story", "moon", "equipment", "data", "ask"]) RENDER[v] = PLACEHOLDER(v);
+const HIDE_FILTERS = new Set(["story", "ask", "data", "equipment", "moon"]);
 
 export function go(view) {
   state.view = view;
@@ -293,5 +294,5 @@ export async function init(extraLoaders = []) {
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeDrawer(); });
   let t; addEventListener("resize", () => { clearTimeout(t); t = setTimeout(() => RENDER[state.view](), 150); });
   const start = location.hash.slice(1);
-  go(RENDER[start] ? start : "overview");
+  go(RENDER[start] ? start : "story");
 }

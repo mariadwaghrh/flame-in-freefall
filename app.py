@@ -71,6 +71,13 @@ def applications():
     return APPLICATIONS
 
 
+@app.get("/api/examples")
+def examples():
+    """Saved real runs of the suggested questions (src/examples.py), shown as the worked example on the home page."""
+    path = os.path.join(config.PROCESSED, "examples.json")
+    return json.load(open(path, encoding="utf-8")) if os.path.exists(path) else {}
+
+
 @app.get("/api/eval")
 def eval_results():
     """Result of src/evaluate.py on the team's test questions (empty if not run yet)."""

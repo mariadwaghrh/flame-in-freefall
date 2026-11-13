@@ -4,9 +4,9 @@ import { state, L, AR, RENDER, api, short, ltr, drawerExtras, onLangChange } fro
 
 const SUGGEST = {
   ar: ["ما التجارب التي اختبرت أكسجين 30% أو أكثر، وبأي وقود؟", "هل إيقاف التهوية يطفئ الحريق في جو غني بالأكسجين؟", "ما المواد الصلبة التي أُحرقت في BASS-II وما نطاق الأكسجين؟",
-    "كيف قيس الدخان في تجربتي SAME وSAME-R؟", "ماذا تعلّمت ناسا من حريق Apollo 1؟", "لماذا يكون اللهب كروياً في الجاذبية الصغرى؟"],
+    "كيف قيس الدخان في تجربتي SAME وSAME-R؟", "ماذا تعلّمت ناسا من حريق Apollo 1؟", "ما سبب حريق محطة Mir عام 1997؟"],
   en: ["Which investigations tested 30% oxygen or more, and with which fuels?", "Does shutting off ventilation put out a fire in high oxygen?", "What solid materials were burned in BASS-II and over what oxygen range?",
-    "How was smoke measured in SAME and SAME-R?", "What did NASA learn from the Apollo 1 fire?", "Why are flames spherical in microgravity?"],
+    "How was smoke measured in SAME and SAME-R?", "What did NASA learn from the Apollo 1 fire?", "What caused the fire on Mir in 1997?"],
 };
 const VERDICT = { supported: ["مدعومة", "Supported", "ok"], weak: ["دعم ضعيف", "Weak", "warn"], unsupported: ["حُذفت", "Removed", "bad"], meta: ["ملاحظة", "Note", "meta"],
   accepted: ["تم التحقق", "Verified", "ok"], partial: ["تحقق جزئي", "Partly verified", "warn"], abstained: ["امتنع عن الإجابة", "Declined", "bad"] };
