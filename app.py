@@ -71,6 +71,13 @@ def applications():
     return APPLICATIONS
 
 
+@app.get("/api/eval")
+def eval_results():
+    """Result of src/evaluate.py on the team's test questions (empty if not run yet)."""
+    path = os.path.join(config.PROCESSED, "eval_results.json")
+    return json.load(open(path, encoding="utf-8")) if os.path.exists(path) else {}
+
+
 @app.get("/api/materials")
 def materials():
     return MATERIALS

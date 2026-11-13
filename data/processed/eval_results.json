@@ -1,0 +1,92 @@
+{
+ "model": "llama3.2:3b",
+ "date": "2026-11-13",
+ "passed": 6,
+ "total": 7,
+ "results": [
+  {
+   "id": "mir-1",
+   "q": "What caused the fire on Mir in 1997?",
+   "expected": "A solid-fuel oxygen generator canister ignited.",
+   "expect": "answer",
+   "decision": "accepted",
+   "final": "The canister ignited, shooting a three-foot flame with sparks and bits of molten metal across the module and generating a large quantity of dense smoke.",
+   "ok": true,
+   "why": "correct",
+   "seconds": 34.8,
+   "by": "team (resource 7)"
+  },
+  {
+   "id": "mir-2",
+   "q": "How did the resident crew members normally meet their oxygen needs during standard Mir operations?",
+   "expected": "Through the electrolytic splitting of water.",
+   "expect": "answer",
+   "decision": "accepted",
+   "final": "The resident crew members normally met their oxygen needs through two Elektron oxygen generating units, which generated oxygen through the electrolytic splitting of water.",
+   "ok": true,
+   "why": "correct",
+   "seconds": 50.2,
+   "by": "team (resource 7)"
+  },
+  {
+   "id": "mir-3",
+   "q": "What was identified as the most likely culprit for causing the solid-fuel oxygen generator to burst into flames?",
+   "expected": "Latex working glove material inadvertently introduced into the canister.",
+   "expect": "answer",
+   "decision": "accepted",
+   "final": "Latex working glove material inadvertently introduced into the canister.",
+   "ok": true,
+   "why": "correct",
+   "seconds": 50.3,
+   "by": "team (resource 7)"
+  },
+  {
+   "id": "mir-4",
+   "q": "How was the Mir fire described in the history of spaceflight?",
+   "expected": "The worst in-orbit fire incident in the history of spaceflight.",
+   "expect": "answer",
+   "decision": "accepted",
+   "final": "The Mir fire was described as a three-foot flame with sparks and bits of molten metal, generating a large quantity of dense smoke. The flame blocked the evacuation route to the Soyuz spacecraft. The canister ignited, causing the fire. The fire was caused by an oxygen generator failure. The flame burned for an extended period, exceeding 45 minutes.",
+   "ok": false,
+   "why": "missing: worst",
+   "seconds": 46.1,
+   "by": "team (resource 7)"
+  },
+  {
+   "id": "mir-5",
+   "q": "How many crew members were aboard the Russian space station Mir during the February 1997 fire?",
+   "expected": "Six crew members.",
+   "expect": "answer",
+   "decision": "accepted",
+   "final": "Six crew members were aboard the Russian space station Mir during the February 1997 fire.",
+   "ok": true,
+   "why": "correct",
+   "seconds": 47.4,
+   "by": "team (resource 7)"
+  },
+  {
+   "id": "off-1",
+   "q": "What is the capital of France?",
+   "expected": "Outside the knowledge base.",
+   "expect": "abstain",
+   "decision": "abstained",
+   "final": "The retrieved NASA evidence is not enough to answer this reliably. Try rephrasing, or open the cited investigations in PSI.",
+   "ok": true,
+   "why": "declined",
+   "seconds": 0.4,
+   "by": "team"
+  },
+  {
+   "id": "off-2",
+   "q": "Who won the 2022 football World Cup?",
+   "expected": "Outside the knowledge base.",
+   "expect": "abstain",
+   "decision": "abstained",
+   "final": "The retrieved NASA evidence is not enough to answer this reliably. Try rephrasing, or open the cited investigations in PSI.",
+   "ok": true,
+   "why": "declined",
+   "seconds": 0.3,
+   "by": "team"
+  }
+ ]
+}

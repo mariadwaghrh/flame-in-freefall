@@ -50,7 +50,7 @@ function render() {
   if (root.dataset.ready === state.lang) { root.querySelector("select").value = scope.only; return; }
   root.dataset.ready = state.lang;
   const ta = h("textarea", { rows: 2, dir: "auto", placeholder: L("اسأل عن الوقود، حدود الأكسجين، انتشار اللهب، الدخان، الإخماد، حوادث Apollo…", "Ask about fuels, oxygen limits, flame spread, smoke, suppression, the Apollo fires…") });
-  const send = h("button", { class: "btn primary big", text: L("اسأل", "Ask") }), log = h("div", { class: "view" });
+  const send = h("button", { class: "btn primary big", text: L("اسأل", "Ask") }), log = h("div", { class: "view" }), evalBox = h("div", {});
   const sel = h("select", { onchange: (e) => { scope.only = e.target.value; } }, h("option", { value: "", text: L("كل المصادر", "All sources") }),
     state.catalog.map((i) => h("option", { value: i.acc, text: short(i), selected: i.acc === scope.only })));
   const go1 = (q) => { q = (q || ta.value).trim(); if (q && !scope.busy) { ta.value = ""; ask(q, log, send); } };
@@ -64,8 +64,22 @@ function render() {
           "Searches 24 investigations and 8 challenge resources, a local model (no internet) drafts an answer from them only, then the guardrail checks every sentence and every number. Unsupported sentences are removed in front of you; if too little survives, it declines instead of guessing.") })),
         h("label", { class: "field" }, h("span", { text: L("ابحث في", "Search in") }), sel)),
       h("div", { class: "ask-form" }, ta, send),
-      h("div", { class: "chips", style: "margin-top:12px" }, SUGGEST[state.lang].map((q) => h("button", { class: "chip btn", text: q, onclick: () => go1(q) })))),
+      h("div", { class: "chips", style: "margin-top:12px" }, SUGGEST[state.lang].map((q) => h("button", { class: "chip btn", text: q, onclick: () => go1(q) }))),
+      evalBox),
     log));
+  api("/api/eval").then((e) => { if (e && e.total) mount(evalBox, evalLine(e)); }).catch(() => {});
+}
+
+// Result of src/evaluate.py: the team's own test questions, written from the challenge resources
+function evalLine(e) {
+  const answered = e.results.filter((r) => r.expect === "answer"), declined = e.results.filter((r) => r.expect === "abstain");
+  return h("details", { class: "eval" },
+    h("summary", {}, h("span", { class: "badge " + (e.passed === e.total ? "ok" : "warn"), text: `${e.passed} / ${e.total}` }),
+      L(` اختبرناه على ${e.total} أسئلة كتبها الفريق من مصادر التحدي (${answered.length} يجب أن يجيبها، ${declined.length} يجب أن يرفضها).`,
+        ` Tested on ${e.total} questions the team wrote from the challenge resources (${answered.length} to answer, ${declined.length} to decline).`)),
+    h("table", { class: "cmp" }, h("tbody", {}, e.results.map((r) => h("tr", {},
+      h("td", {}, h("span", { class: "badge " + (r.ok ? "ok" : "bad"), text: r.ok ? "✓" : "✕" })),
+      h("td", { class: "ltr", dir: "ltr" }, h("b", { text: r.q }), h("div", { class: "sub", text: (r.expect === "abstain" ? "Expected: decline" : "Expected: " + r.expected) + " · Got: " + (r.final || r.decision) })))))));
 }
 
 async function ask(question, log, sendBtn) {

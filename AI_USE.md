@@ -4,6 +4,7 @@ The Space Apps rules require every project to say where and how SI tools were us
 
 ## Development
 - **Claude (Anthropic), through Claude Code**: used as a coding assistant to write and debug the code in this repository, step by step with the team. Code it generated was reviewed and run by the team before each commit.
+- Team research: test questions in `data/curated/eval_questions.json` and lesson quotes in `data/curated/applications.json` were written by team members from the challenge resources; every quote is checked word for word by the code.
 - Hand-written Arabic descriptions and translations in `data/curated/` were drafted with Claude and checked by the team against the NASA PSI records they describe.
 
 ## Inside the running app

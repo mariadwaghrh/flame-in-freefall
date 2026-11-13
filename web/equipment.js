@@ -51,7 +51,7 @@ function render() {
   if (!APPS) { mount(root, h("div", { class: "card empty", text: L("جاري التحميل…", "Loading…") })); loadApplications().then(() => APPS && render()); return; }
   const k = APPS.key_insight;
   const invs = new Set(APPS.categories.flatMap((c) => [...c.links, ...c.earth]).map((l) => l.acc).filter(Boolean));
-  const quotes = APPS.categories.reduce((n, c) => n + c.links.length + c.earth.length, 0) + APPS.lessons.length + k.quotes.length;
+  const quotes = APPS.categories.reduce((n, c) => n + c.links.length + c.earth.length, 0) + APPS.lessons.reduce((n, l) => n + (l.quotes || [l.quote]).length, 0) + k.quotes.length;
   mount(root,
     h("div", { class: "eq-hero" },
       h("div", { class: "kicker", text: L("من تجارب الجاذبية الصغرى إلى معدات السلامة", "From microgravity experiments to fire-safety equipment") }),
@@ -74,7 +74,7 @@ function render() {
     APPS.categories.map(category),
     h("h2", { class: "eq-section", text: L("دروس من حرائق حقيقية", "Lessons from real fires") }),
     h("div", { class: "grid-even" }, APPS.lessons.map((l) => h("section", { class: "card eq-lesson" },
-      h("h3", { text: AR() ? l.title_ar : l.title_en }), AR() && h("p", { text: l.ar }), quote(l.quote), sourceLine(l)))),
+      h("h3", { text: AR() ? l.title_ar : l.title_en }), h("p", { text: AR() ? l.ar : l.en }), (l.quotes || [l.quote]).map(quote), sourceLine(l)))),
     h("h2", { class: "eq-section", text: L("ما لا تغطيه بيانات ناسا بعد", "What NASA's data does not cover yet") }),
     h("div", { class: "grid-even" }, APPS.gaps.map((g) => h("div", { class: "insight gap" }, h("p", { class: "big", text: AR() ? g.ar : g.en })))));
 }

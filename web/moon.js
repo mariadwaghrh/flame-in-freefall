@@ -5,10 +5,10 @@ import { state, L, AR, RENDER, api, fuel, short, num, ltr, openDrawer } from "./
 
 const PRESETS = [
   { id: "earth", o2: 21, atm: 1.0, ar: "الأرض / المحطة", en: "Earth / ISS" },
-  { id: "moon", o2: 30, atm: 0.69, ar: "القاعدة القمرية", en: "Moon base" },
+  { id: "moon", o2: 30, atm: 0.694, ar: "القاعدة القمرية", en: "Moon base" },
   { id: "suit", o2: 100, atm: 0.29, ar: "بدلة الفضاء", en: "Spacesuit" },
 ];
-const ui = { o2: 30, atm: 0.69 };
+const ui = { o2: 30, atm: 0.694 };
 let TESTS = null;
 
 const OUTCOME_AR = { "Test end": "نهاية الاختبار", "Hot ignition": "اشتعال ساخن", "Self-extinguished (SE) or flow terminated (FT)": "انطفأ ذاتياً (SE) أو أُوقف التدفق (FT)",
@@ -52,11 +52,12 @@ function render() {
       h("div", { class: "chips" }, PRESETS.map((p) => h("button", { class: "chip btn" + (preset === p ? " on" : ""), text: `${p[AR() ? "ar" : "en"]} (${p.o2}% · ${p.atm} atm)`, onclick: () => { ui.o2 = p.o2; ui.atm = p.atm; render(); } }))),
       h("div", { class: "moon-sliders" },
         slider("o2", L("الأكسجين على الأقل", "Oxygen at least"), 10, 100, 1, "%"),
-        slider("atm", L("الضغط على الأكثر", "Pressure at most"), 0.2, 3, 0.01, " atm"))),
+        slider("atm", L("الضغط على الأكثر", "Pressure at most"), 0.2, 3, 0.001, " atm"))),
     h("div", { class: "kpis" },
       kpiBox(L("اختبارات بأكسجين ≥ ", "Test rows with O2 ≥ ") + ui.o2 + "%", num(atO2.length), L(`من ${Object.keys(byInv).length} تجارب`, `from ${Object.keys(byInv).length} investigations`)),
       kpiBox(L("ومعها ضغط ≤ ", "…and pressure ≤ ") + ui.atm + " atm", num(both.length), L("حيث سُجّل الضغط", "where pressure is recorded")),
       kpiBox(L("منها مواد صلبة (أقمشة، بلاستيك)", "…of them solid materials"), num(solidAtO2.length), solidAtO2.length ? "" : L("فجوة: لا بيانات", "gap: no data"), !solidAtO2.length)),
+    o2Card(),
     h("div", { class: "grid-even" },
       h("div", { class: "card" },
         h("div", { class: "card-head" }, h("div", {}, h("h3", { text: L("جاهزية المواد", "Material readiness") }),
@@ -82,6 +83,32 @@ function render() {
       L("الأداة تعدّ ما اختبرته ناسا فعلاً. عدم وجود اختبار لا يعني أن المادة آمنة أو خطرة، بل يعني أنه لا توجد بيانات، وهذا بالضبط ما يحتاج المهندسون معرفته قبل تصميم قاعدة قمرية.",
         "The tool counts what NASA actually tested. A missing test does not mean a material is safe or dangerous; it means there is no data, which is exactly what engineers need to know before designing a Moon base.")),
   );
+}
+// Simple arithmetic on the slider values (no model): share of oxygen vs amount of oxygen (partial pressure).
+const PSI_PER_ATM = 14.696, EARTH = { o2: 21, atm: 1 };
+function o2Card() {
+  const psi = (atm) => atm * PSI_PER_ATM, pp = (o2, atm) => psi(atm) * o2 / 100;
+  const more = ((ui.o2 - EARTH.o2) / EARTH.o2) * 100, ratio = pp(ui.o2, ui.atm) / pp(EARTH.o2, EARTH.atm);
+  const col = (title, o2, atm, hi) => h("div", { class: "o2-col" + (hi ? " hi" : "") }, h("div", { class: "label", text: title }),
+    h("div", { class: "o2-row" }, h("span", { text: L("نسبة الأكسجين", "Oxygen share") }), h("b", { class: "ltr", text: `${fmt(o2, 0)}%` })),
+    h("div", { class: "o2-row" }, h("span", { text: L("الضغط", "Pressure") }), h("b", { class: "ltr", text: `${fmt(psi(atm), 1)} psi` })),
+    h("div", { class: "o2-row" }, h("span", { text: L("كمية الأكسجين (الضغط الجزئي)", "Oxygen amount (partial pressure)") }), h("b", { class: "ltr", text: `${fmt(pp(o2, atm), 2)} psi` })));
+  const same = Math.abs(ratio - 1) < 0.1;
+  return h("section", { class: "card o2-card" },
+    h("div", { class: "card-head" }, h("div", {},
+      h("h3", { text: L("نفس كمية الأكسجين تقريباً، لكن نسبته في الهواء أعلى", "About the same amount of oxygen, but a bigger share of the air") }),
+      h("div", { class: "sub", text: L("حساب بسيط من أرقام المؤشّر: كمية الأكسجين = الضغط × نسبة الأكسجين.", "Simple arithmetic on the slider values: oxygen amount = pressure × oxygen share.") }))),
+    h("div", { class: "o2-grid" },
+      col(L("الأرض", "Earth"), EARTH.o2, EARTH.atm, false),
+      col(L("الظروف المختارة", "Selected conditions"), ui.o2, ui.atm, true),
+      h("div", { class: "o2-col" },
+        h("div", { class: "label", text: L("الفرق عن هواء الأرض", "Compared with Earth's air") }),
+        h("div", { class: "o2-big ltr", text: `${more >= 0 ? "+" : ""}${fmt(more, 0)}%` }),
+        h("div", { class: "sub", text: L("في نسبة الأكسجين", "in oxygen share") }),
+        h("div", { class: "o2-big ltr small", text: `×${fmt(ratio, 2)}` }),
+        h("div", { class: "sub", text: same ? L("في كمية الأكسجين: تقريباً مثل الأرض", "in oxygen amount: about the same as Earth") : L("في كمية الأكسجين", "in oxygen amount") }))),
+    h("blockquote", { class: "quote ltr", dir: "ltr", text: "“The intermediate oxygen concentration used on the Moon will likely be 30% or greater, with a corresponding pressure of 10.2 psi or less. Compared to Earth's atmosphere, that's more than a 40% increase in the oxygen concentration making materials much more flammable.”" }),
+    h("div", { class: "eq-src", text: L("من نص تحدي ناسا (Flame in Freefall)", "NASA Space Apps challenge statement (Flame in Freefall)") }));
 }
 function kpiBox(label, value, hint, alarm = false) {
   return h("div", { class: "kpi" + (alarm ? " alarm" : "") }, h("div", { class: "label", text: label }), h("div", { class: "value", text: value }), h("div", { class: "hint", text: hint }));

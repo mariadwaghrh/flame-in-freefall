@@ -264,3 +264,19 @@ table.data th.norm { background: #22325c; }
 .chip.spin { background: rgba(25, 158, 112, .18); color: #7fe0bd; }
 .eq-section { font-size: 20px; font-weight: 900; margin-top: 10px; }
 .eq-lesson { display: grid; gap: 8px; align-content: start; }
+
+/* oxygen share vs amount card (Moon page) */
+.o2-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-bottom: 12px; }
+@media (max-width: 900px) { .o2-grid { grid-template-columns: minmax(0, 1fr); } }
+.o2-col { background: var(--surface-2); border-radius: 12px; padding: 12px 14px; display: grid; gap: 4px; align-content: start; }
+.o2-col.hi { outline: 1px solid var(--flame); }
+.o2-col .label { color: var(--text-2); font-weight: 700; font-size: 13.5px; }
+.o2-row { display: flex; justify-content: space-between; gap: 10px; font-size: 13.5px; color: var(--text-2); }
+.o2-row b { color: var(--text); }
+.o2-big { font-size: 30px; font-weight: 900; color: var(--flame); line-height: 1.2; }
+.o2-big.small { font-size: 22px; color: var(--text); margin-top: 6px; }
+
+/* team test results on the Ask page */
+.eval { margin-top: 12px; font-size: 13.5px; color: var(--text-2); }
+.eval summary { cursor: pointer; display: flex; gap: 8px; align-items: center; }
+.eval table { margin-top: 8px; }

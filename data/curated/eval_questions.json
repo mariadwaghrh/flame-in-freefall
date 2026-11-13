@@ -1,0 +1,22 @@
+{
+  "_about": "Test questions for the Ask page. Answers and quotes were written by the team from the challenge resources and checked word for word against the downloaded source text. 'must_have': every group must match at least one of its terms in the final verified answer. 'expect': 'answer' or 'abstain'.",
+  "questions": [
+    {"id": "mir-1", "resource": "mir_fire", "by": "team (resource 7)", "expect": "answer",
+     "q": "What caused the fire on Mir in 1997?", "answer": "A solid-fuel oxygen generator canister ignited.",
+     "quote": "the canister ignited, shooting a three-foot flame", "must_have": [["oxygen generator", "SFOG", "canister"]]},
+    {"id": "mir-2", "resource": "mir_fire", "by": "team (resource 7)", "expect": "answer",
+     "q": "How did the resident crew members normally meet their oxygen needs during standard Mir operations?", "answer": "Through the electrolytic splitting of water.",
+     "quote": "The units, also now used aboard the International Space Station, generated oxygen through the electrolytic splitting of water, primarily reclaimed from sources aboard the station.", "must_have": [["electroly", "Elektron"]]},
+    {"id": "mir-3", "resource": "mir_fire", "by": "team (resource 7)", "expect": "answer",
+     "q": "What was identified as the most likely culprit for causing the solid-fuel oxygen generator to burst into flames?", "answer": "Latex working glove material inadvertently introduced into the canister.",
+     "quote": "They identified the most likely culprit as latex working glove material inadvertently introduced into the canister.", "must_have": [["latex"], ["glove"]]},
+    {"id": "mir-4", "resource": "mir_fire", "by": "team (resource 7)", "expect": "answer",
+     "q": "How was the Mir fire described in the history of spaceflight?", "answer": "The worst in-orbit fire incident in the history of spaceflight.",
+     "quote": "following the worst in-orbit fire incident in the history of spaceflight.", "must_have": [["worst"]]},
+    {"id": "mir-5", "resource": "mir_fire", "by": "team (resource 7)", "expect": "answer",
+     "q": "How many crew members were aboard the Russian space station Mir during the February 1997 fire?", "answer": "Six crew members.",
+     "quote": "the six crew members aboard the Russian space station Mir faced significant danger when a fire ignited in an oxygen generating system.", "must_have": [["six", "6 "]]},
+    {"id": "off-1", "by": "team", "expect": "abstain", "q": "What is the capital of France?", "answer": "Outside the knowledge base."},
+    {"id": "off-2", "by": "team", "expect": "abstain", "q": "Who won the 2022 football World Cup?", "answer": "Outside the knowledge base."}
+  ]
+}
