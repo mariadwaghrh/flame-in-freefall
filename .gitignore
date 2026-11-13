@@ -7,3 +7,4 @@ data/processed/embeddings_keys.json
 .claude/
 data/processed/llm_cache.json
 notes/
+~$*
