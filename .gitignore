@@ -4,3 +4,4 @@ __pycache__/
 # large or rebuildable files
 data/processed/embeddings.npy
 data/processed/embeddings_keys.json
+.claude/
