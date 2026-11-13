@@ -172,6 +172,15 @@ function render() {
       h("div", { class: "kicker", text: L("ما لا نخفيه", "What we do not hide") }),
       h("h2", { text: L("حدود النظام، كما هي", "The system's limits, as they are") }),
       h("p", { text: L("هذا نموذج أولي للبحث في بيانات ناسا، وليس أداة تشغيلية للسلامة. عدم وجود اختبار لا يعني أن المادة آمنة أو خطرة، بل يعني أنه لا توجد بيانات.", "This is a prototype for searching NASA's data, not an operational safety tool. A missing test does not mean a material is safe or dangerous; it means there is no data.") })]],
+    ["next", h("div", { class: "st-viz tiles" },
+        h("div", { class: "tile" }, h("b", { text: L("بلا تكلفة تشغيل", "No running cost") }), h("span", { text: L("نماذج مفتوحة تعمل على لابتوب واحد: لا سحابة، لا اشتراك، لا إنترنت بعد التنزيل الأول", "open models on one laptop: no cloud, no subscription, no internet after the first download") })),
+        h("div", { class: "tile" }, h("b", { text: L("6 أوامر", "6 commands") }), h("span", { text: L("تعيد بناء كل شيء من مواقع ناسا عندما تُضاف بيانات جديدة إلى PSI", "rebuild everything from NASA's sites when new data is added to PSI") })),
+        h("div", { class: "tile" }, h("b", { class: "ltr", text: "Apache-2.0" }), h("span", { text: L("الكود مفتوح: أي فريق يستطيع تشغيله وصيانته وتطويره", "open source: any team can run, maintain and extend it") })),
+        h("div", { class: "tile" }, h("b", { class: "ltr", text: "LUCI · FM2" }), h("span", { text: L("تجارب الجاذبية القمرية التي تتوقع ناسا إضافتها. مكانها جاهز في الموقع", "the lunar-gravity experiments NASA expects to add. Their place in the site is ready") }))), [
+      h("div", { class: "kicker", text: L("ماذا بعد", "What comes next") }),
+      h("h2", { text: L("مبني ليستمر بعد الهاكاثون", "Built to last after the hackathon") }),
+      quote("We expect such data will be added in the future, for example from the Lunar-g Combustion Investigation (LUCI) and the Flammability of Materials on the Moon (FM2) experiment.", "challenge"),
+      h("p", { text: L("خطواتنا القادمة: إدخال بيانات الجاذبية القمرية عند نشرها، نموذج أقوى للترجمة العربية، وتحليل الفيديو الخام في أرشيف ناسا.", "Our next steps: add lunar-gravity data when it is published, a stronger model for Arabic translation, and analysis of the raw video in NASA's archive.") })]],
     ["end", [h("img", { src: "media/PSI-25_1.jpg", alt: "" }), h("div", { class: "st-shade" }), h("div", { class: "st-credit ltr", dir: "ltr", text: "Photo: BASS-II flame test aboard the ISS, NASA PSI (PSI-25)" })], [
       h("h2", { text: L("استكشف بنفسك", "Explore it yourself") }),
       h("div", { class: "st-links" },
@@ -206,6 +215,9 @@ function render() {
   onScroll = () => { if (root.hidden) return; const r = story.getBoundingClientRect(); bar.style.width = Math.max(0, Math.min(1, -r.top / (r.height - innerHeight))) * 100 + "%"; };
   addEventListener("scroll", onScroll, { passive: true });
   activate(0);
+  // ?scene=gap opens the page on one scene (for screenshots, slides and recording the video)
+  const scene = chapters.findIndex((c) => c[0] === new URLSearchParams(location.search).get("scene"));
+  if (scene > 0) setTimeout(() => { steps[scene].scrollIntoView({ block: "center" }); activate(scene); onScroll(); }, 200);
 }
 
 RENDER.story = render;

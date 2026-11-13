@@ -52,6 +52,9 @@ Save real example runs for the home page (writes `data/processed/examples.json`)
 python src/examples.py
 ```
 
+## Presentation
+`presentation/TrustFlame_deck.pptx` is the 7-slide deck in the site's theme. `node presentation/capture.mjs` re-takes the screenshots from the running site (any story scene opens directly with `?scene=gap`, `?scene=moon`, …) and `node presentation/build_deck.cjs` rebuilds the deck (needs `npm install pptxgenjs`).
+
 ## Data and sources
 All data is NASA's; nothing is generated.
 - NASA PSI Data Repository, Combustion Science (CC0): https://psi.nasa.gov/physci/repo/search?q=combustion
