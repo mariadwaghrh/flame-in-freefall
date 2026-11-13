@@ -5,3 +5,4 @@ __pycache__/
 data/processed/embeddings.npy
 data/processed/embeddings_keys.json
 .claude/
+data/processed/llm_cache.json
