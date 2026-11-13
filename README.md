@@ -2,6 +2,8 @@
 
 NASA Space Apps Challenge 2026, challenge **Flame in Freefall** (Amman & Aqaba local event, 13–14 November 2026).
 
+**Live public copy: https://mariadwaghrh.github.io/flame-in-freefall/** (every page works; the Ask page replays saved real runs, because the assistant itself needs the local model).
+
 Built during the hackathon. Every step is a git commit, so the history shows how the project grew.
 
 ## What it does

@@ -61,8 +61,12 @@
         },
         {
           "resource": "spinoff_fire_detector",
-          "ar": "NASA Spinoff: كاشف حرائق من مكوك الفضاء يميّز الدخان من الغبار، فيقل الإنذار الكاذب، ويستخدم في المناجم.",
-          "quote": "can discriminate between combustion particles and extraneous matters such as dust. This gives an important advantage; it is less susceptible to false alarms."
+          "ar": "NASA Spinoff: كاشف حرائق من مكوك الفضاء يميّز جسيمات الاحتراق من الغبار فيقل الإنذار الكاذب، ويكشف الحريق قبل ظهور اللهب والدخان. يستخدم في المناجم.",
+          "quotes": [
+            "can discriminate between combustion particles and extraneous matters such as dust. This gives an important advantage; it is less susceptible to false alarms.",
+            "it senses and signals the presence of a fire condition before appearance of flame and smoke."
+          ],
+          "credit": "team research (resource 9)"
         }
       ]
     },
@@ -108,8 +112,13 @@
         },
         {
           "resource": "spinoff_air_tanks",
-          "ar": "NASA Spinoff: خزانات هواء أخف لرجال الإطفاء طُوّرت مع مركز جونسون.",
-          "quote": "New backpack system weighs only 20 pounds for 30 minute air supply, 13 pounds less than conventional firefighting tanks."
+          "ar": "NASA Spinoff: خزانات هواء أخف لرجال الإطفاء طُوّرت مع مركز جونسون: 20 رطلاً لثلاثين دقيقة من الهواء، بضغط 4,500 psi، مع قناع وجه برؤية أفضل.",
+          "quotes": [
+            "New backpack system weighs only 20 pounds for 30 minute air supply, 13 pounds less than conventional firefighting tanks.",
+            "They are pressurized at 4,500 psi, (twice current tanks).",
+            "Redesigned face mask permits better vision."
+          ],
+          "credit": "team research (resource 8)"
         },
         {
           "resource": "spinoff_fire_attire",
@@ -236,9 +245,27 @@
       "resource": "apollo_1",
       "title_en": "Apollo 1 (1967)",
       "title_ar": "Apollo 1 (1967)",
-      "ar": "اختبار على منصة الإطلاق في مقصورة مضغوطة بأكسجين 100%: انتشر الحريق بسرعة لم تسمح بفتح الأبواب.",
-      "quote": "During the test, a flash fire swept through the spacecraft so quickly, there was no time to open the hatches.",
-      "en": "A launch-pad test in a cabin pressurised with 100% oxygen: the fire spread so fast that the hatches could not be opened."
+      "ar": "اختبار على منصة الإطلاق في مقصورة مضغوطة بأكسجين 100%. جوّ الأكسجين النقي جعل الحريق ينتشر بسرعة لم تسمح بفتح الأبواب. بعدها ركّبت ناسا باباً يُفتح خلال ثلاث ثوانٍ وقيّدت المواد القابلة للاشتعال في المقصورة.",
+      "en": "A launch-pad test in a cabin pressurised with 100% oxygen. The pure-oxygen atmosphere made the fire spread so fast that the hatches could not be opened. Afterwards NASA fitted a hatch that opens within three seconds and restricted combustible material in the cabin.",
+      "quotes": [
+        "During the test, a flash fire swept through the spacecraft so quickly, there was no time to open the hatches.",
+        "Because of the pure oxygen atmosphere, the fire spread quickly, causing a rapid rise in temperature and pressure that led to the rupture of the Command Module pressure vessel.",
+        "NASA also replaced the three-piece hatch with a unified hatch that could be opened from the inside or outside within three seconds."
+      ],
+      "credit": "team research (resource 5)"
+    },
+    {
+      "resource": "apollo_13",
+      "title_en": "Apollo 13 (1970)",
+      "title_ar": "Apollo 13 (1970)",
+      "en": "Not a cabin fire but an oxygen-tank explosion on the way to the Moon. Tank heaters left on during a ground test overheated and damaged the wire insulation inside the tank. NASA redesigned the oxygen tank system, and insulation added after the Apollo 1 fire protected the wiring when the crew powered the spacecraft back up.",
+      "ar": "ليس حريق مقصورة بل انفجار خزان أكسجين في الطريق إلى القمر. سخّانات الخزان تُركت تعمل طويلاً في اختبار أرضي فارتفعت حرارتها وأتلفت عزل الأسلاك داخل الخزان. أعادت ناسا تصميم نظام خزانات الأكسجين، والعزل الذي أُضيف بعد حريق Apollo 1 حمى الأسلاك عندما أعاد الطاقم تشغيل المركبة.",
+      "quotes": [
+        "During the final test on the launch pad, the heaters were left on for an extended period and reached temperatures around 1000 degrees Fahrenheit, degrading the Teflon insulation.",
+        "For Apollo 14 and future missions, engineers at NASA and North American Rockwell redesigned the oxygen tank system by adding a third tank in a different bay, upgrading thermostats, removing stirring fans and sheathing all electrical wiring in stainless steel.",
+        "Thankfully, a lesson learned from the Apollo I fire prevented arcing from happening, as a major redesign added increased insulation to better protect the wiring."
+      ],
+      "credit": "team research (resource 6)"
     },
     {
       "resource": "mir_fire",

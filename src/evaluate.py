@@ -34,9 +34,13 @@ def main():
     rag, results = RAG(), []
     for q in qs:
         t0, final = time.perf_counter(), {}
-        for ev in rag.ask(q["q"], lang="en"):
-            if ev["stage"] == "final":
-                final = ev
+        for attempt in range(3):                      # the pipeline gives no result if the local model is busy: wait and retry
+            for ev in rag.ask(q["q"], lang="en"):
+                if ev["stage"] == "final":
+                    final = ev
+            if final:
+                break
+            time.sleep(10)
         text = final.get("final", "")
         declined = final.get("decision") == "abstained"
         if q["expect"] == "abstain":

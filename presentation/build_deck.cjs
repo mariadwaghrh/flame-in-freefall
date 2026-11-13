@@ -90,7 +90,7 @@ s = pres.addSlide({ masterName: "CONTENT", sectionTitle: "Solution" });
 s.addText("TrustFlame delivers the three things NASA asked for", { placeholder: "title" });
 [["page-investigations.png", "NASA ASKED: IDENTIFY THE MOST RELEVANT INVESTIGATIONS", "All 24 investigations ranked 0 to 100 for a station, spacecraft, Moon base, rover or Mars base"],
  ["page-data.png", "NASA ASKED: EXTRACT DATA FOR PREDICTIVE MODELLING", "Every NASA test table on one scale, plotted, with CSV export for modellers"],
- ["page-equipment.png", "NASA ASKED: HIGHLIGHT RESEARCH FOR FIRE-SAFETY EQUIPMENT", "34 NASA quotes, checked word for word, link research to detectors, suppression and materials"]].forEach(([img, ask, ours], i) => {
+ ["page-equipment.png", "NASA ASKED: HIGHLIGHT RESEARCH FOR FIRE-SAFETY EQUIPMENT", "42 NASA quotes, checked word for word, link research to detectors, suppression and materials"]].forEach(([img, ask, ours], i) => {
   const x = 0.6 + i * 4.14;
   s.addImage({ path: A(img), x, y: 1.65, w: 3.85, h: 2.17, altText: "Screenshot of the TrustFlame dashboard: " + ours, objectName: `Screenshot ${i + 1}` });
   T(s, ask, { x, y: 4.0, w: 3.85, h: 0.55, fontSize: 11, bold: true, color: LIME, charSpacing: 0.5, objectName: `Ask ${i + 1}` });
@@ -123,7 +123,7 @@ s.addNotes("هذا اكتشافنا من البيانات: أعلى أكسجين
 // ---------- 6. how it works ----------
 s = pres.addSlide({ masterName: "CONTENT", sectionTitle: "Solution" });
 s.addText("How it works: no sentence without evidence, no number without a source", { placeholder: "title" });
-[["Question", "in Arabic or English"], ["Search", "467 passages from NASA sources"], ["Draft", "a local model, offline, from the passages only"],
+[["Question", "in Arabic or English"], ["Search", "475 passages from NASA sources"], ["Draft", "a local model, offline, from the passages only"],
  ["Guardrail", "checks every sentence and every number"], ["Result", "verified answer, removed sentence, or refusal"]].forEach(([a, b], i) => {
   const y = 1.7 + i * 0.78, guard = i === 3;
   s.addShape(pres.shapes.OVAL, { x: 0.6, y, w: 0.5, h: 0.5, fill: { color: guard ? LIME : SURFACE }, line: { color: guard ? LIME : SURFACE, width: 0 }, objectName: `Step ${i + 1} dot` });
@@ -131,11 +131,11 @@ s.addText("How it works: no sentence without evidence, no number without a sourc
   T(s, [{ text: a + "   ", options: { bold: true, color: guard ? LIME : WHITE } }, { text: b, options: { color: SOFT } }], { x: 1.3, y, w: 4.9, h: 0.5, fontSize: 14, valign: "middle", objectName: `Step ${i + 1}` });
 });
 card(s, 0.6, 5.7, 5.6, 0.95, "Test card");
-T(s, [{ text: "6 / 7  ", options: { bold: true, color: LIME, fontSize: 24 } }, { text: "team-written test questions passed", options: { color: WHITE, fontSize: 14 } }], { x: 0.85, y: 5.7, w: 5.2, h: 0.95, valign: "middle", objectName: "Test result" });
+T(s, [{ text: "18 / 22  ", options: { bold: true, color: LIME, fontSize: 24 } }, { text: "team-written test questions passed", options: { color: WHITE, fontSize: 14 } }], { x: 0.85, y: 5.7, w: 5.2, h: 0.95, valign: "middle", objectName: "Test result" });
 s.addImage({ path: A("crop-real-run.png"), x: 6.6, y: 1.6, w: 6.13, h: 4.3, altText: "A saved real run: two sentences marked supported with their NASA evidence, and an off-topic question declined", objectName: "Real run" });
 T(s, "A saved real run of the system, not a mock-up. Limits we state: 1 to 2 minutes per answer on a laptop, the Arabic translation is approximate, PSI has no lunar-gravity data yet.",
   { x: 6.6, y: 6.0, w: 6.13, h: 0.65, fontSize: 11, color: MUTED, objectName: "Limits" });
-s.addNotes("كيف يعمل: السؤال، ثم بحث في 467 مقطعاً من ناسا، ثم مسودة من نموذج محلي بدون إنترنت، ثم صمام الأمان يفحص كل جملة وكل رقم، ثم النتيجة. على اليمين تشغيل حقيقي محفوظ: جملتان مدعومتان مع مصدرهما، وسؤال خارج الموضوع مرفوض. اختبرناه على 7 أسئلة كتبها الفريق ونجح في 6. ونذكر حدودنا بصراحة.");
+s.addNotes("كيف يعمل: السؤال، ثم بحث في 475 مقطعاً من ناسا، ثم مسودة من نموذج محلي بدون إنترنت، ثم صمام الأمان يفحص كل جملة وكل رقم، ثم النتيجة. على اليمين تشغيل حقيقي محفوظ: جملتان مدعومتان مع مصدرهما، وسؤال خارج الموضوع مرفوض. اختبرناه على 22 سؤالاً كتبها الفريق ونجح في 18. ونذكر حدودنا بصراحة.");
 
 // ---------- 7. impact and next ----------
 pres.addSection({ title: "Close" });

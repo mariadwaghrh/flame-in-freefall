@@ -10,6 +10,7 @@ export async function loadApplications() { try { APPS = await api("/api/applicat
 const SPINOFF = /^spinoff_/;
 const FIELD = { impacts: ["حقل «الأثر» في سجل PSI", "PSI record, field “impacts”"], objective: ["حقل «الهدف» في سجل PSI", "PSI record, field “objective”"] };
 
+const nq = (items) => items.reduce((n, i) => n + (i.quotes || [i.quote]).length, 0);   // quotes in a list of items
 function sourceLine(item) {
   const label = item.acc ? L(FIELD[item.field][0], FIELD[item.field][1]) : item.source_title;
   return h("div", { class: "eq-src" }, h("a", { href: item.url, target: "_blank", rel: "noopener", text: label + " ↗" }));
@@ -30,7 +31,7 @@ function linkItem(item) {
   return h("div", { class: "eq-link" },
     h("div", { class: "eq-link-head" }, head, item.acc && h("span", { class: "eq-acc ltr", text: item.acc })),
     AR() && h("p", { text: item.ar }),
-    quote(item.quote),
+    (item.quotes || [item.quote]).map(quote),
     sourceLine(item));
 }
 
@@ -39,7 +40,7 @@ function category(c) {
   return h("section", { class: "card eq-cat", id: "eq-" + c.id },
     h("div", { class: "card-head" },
       h("div", {}, h("h3", { text: AR() ? c.name_ar : c.name_en }), h("p", { class: "sub", text: desc })),
-      h("span", { class: "badge meta", text: L(`${c.links.length + c.earth.length} اقتباسات`, `${c.links.length + c.earth.length} quotes`) })),
+      h("span", { class: "badge meta", text: L(`${nq([...c.links, ...c.earth])} اقتباسات`, `${nq([...c.links, ...c.earth])} quotes`) })),
     h("div", { class: "eq-cols" },
       h("div", {}, h("h4", { class: "eq-col-title", text: L("في المركبات والقواعد الفضائية", "In spacecraft and habitats") }), c.links.map(linkItem)),
       h("div", {}, h("h4", { class: "eq-col-title", text: L("على الأرض", "On Earth") }),
@@ -51,7 +52,7 @@ function render() {
   if (!APPS) { mount(root, h("div", { class: "card empty", text: L("جاري التحميل…", "Loading…") })); loadApplications().then(() => APPS && render()); return; }
   const k = APPS.key_insight;
   const invs = new Set(APPS.categories.flatMap((c) => [...c.links, ...c.earth]).map((l) => l.acc).filter(Boolean));
-  const quotes = APPS.categories.reduce((n, c) => n + c.links.length + c.earth.length, 0) + APPS.lessons.reduce((n, l) => n + (l.quotes || [l.quote]).length, 0) + k.quotes.length;
+  const quotes = nq(APPS.categories.flatMap((c) => [...c.links, ...c.earth])) + nq(APPS.lessons) + k.quotes.length;
   mount(root,
     h("div", { class: "eq-hero" },
       h("div", { class: "kicker", text: L("من تجارب الجاذبية الصغرى إلى معدات السلامة", "From microgravity experiments to fire-safety equipment") }),

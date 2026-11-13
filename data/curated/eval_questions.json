@@ -1,22 +1,332 @@
 {
-  "_about": "Test questions for the Ask page. Answers and quotes were written by the team from the challenge resources and checked word for word against the downloaded source text. 'must_have': every group must match at least one of its terms in the final verified answer. 'expect': 'answer' or 'abstain'.",
-  "questions": [
-    {"id": "mir-1", "resource": "mir_fire", "by": "team (resource 7)", "expect": "answer",
-     "q": "What caused the fire on Mir in 1997?", "answer": "A solid-fuel oxygen generator canister ignited.",
-     "quote": "the canister ignited, shooting a three-foot flame", "must_have": [["oxygen generator", "SFOG", "canister"]]},
-    {"id": "mir-2", "resource": "mir_fire", "by": "team (resource 7)", "expect": "answer",
-     "q": "How did the resident crew members normally meet their oxygen needs during standard Mir operations?", "answer": "Through the electrolytic splitting of water.",
-     "quote": "The units, also now used aboard the International Space Station, generated oxygen through the electrolytic splitting of water, primarily reclaimed from sources aboard the station.", "must_have": [["electroly", "Elektron"]]},
-    {"id": "mir-3", "resource": "mir_fire", "by": "team (resource 7)", "expect": "answer",
-     "q": "What was identified as the most likely culprit for causing the solid-fuel oxygen generator to burst into flames?", "answer": "Latex working glove material inadvertently introduced into the canister.",
-     "quote": "They identified the most likely culprit as latex working glove material inadvertently introduced into the canister.", "must_have": [["latex"], ["glove"]]},
-    {"id": "mir-4", "resource": "mir_fire", "by": "team (resource 7)", "expect": "answer",
-     "q": "How was the Mir fire described in the history of spaceflight?", "answer": "The worst in-orbit fire incident in the history of spaceflight.",
-     "quote": "following the worst in-orbit fire incident in the history of spaceflight.", "must_have": [["worst"]]},
-    {"id": "mir-5", "resource": "mir_fire", "by": "team (resource 7)", "expect": "answer",
-     "q": "How many crew members were aboard the Russian space station Mir during the February 1997 fire?", "answer": "Six crew members.",
-     "quote": "the six crew members aboard the Russian space station Mir faced significant danger when a fire ignited in an oxygen generating system.", "must_have": [["six", "6 "]]},
-    {"id": "off-1", "by": "team", "expect": "abstain", "q": "What is the capital of France?", "answer": "Outside the knowledge base."},
-    {"id": "off-2", "by": "team", "expect": "abstain", "q": "Who won the 2022 football World Cup?", "answer": "Outside the knowledge base."}
-  ]
+ "_about": "Test questions for the Ask page. Answers and quotes were written by the team from the challenge resources and checked word for word against the downloaded source text. 'must_have': every group must match at least one of its terms in the final verified answer. 'expect': 'answer' or 'abstain'.",
+ "questions": [
+  {
+   "id": "mir-1",
+   "resource": "mir_fire",
+   "by": "team (resource 7)",
+   "expect": "answer",
+   "q": "What caused the fire on Mir in 1997?",
+   "answer": "A solid-fuel oxygen generator canister ignited.",
+   "quote": "the canister ignited, shooting a three-foot flame",
+   "must_have": [
+    [
+     "oxygen generator",
+     "SFOG",
+     "canister"
+    ]
+   ]
+  },
+  {
+   "id": "mir-2",
+   "resource": "mir_fire",
+   "by": "team (resource 7)",
+   "expect": "answer",
+   "q": "How did the resident crew members normally meet their oxygen needs during standard Mir operations?",
+   "answer": "Through the electrolytic splitting of water.",
+   "quote": "The units, also now used aboard the International Space Station, generated oxygen through the electrolytic splitting of water, primarily reclaimed from sources aboard the station.",
+   "must_have": [
+    [
+     "electroly",
+     "Elektron"
+    ]
+   ]
+  },
+  {
+   "id": "mir-3",
+   "resource": "mir_fire",
+   "by": "team (resource 7)",
+   "expect": "answer",
+   "q": "What was identified as the most likely culprit for causing the solid-fuel oxygen generator to burst into flames?",
+   "answer": "Latex working glove material inadvertently introduced into the canister.",
+   "quote": "They identified the most likely culprit as latex working glove material inadvertently introduced into the canister.",
+   "must_have": [
+    [
+     "latex"
+    ],
+    [
+     "glove"
+    ]
+   ]
+  },
+  {
+   "id": "mir-4",
+   "resource": "mir_fire",
+   "by": "team (resource 7)",
+   "expect": "answer",
+   "q": "How was the Mir fire described in the history of spaceflight?",
+   "answer": "The worst in-orbit fire incident in the history of spaceflight.",
+   "quote": "following the worst in-orbit fire incident in the history of spaceflight.",
+   "must_have": [
+    [
+     "worst"
+    ]
+   ]
+  },
+  {
+   "id": "mir-5",
+   "resource": "mir_fire",
+   "by": "team (resource 7)",
+   "expect": "answer",
+   "q": "How many crew members were aboard the Russian space station Mir during the February 1997 fire?",
+   "answer": "Six crew members.",
+   "quote": "the six crew members aboard the Russian space station Mir faced significant danger when a fire ignited in an oxygen generating system.",
+   "must_have": [
+    [
+     "six",
+     "6 "
+    ]
+   ]
+  },
+  {
+   "id": "off-1",
+   "by": "team",
+   "expect": "abstain",
+   "q": "What is the capital of France?",
+   "answer": "Outside the knowledge base."
+  },
+  {
+   "id": "off-2",
+   "by": "team",
+   "expect": "abstain",
+   "q": "Who won the 2022 football World Cup?",
+   "answer": "Outside the knowledge base."
+  },
+  {
+   "id": "tanks-1",
+   "resource": "spinoff_air_tanks",
+   "by": "team (resource 8)",
+   "expect": "answer",
+   "q": "How much did the new firefighter backpack air system weigh?",
+   "answer": "20 pounds.",
+   "quote": "New backpack system weighs only 20 pounds for 30 minute air supply, 13 pounds less than conventional firefighting tanks.",
+   "must_have": [
+    [
+     "20 pounds",
+     "20-pound",
+     "20 lb"
+    ]
+   ]
+  },
+  {
+   "id": "tanks-2",
+   "resource": "spinoff_air_tanks",
+   "by": "team (resource 8)",
+   "expect": "answer",
+   "q": "How long could the new firefighter air tank system provide an air supply?",
+   "answer": "30 minutes.",
+   "quote": "New backpack system weighs only 20 pounds for 30 minute air supply, 13 pounds less than conventional firefighting tanks.",
+   "must_have": [
+    [
+     "30 minute",
+     "30-minute",
+     "30 min"
+    ]
+   ]
+  },
+  {
+   "id": "tanks-3",
+   "resource": "spinoff_air_tanks",
+   "by": "team (resource 8)",
+   "expect": "answer",
+   "q": "What was the pressure of the new firefighter air tanks?",
+   "answer": "4,500 psi, twice the pressure of the tanks of the time.",
+   "quote": "They are pressurized at 4,500 psi, (twice current tanks).",
+   "must_have": [
+    [
+     "4,500",
+     "4500"
+    ]
+   ]
+  },
+  {
+   "id": "tanks-4",
+   "resource": "spinoff_air_tanks",
+   "by": "team (resource 8)",
+   "expect": "answer",
+   "q": "What materials were used to make the new firefighter air tanks?",
+   "answer": "An aluminum liner wrapped by resin-impregnated glass fibers.",
+   "quote": "Made of aluminum liner wrapped by resin-impregnated glass fibers, eliminating corrosion as well as lightening the load.",
+   "must_have": [
+    [
+     "aluminum",
+     "aluminium"
+    ],
+    [
+     "glass fiber",
+     "glass-fiber",
+     "fiberglass"
+    ]
+   ]
+  },
+  {
+   "id": "tanks-5",
+   "resource": "spinoff_air_tanks",
+   "by": "team (resource 8)",
+   "expect": "answer",
+   "q": "How did the redesigned face mask help firefighters?",
+   "answer": "It permits better vision.",
+   "quote": "Redesigned face mask permits better vision.",
+   "must_have": [
+    [
+     "vision",
+     "visib",
+     "see"
+    ]
+   ]
+  },
+  {
+   "id": "det-1",
+   "resource": "spinoff_fire_detector",
+   "by": "team (resource 9)",
+   "expect": "answer",
+   "q": "Where was the Brunswick Incipient Fire Detector originally used?",
+   "answer": "In Space Shuttle orbiters.",
+   "quote": "the Brunswick Incipient Fire Detector, originally used in space shuttle orbiters",
+   "must_have": [
+    [
+     "shuttle"
+    ]
+   ]
+  },
+  {
+   "id": "det-2",
+   "resource": "spinoff_fire_detector",
+   "by": "team (resource 9)",
+   "expect": "answer",
+   "q": "What does the Brunswick fire detector sensor detect in the air?",
+   "answer": "Combustion particles.",
+   "quote": "Sensor operates by sampling air to determine the presence of combustion particles",
+   "must_have": [
+    [
+     "particle"
+    ]
+   ]
+  },
+  {
+   "id": "det-3",
+   "resource": "spinoff_fire_detector",
+   "by": "team (resource 9)",
+   "expect": "answer",
+   "q": "How does the Brunswick fire detector reduce false alarms?",
+   "answer": "It tells combustion particles apart from dust.",
+   "quote": "can discriminate between combustion particles and extraneous matters such as dust.",
+   "must_have": [
+    [
+     "dust"
+    ]
+   ]
+  },
+  {
+   "id": "det-4",
+   "resource": "spinoff_fire_detector",
+   "by": "team (resource 9)",
+   "expect": "answer",
+   "q": "In which large-area application can many Brunswick fire detector sensors be linked to a central unit?",
+   "answer": "Mines.",
+   "quote": "For large area applications such as mines, any number of sensors can be linked to a central processor/display unit",
+   "must_have": [
+    [
+     "mine"
+    ]
+   ]
+  },
+  {
+   "id": "det-5",
+   "resource": "spinoff_fire_detector",
+   "by": "team (resource 9)",
+   "expect": "answer",
+   "q": "What makes the Brunswick fire detector different from commercially available smoke detectors?",
+   "answer": "It signals a fire condition before flame and smoke appear.",
+   "quote": "it senses and signals the presence of a fire condition before appearance of flame and smoke.",
+   "must_have": [
+    [
+     "before"
+    ],
+    [
+     "flame",
+     "smoke"
+    ]
+   ]
+  },
+  {
+   "id": "apollo-1",
+   "resource": "apollo_1",
+   "by": "team (resource 5)",
+   "expect": "answer",
+   "q": "What was the cabin atmosphere during the Apollo 1 pre-launch test?",
+   "answer": "100% oxygen.",
+   "quote": "The astronauts would be wearing spacesuits with the spacecraft’s hatches closed and the cabin pressurized with 100% oxygen.",
+   "must_have": [
+    [
+     "100%",
+     "pure oxygen",
+     "100 percent"
+    ]
+   ]
+  },
+  {
+   "id": "apollo-2",
+   "resource": "apollo_13",
+   "by": "team (resource 6)",
+   "expect": "answer",
+   "q": "What caused the Apollo 13 oxygen tank insulation to deteriorate?",
+   "answer": "Heat from the tank heaters, left on for an extended period.",
+   "quote": "During the final test on the launch pad, the heaters were left on for an extended period and reached temperatures around 1000 degrees Fahrenheit, degrading the Teflon insulation.",
+   "must_have": [
+    [
+     "heater",
+     "1000",
+     "overheat"
+    ]
+   ]
+  },
+  {
+   "id": "apollo-3",
+   "resource": "apollo_1",
+   "by": "team (resource 5)",
+   "expect": "answer",
+   "q": "What hatch did NASA fit after the Apollo 1 fire?",
+   "answer": "A unified hatch that opens within three seconds.",
+   "quote": "NASA also replaced the three-piece hatch with a unified hatch that could be opened from the inside or outside within three seconds.",
+   "must_have": [
+    [
+     "unified",
+     "three seconds",
+     "3 seconds"
+    ]
+   ]
+  },
+  {
+   "id": "apollo-4",
+   "resource": "apollo_1",
+   "by": "team (resource 5)",
+   "expect": "answer",
+   "q": "ما السبب الرئيسي لسرعة انتشار الحريق في Apollo 1؟",
+   "answer": "The pure oxygen atmosphere.",
+   "quote": "Because of the pure oxygen atmosphere, the fire spread quickly, causing a rapid rise in temperature and pressure that led to the rupture of the Command Module pressure vessel.",
+   "must_have": [
+    [
+     "oxygen"
+    ]
+   ]
+  },
+  {
+   "id": "apollo-5",
+   "resource": "apollo_13",
+   "by": "team (resource 6)",
+   "expect": "answer",
+   "q": "ما أهم التعديلات التي أجرتها ناسا على نظام تخزين الأكسجين بعد حادثة Apollo 13؟",
+   "answer": "A third tank in a different bay, upgraded thermostats, no stirring fans, wiring sheathed in stainless steel.",
+   "quote": "For Apollo 14 and future missions, engineers at NASA and North American Rockwell redesigned the oxygen tank system by adding a third tank in a different bay, upgrading thermostats, removing stirring fans and sheathing all electrical wiring in stainless steel.",
+   "must_have": [
+    [
+     "third tank",
+     "thermostat",
+     "stirring",
+     "stainless"
+    ]
+   ]
+  }
+ ]
 }

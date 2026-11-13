@@ -4421,6 +4421,16 @@
  },
  {
   "id": "c0442",
+  "acc": null,
+  "source": "application",
+  "section": "Research to equipment: Smoke detectors and early fire detection, uses on Earth",
+  "title": "NASA Spinoff: Fire Detector",
+  "url": "https://spinoff.nasa.gov/node/9407",
+  "cite": "NASA Spinoff: Fire Detector",
+  "text": "Smoke detectors and early fire detection, uses on Earth. NASA Spinoff: Fire Detector states: it senses and signals the presence of a fire condition before appearance of flame and smoke."
+ },
+ {
+  "id": "c0443",
   "acc": "PSI-69",
   "source": "application",
   "section": "Research to equipment: Fire suppression systems and suppressant gases for spacecraft",
@@ -4430,7 +4440,7 @@
   "text": "Fire suppression systems and suppressant gases for spacecraft. FLEX (PSI-69) states: The mission's findings on the effectiveness of various fire suppressants, including CO2, He, and SF6, in microgravity can lead to the development of more efficient and less harmful fire suppression systems, reducing the risk of toxic byproducts during fire events."
  },
  {
-  "id": "c0443",
+  "id": "c0444",
   "acc": "PSI-26",
   "source": "application",
   "section": "Research to equipment: Fire suppression systems and suppressant gases for spacecraft",
@@ -4440,7 +4450,7 @@
   "text": "Fire suppression systems and suppressant gases for spacecraft. BASS (PSI-26) states: Using nitrogen as a flame suppressant in microgravity provides a direct link to current and planned extinguishment techniques."
  },
  {
-  "id": "c0444",
+  "id": "c0445",
   "acc": "PSI-25",
   "source": "application",
   "section": "Research to equipment: Fire suppression systems and suppressant gases for spacecraft",
@@ -4450,7 +4460,7 @@
   "text": "Fire suppression systems and suppressant gases for spacecraft. BASS-II (PSI-25) states: BASS-II helps engineers select the safest materials and improve firefighting methods on future space missions."
  },
  {
-  "id": "c0445",
+  "id": "c0446",
   "acc": "PSI-21",
   "source": "application",
   "section": "Research to equipment: Fire suppression systems and suppressant gases for spacecraft",
@@ -4460,7 +4470,7 @@
   "text": "Fire suppression systems and suppressant gases for spacecraft. ACME CLD Flame (PSI-21) states: an understanding of those factors that affect flame extinction in diffusion flames is critical in the suppression of fires"
  },
  {
-  "id": "c0446",
+  "id": "c0447",
   "acc": "PSI-69",
   "source": "application",
   "section": "Research to equipment: Fire suppression systems and suppressant gases, uses on Earth",
@@ -4470,7 +4480,7 @@
   "text": "Fire suppression systems and suppressant gases, uses on Earth. FLEX (PSI-69) states: the insights gained from these experiments have the potential to advance fire safety in confined and reduced-gravity environments, such as submarines or high-altitude aircraft."
  },
  {
-  "id": "c0447",
+  "id": "c0448",
   "acc": null,
   "source": "application",
   "section": "Research to equipment: Fire suppression systems and suppressant gases, uses on Earth",
@@ -4480,7 +4490,27 @@
   "text": "Fire suppression systems and suppressant gases, uses on Earth. NASA Spinoff: Fireman's Air Tanks states: New backpack system weighs only 20 pounds for 30 minute air supply, 13 pounds less than conventional firefighting tanks."
  },
  {
-  "id": "c0448",
+  "id": "c0449",
+  "acc": null,
+  "source": "application",
+  "section": "Research to equipment: Fire suppression systems and suppressant gases, uses on Earth",
+  "title": "NASA Spinoff: Fireman's Air Tanks",
+  "url": "https://spinoff.nasa.gov/node/9582",
+  "cite": "NASA Spinoff: Fireman's Air Tanks",
+  "text": "Fire suppression systems and suppressant gases, uses on Earth. NASA Spinoff: Fireman's Air Tanks states: They are pressurized at 4,500 psi, (twice current tanks)."
+ },
+ {
+  "id": "c0450",
+  "acc": null,
+  "source": "application",
+  "section": "Research to equipment: Fire suppression systems and suppressant gases, uses on Earth",
+  "title": "NASA Spinoff: Fireman's Air Tanks",
+  "url": "https://spinoff.nasa.gov/node/9582",
+  "cite": "NASA Spinoff: Fireman's Air Tanks",
+  "text": "Fire suppression systems and suppressant gases, uses on Earth. NASA Spinoff: Fireman's Air Tanks states: Redesigned face mask permits better vision."
+ },
+ {
+  "id": "c0451",
   "acc": null,
   "source": "application",
   "section": "Research to equipment: Fire suppression systems and suppressant gases, uses on Earth",
@@ -4490,7 +4520,7 @@
   "text": "Fire suppression systems and suppressant gases, uses on Earth. NASA Spinoff: New Technology for the Fire Attire states: lightweight, fire-resistant, heat-protective materials originally developed for use in astronauts' space suits"
  },
  {
-  "id": "c0449",
+  "id": "c0452",
   "acc": "PSI-20",
   "source": "application",
   "section": "Research to equipment: Cabin ventilation and air-flow control for spacecraft",
@@ -4500,7 +4530,7 @@
   "text": "Cabin ventilation and air-flow control for spacecraft. ACME BRE (PSI-20) states: The ongoing combustion without air flow was notably seen in elevated-oxygen atmospheres which are being considered for use in future spacecraft"
  },
  {
-  "id": "c0450",
+  "id": "c0453",
   "acc": "PSI-25",
   "source": "application",
   "section": "Research to equipment: Cabin ventilation and air-flow control for spacecraft",
@@ -4510,7 +4540,7 @@
   "text": "Cabin ventilation and air-flow control for spacecraft. BASS-II (PSI-25) states: Study the ignition, flame growth, flame spread, and extinction limits for solid fuels burning in low-velocity forced flows in microgravity."
  },
  {
-  "id": "c0451",
+  "id": "c0454",
   "acc": "PSI-26",
   "source": "application",
   "section": "Research to equipment: Material selection and flammability test standards for spacecraft",
@@ -4520,7 +4550,7 @@
   "text": "Material selection and flammability test standards for spacecraft. BASS (PSI-26) states: Current NASA spacecraft materials selection is based on a standard test method (NASA–STD–6001 Test 1) that segregates material based on 1-g behavior without consideration of low gravity effects."
  },
  {
-  "id": "c0452",
+  "id": "c0455",
   "acc": "PSI-98",
   "source": "application",
   "section": "Research to equipment: Material selection and flammability test standards for spacecraft",
@@ -4530,7 +4560,7 @@
   "text": "Material selection and flammability test standards for spacecraft. Saffire-I (PSI-98) states: Results determine microgravity flammability limits for several spacecraft materials, help to validate NASA’s material selection criteria, and how microgravity and limited oxygen affect flame size."
  },
  {
-  "id": "c0453",
+  "id": "c0456",
   "acc": "PSI-20",
   "source": "application",
   "section": "Research to equipment: Material selection and flammability test standards for spacecraft",
@@ -4540,7 +4570,7 @@
   "text": "Material selection and flammability test standards for spacecraft. ACME BRE (PSI-20) states: they suggest that NASA may want to increase use of its alternative flammability Test 2, with the cone calorimeter"
  },
  {
-  "id": "c0454",
+  "id": "c0457",
   "acc": "PSI-62",
   "source": "application",
   "section": "Research to equipment: Material selection and flammability test standards for spacecraft",
@@ -4550,7 +4580,7 @@
   "text": "Material selection and flammability test standards for spacecraft. BASS flame-spread modeling (ground) (PSI-62) states: This research provides predictive tools for screening new materials’ flammability limits, which can lead to the design of safer spacecrafts."
  },
  {
-  "id": "c0455",
+  "id": "c0458",
   "acc": null,
   "source": "application",
   "section": "Research to equipment: Material selection and flammability test standards for spacecraft",
@@ -4560,7 +4590,7 @@
   "text": "Material selection and flammability test standards for spacecraft. Apollo 1: lessons learned (NASA Safety and Mission Assurance) states: NASA restricted and controlled the amount and location of combustible material within the spacecraft."
  },
  {
-  "id": "c0456",
+  "id": "c0459",
   "acc": "PSI-98",
   "source": "application",
   "section": "Research to equipment: Material selection and flammability test standards, uses on Earth",
@@ -4570,7 +4600,7 @@
   "text": "Material selection and flammability test standards, uses on Earth. Saffire-I (PSI-98) states: Studying fire in small, sealed environments such as the Cygnus cargo supply vehicle benefits fire safety and prevention efforts on Earth, including inside mines, airplanes, or submarines."
  },
  {
-  "id": "c0457",
+  "id": "c0460",
   "acc": "PSI-62",
   "source": "application",
   "section": "Research to equipment: Fire simulation and prediction models for spacecraft",
@@ -4580,7 +4610,7 @@
   "text": "Fire simulation and prediction models for spacecraft. BASS flame-spread modeling (ground) (PSI-62) states: The development of Large Eddy Simulation subgrid models is expected to improve hazard assessment capabilities critical for managing fire risks during long-duration space missions and within confined spacecraft habitats."
  },
  {
-  "id": "c0458",
+  "id": "c0461",
   "acc": "PSI-25",
   "source": "application",
   "section": "Research to equipment: Fire simulation and prediction models for spacecraft",
@@ -4590,7 +4620,7 @@
   "text": "Fire simulation and prediction models for spacecraft. BASS-II (PSI-25) states: This simpler combustion process enables researchers to evaluate computer models of fuel burning."
  },
  {
-  "id": "c0459",
+  "id": "c0462",
   "acc": "PSI-117",
   "source": "application",
   "section": "Research to equipment: Fire simulation and prediction models for spacecraft",
@@ -4600,7 +4630,7 @@
   "text": "Fire simulation and prediction models for spacecraft. FLEX cool-flame CFD (ground) (PSI-117) states: Potential to improve spacecraft fire-safety modeling by resolving cool-flame/extinction behavior in microgravity"
  },
  {
-  "id": "c0460",
+  "id": "c0463",
   "acc": "PSI-107",
   "source": "application",
   "section": "Research to equipment: Fire simulation and prediction models for spacecraft",
@@ -4610,7 +4640,7 @@
   "text": "Fire simulation and prediction models for spacecraft. SPICE (PSI-107) states: Will contribute to refining our computational models for predicting flame behaviors under non-buoyant conditions."
  },
  {
-  "id": "c0461",
+  "id": "c0464",
   "acc": "PSI-25",
   "source": "application",
   "section": "Research to equipment: Fire simulation and prediction models, uses on Earth",
@@ -4620,7 +4650,7 @@
   "text": "Fire simulation and prediction models, uses on Earth. BASS-II (PSI-25) states: These models can then be used to more accurately study flames on Earth, such as in wildfires, building fires, energy recapture from waste recycling, and other combustion problems."
  },
  {
-  "id": "c0462",
+  "id": "c0465",
   "acc": null,
   "source": "application",
   "section": "Research to equipment: Lesson from the Apollo 1 (1967) fire",
@@ -4630,7 +4660,57 @@
   "text": "Lesson from the Apollo 1 (1967) fire. Apollo 1: lessons learned (NASA Safety and Mission Assurance) states: During the test, a flash fire swept through the spacecraft so quickly, there was no time to open the hatches."
  },
  {
-  "id": "c0463",
+  "id": "c0466",
+  "acc": null,
+  "source": "application",
+  "section": "Research to equipment: Lesson from the Apollo 1 (1967) fire",
+  "title": "Apollo 1: lessons learned (NASA Safety and Mission Assurance)",
+  "url": "https://sma.nasa.gov/sma-disciplines/accllp/apollo-1",
+  "cite": "Apollo 1: lessons learned (NASA Safety and Mission Assurance)",
+  "text": "Lesson from the Apollo 1 (1967) fire. Apollo 1: lessons learned (NASA Safety and Mission Assurance) states: Because of the pure oxygen atmosphere, the fire spread quickly, causing a rapid rise in temperature and pressure that led to the rupture of the Command Module pressure vessel."
+ },
+ {
+  "id": "c0467",
+  "acc": null,
+  "source": "application",
+  "section": "Research to equipment: Lesson from the Apollo 1 (1967) fire",
+  "title": "Apollo 1: lessons learned (NASA Safety and Mission Assurance)",
+  "url": "https://sma.nasa.gov/sma-disciplines/accllp/apollo-1",
+  "cite": "Apollo 1: lessons learned (NASA Safety and Mission Assurance)",
+  "text": "Lesson from the Apollo 1 (1967) fire. Apollo 1: lessons learned (NASA Safety and Mission Assurance) states: NASA also replaced the three-piece hatch with a unified hatch that could be opened from the inside or outside within three seconds."
+ },
+ {
+  "id": "c0468",
+  "acc": null,
+  "source": "application",
+  "section": "Research to equipment: Lesson from the Apollo 13 (1970) fire",
+  "title": "Apollo 13: lessons learned (NASA Safety and Mission Assurance)",
+  "url": "https://sma.nasa.gov/sma-disciplines/accllp/apollo-13",
+  "cite": "Apollo 13: lessons learned (NASA Safety and Mission Assurance)",
+  "text": "Lesson from the Apollo 13 (1970) fire. Apollo 13: lessons learned (NASA Safety and Mission Assurance) states: During the final test on the launch pad, the heaters were left on for an extended period and reached temperatures around 1000 degrees Fahrenheit, degrading the Teflon insulation."
+ },
+ {
+  "id": "c0469",
+  "acc": null,
+  "source": "application",
+  "section": "Research to equipment: Lesson from the Apollo 13 (1970) fire",
+  "title": "Apollo 13: lessons learned (NASA Safety and Mission Assurance)",
+  "url": "https://sma.nasa.gov/sma-disciplines/accllp/apollo-13",
+  "cite": "Apollo 13: lessons learned (NASA Safety and Mission Assurance)",
+  "text": "Lesson from the Apollo 13 (1970) fire. Apollo 13: lessons learned (NASA Safety and Mission Assurance) states: For Apollo 14 and future missions, engineers at NASA and North American Rockwell redesigned the oxygen tank system by adding a third tank in a different bay, upgrading thermostats, removing stirring fans and sheathing all electrical wiring in stainless steel."
+ },
+ {
+  "id": "c0470",
+  "acc": null,
+  "source": "application",
+  "section": "Research to equipment: Lesson from the Apollo 13 (1970) fire",
+  "title": "Apollo 13: lessons learned (NASA Safety and Mission Assurance)",
+  "url": "https://sma.nasa.gov/sma-disciplines/accllp/apollo-13",
+  "cite": "Apollo 13: lessons learned (NASA Safety and Mission Assurance)",
+  "text": "Lesson from the Apollo 13 (1970) fire. Apollo 13: lessons learned (NASA Safety and Mission Assurance) states: Thankfully, a lesson learned from the Apollo I fire prevented arcing from happening, as a major redesign added increased insulation to better protect the wiring."
+ },
+ {
+  "id": "c0471",
   "acc": null,
   "source": "application",
   "section": "Research to equipment: Lesson from the Mir (1997) fire",
@@ -4640,7 +4720,7 @@
   "text": "Lesson from the Mir (1997) fire. 25 Years Ago: Fire Aboard Space Station Mir (NASA History) states: the canister ignited, shooting a three-foot flame with sparks and bits of molten metal across the module and generating a large quantity of dense smoke."
  },
  {
-  "id": "c0464",
+  "id": "c0472",
   "acc": null,
   "source": "application",
   "section": "Research to equipment: Lesson from the Mir (1997) fire",
@@ -4650,7 +4730,7 @@
   "text": "Lesson from the Mir (1997) fire. 25 Years Ago: Fire Aboard Space Station Mir (NASA History) states: The flame blocked the evacuation route to the Soyuz spacecraft docked at the aft end of Kvant-1"
  },
  {
-  "id": "c0465",
+  "id": "c0473",
   "acc": null,
   "source": "application",
   "section": "Research to equipment: Lesson from the Mir (1997) fire",
@@ -4660,7 +4740,7 @@
   "text": "Lesson from the Mir (1997) fire. 25 Years Ago: Fire Aboard Space Station Mir (NASA History) states: They identified the most likely culprit as latex working glove material inadvertently introduced into the canister."
  },
  {
-  "id": "c0466",
+  "id": "c0474",
   "acc": null,
   "source": "application",
   "section": "Research to equipment: Lesson from the Mir (1997) fire",

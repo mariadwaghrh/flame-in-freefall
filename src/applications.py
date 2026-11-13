@@ -54,6 +54,7 @@ def load_checked():
 if __name__ == "__main__":
     sys.stdout.reconfigure(encoding="utf-8")
     apps = load_checked()
-    n = sum(len(c["links"]) + len(c["earth"]) for c in apps["categories"]) + sum(len(l.get("quotes", [1])) for l in apps["lessons"]) + len(apps["key_insight"]["quotes"])
+    items = [i for c in apps["categories"] for i in c["links"] + c["earth"]] + apps["lessons"] + [apps["key_insight"]]
+    n = sum(len(i.get("quotes", [1])) for i in items)
     json.dump(apps, open(os.path.join(config.PROCESSED, "applications.json"), "w", encoding="utf-8"), ensure_ascii=False)
     print(f"OK: {n} quotes checked word for word against NASA sources ({len(apps['categories'])} equipment categories).")
