@@ -8,7 +8,7 @@ const $ = (id) => document.getElementById(id);
 const qs = new URLSearchParams(location.search);
 export const state = {
   lang: ["ar", "en"].includes(qs.get("lang")) ? qs.get("lang") : localStorage.getItem("lang") || "ar",
-  meta: null, catalog: [], byAcc: {}, materials: [], view: "overview", scenario: "lunar_base",
+  meta: null, catalog: [], byAcc: {}, materials: [], view: "home", scenario: "lunar_base",
   static: false, status: null,                          // static = no Python server behind the page (set in init)
   filters: { q: "", pillar: "", phase: "", tier: "", kind: "" },
 };

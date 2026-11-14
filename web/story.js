@@ -129,7 +129,7 @@ function render() {
       h("p", { text: L("هذا لهب حقيقي صوّرته ناسا على محطة الفضاء الدولية: بعد الاشتعال يصير كرة زرقاء.", "This is a real flame NASA filmed on the International Space Station: after ignition it becomes a blue sphere.") }),
       quote("Instead of a flickering teardrop, a candle flame becomes a ghostly blue sphere reliant on diffusion for its oxygen.", "challenge"),
       h("div", { class: "cta" }, h("span", { class: "st-hint", text: L("مرّر للأسفل ↓", "Scroll ↓") }),
-        h("button", { class: "btn ghost", text: L("تخطَّ إلى لوحة البيانات", "Skip to the dashboard"), onclick: () => go("overview") }))]],
+        h("button", { class: "btn ghost", text: L("تخطَّ إلى الرئيسية", "Skip to the home page"), onclick: () => go("home") }))]],
     ["apollo", h("div", { class: "st-viz bignum" }, h("div", { class: "bn-year ltr", text: "1967" }), h("div", { class: "bn-val ltr", text: "100%" }), h("div", { class: "bn-label", text: L("أكسجين في المقصورة", "oxygen in the cabin") })), [
       h("div", { class: "kicker", text: "Apollo 1" }),
       h("h2", { text: L("حريق لم يترك وقتاً لفتح الباب", "A fire that left no time to open the hatch") }),
