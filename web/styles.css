@@ -473,3 +473,12 @@ main:has(> #view-story:not([hidden])) { max-width: none; padding: 0; }
 .eq-more[open] summary { margin-bottom: 8px; }
 .eq-lessons { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 @media (max-width: 1000px) { .eq-lessons { grid-template-columns: minmax(0, 1fr); } }
+
+/* home: three doors */
+.home-doors { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 1000px) { .home-doors { grid-template-columns: minmax(0, 1fr); } }
+.home-door { text-align: start; display: grid; gap: 6px; align-content: start; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 18px 20px; cursor: pointer; color: var(--text); font: inherit; }
+.home-door:hover { border-color: var(--lime); }
+.home-door-n { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: var(--lime); color: var(--lime-ink); font-weight: 900; }
+.home-door b { font-size: 19px; font-weight: 900; } .home-door span:last-child { color: var(--text-2); font-size: 14.5px; }
+p.home-trust { justify-content: center; }

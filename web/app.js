@@ -19,7 +19,7 @@ const CHROME = {
   brand_sub: ["لهب في السقوط الحر · تحدي ناسا Space Apps 2026", "Flame in Freefall · NASA Space Apps Challenge 2026"],
   tab_overview: ["نظرة عامة", "Overview"], tab_investigations: ["التجارب", "Investigations"], tab_moon: ["جاهزية القمر", "Moon readiness"],
   tab_story: ["القصة", "Story"], tab_home: ["الرئيسية", "Home"],
-  tab_equipment: ["من البحث إلى المعدّات", "Research to equipment"], tab_data: ["بيانات الاختبارات", "Test data"], tab_ask: ["اسأل", "Ask"],
+  tab_equipment: ["المعدّات", "Equipment"], tab_data: ["البيانات", "Data"], tab_ask: ["اسأل", "Ask"],
   scenario_label: ["بيئة الطاقم", "Crew environment"],
 };
 const PART_COLORS = { directness: "var(--s1)", semantic: "var(--s2)", conditions: "var(--s3)", data: "var(--s4)" };
