@@ -19,7 +19,7 @@ A bilingual (Arabic / English) dashboard that summarises, ranks and interprets t
 | Test data | every PSI test table, plotted, with normalised columns and CSV export for modelling |
 | Ask | questions in Arabic or English, answered by a local model from NASA passages only; every sentence and number is checked, unsupported ones are removed |
 
-The main finding: no solid material (fabric, plastic) in the PSI tables was tested above about 22% oxygen or at reduced pressure, while a Moon base is expected at 30% oxygen or more and 10.2 psi or less.
+The main finding: no real solid sample (fabric, plastic) in the PSI tables was tested above 22.2% oxygen or at reduced pressure, while a Moon base is expected at 30% oxygen or more and 10.2 psi or less. The closest NASA came is BRE, whose gas burners emulate burning solids up to 34% oxygen at 8.2 psi.
 
 How it works: [ARCHITECTURE.md](ARCHITECTURE.md).
 

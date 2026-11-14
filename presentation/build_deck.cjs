@@ -71,7 +71,7 @@ s.addNotes("المشكلة: Apollo 1 عام 1967، المقصورة أكسجين
 
 // ---------- 3. the data problem ----------
 s = pres.addSlide({ masterName: "CONTENT", sectionTitle: "Story" });
-s.addText("NASA ran the experiments. Finding the answer is the hard part", { placeholder: "title" });
+s.addText("NASA ran the experiments, but finding the answer is the hard part", { placeholder: "title" });
 [["24", "combustion investigations in NASA's PSI database"], ["2,001", "test rows: fuel, oxygen, pressure, air flow"], ["12.3 TiB", "of raw video and sensor files in the archive"]].forEach(([n, l], i) => {
   const x = 0.6 + i * 2.35;
   T(s, n, { x, y: 1.75, w: 2.2, h: 0.95, fontSize: i === 2 ? 40 : 54, bold: true, color: LIME, valign: "bottom", objectName: `Stat ${i + 1}` });
@@ -103,7 +103,7 @@ s.addNotes("التحدي اقترح ثلاثة أشياء، ونفّذنا ال�
 
 // ---------- 5. the finding ----------
 s = pres.addSlide({ masterName: "CONTENT", sectionTitle: "Solution" });
-s.addText("What we found: no solid material was tested above 22.2% oxygen", { placeholder: "title" });
+s.addText("What we found: no real solid sample was tested above 22.2% oxygen", { placeholder: "title" });
 s.addChart(pres.charts.BAR, [{ name: "Highest oxygen tested (%)", labels: ["Wax (candle)", "Silicone", "SIBAL fabric", "Nomex", "PMMA (acrylic)", "Moon base needs"], values: [17.4, 22.1, 22.1, 22.2, 22.2, 30] }], {
   x: 0.6, y: 1.6, w: 7.5, h: 4.75, barDir: "bar", chartColors: [HEX.accent3, HEX.accent3, HEX.accent3, HEX.accent3, HEX.accent3, HEX.accent2], invertedColors: [HEX.accent3],
   showTitle: true, title: "Highest oxygen each solid material was tested at (%)", titleColor: HEX.lt2, titleFontSize: 13, titleFontFace: "+mn-lt",
@@ -111,14 +111,14 @@ s.addChart(pres.charts.BAR, [{ name: "Highest oxygen tested (%)", labels: ["Wax 
   catAxisLabelColor: HEX.lt2, valAxisLabelColor: HEX.accent6, catAxisLabelFontSize: 12, valAxisLabelFontSize: 11, catAxisLabelFontFace: "+mn-lt", valAxisLabelFontFace: "+mn-lt",
   valAxisMinVal: 0, valAxisMaxVal: 35, valAxisMajorUnit: 5, valGridLine: { color: "262A4A", size: 0.75 }, catGridLine: { style: "none" }, showLegend: false, barGapWidthPct: 55,
   altText: "Bar chart: solid materials were tested up to 22.2% oxygen; a Moon base needs 30%", objectName: "Gap chart" });
-T(s, "Computed from the NASA PSI test tables (2,001 rows)", { x: 0.6, y: 6.4, w: 7.5, h: 0.3, fontSize: 10, color: MUTED, objectName: "Chart source" });
+T(s, "Computed from the NASA PSI test tables (2,001 rows). Solid materials with recorded oxygen; 5 more from the SAME smoke tests have none recorded.", { x: 0.6, y: 6.4, w: 7.5, h: 0.4, fontSize: 10, color: MUTED, objectName: "Chart source" });
 card(s, 8.5, 1.65, 4.23, 2.3, "Zero card");
 T(s, "0", { x: 8.8, y: 1.8, w: 3.6, h: 1.0, fontSize: 60, bold: true, color: RED, valign: "middle", objectName: "Zero" });
 T(s, "test rows burn a solid material at 30% oxygen or more, or at reduced pressure", { x: 8.8, y: 2.85, w: 3.65, h: 0.95, fontSize: 14, color: SOFT, objectName: "Zero label" });
 card(s, 8.5, 4.2, 4.23, 2.45, "Six card");
 T(s, "6", { x: 8.8, y: 4.35, w: 3.6, h: 1.0, fontSize: 60, bold: true, color: LIME, valign: "middle", objectName: "Six" });
-T(s, "investigations reach 30% or more, but every one of them burns a gas or a liquid", { x: 8.8, y: 5.4, w: 3.65, h: 0.95, fontSize: 14, color: SOFT, objectName: "Six label" });
-s.addNotes("هذا اكتشافنا من البيانات: أعلى أكسجين اختُبرت فيه مادة صلبة هو 22.2%، والقاعدة القمرية تحتاج 30%. عدد اختبارات المواد الصلبة عند 30% أو أكثر: صفر. ست تجارب وصلت إلى 30% لكنها كلها غاز أو سائل. نحن لا نتنبأ بالخطر، بل نُظهر أين لا توجد بيانات.");
+T(s, "investigations reach 30% or more, but all burn a gas or a liquid. Closest: BRE, gas burners that emulate solids", { x: 8.8, y: 5.4, w: 3.65, h: 0.95, fontSize: 13, color: SOFT, objectName: "Six label" });
+s.addNotes("هذا اكتشافنا من البيانات: أعلى أكسجين اختُبرت فيه مادة صلبة هو 22.2%، والقاعدة القمرية تحتاج 30%. عدد اختبارات المواد الصلبة عند 30% أو أكثر: صفر. ست تجارب وصلت إلى 30% لكنها كلها غاز أو سائل، وأقربها BRE التي قلّدت المواد الصلبة بحارقات غاز حتى 34%. نحن لا نتنبأ بالخطر، بل نُظهر أين لا توجد بيانات.");
 
 // ---------- 6. how it works ----------
 s = pres.addSlide({ masterName: "CONTENT", sectionTitle: "Solution" });

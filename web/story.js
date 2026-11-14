@@ -45,7 +45,8 @@ function gapChart() {
       solids.map((m, i) => h("div", { class: "gap-row" },
         h("div", { class: "gap-name" }, h("span", { dir: "auto", text: fuel(m.name) }), h("b", { text: `${fmt(m.o2_max, 1)}%` })),
         h("div", { class: "gap-track" }, h("i", { style: `--w:${pct(m.o2_max)}%;--i:${i}` }))))),
-    h("div", { class: "viz-note", text: L(`صفوف اختبار لمواد صلبة عند 30% أكسجين أو أكثر: 0`, `Test rows of solid materials at 30% oxygen or more: 0`) }));
+    h("div", { class: "viz-note", text: L(`صفوف اختبار لمواد صلبة عند 30% أكسجين أو أكثر: 0`, `Test rows of solid materials at 30% oxygen or more: 0`) }),
+    h("div", { class: "viz-foot", text: L("المواد الصلبة التي سجّلت ناسا أكسجينها. خمس مواد أخرى (Kapton، Teflon، فتيل، رغوة Pyrell، Ultem) من تجارب الدخان SAME بلا أكسجين مسجّل.", "Solid materials whose oxygen NASA recorded. Five more (Kapton, Teflon, lamp wick, Pyrell foam, Ultem) come from the SAME smoke tests, with no oxygen recorded.") }));
 }
 
 function moonBars() {
@@ -149,14 +150,14 @@ function render() {
     ["data", [video("PSI-26_1.mp4", 9, "Real video: BASS test on the ISS, 30 April 2013, NASA PSI (PSI-26)"),
       h("div", { class: "st-viz counters" }, counters.map((c) => h("div", { class: "counter" }, c.el, h("span", { text: c.label }))))], [
       h("div", { class: "kicker", text: L("المشكلة", "The problem") }),
-      h("h2", { text: L("ناسا أجرت التجارب. الصعب هو إيجاد الجواب", "NASA ran the experiments. Finding the answer is the hard part") }),
+      h("h2", { text: L("ناسا أجرت التجارب، لكن الصعب هو إيجاد الجواب", "NASA ran the experiments, but finding the answer is the hard part") }),
       quote("the amount of data can be overwhelming. It can be hard to find, harder to compare, and harder yet to interpret.", "challenge"),
       h("p", { text: L("قرأنا كل سجلات الاحتراق في قاعدة بيانات ناسا (PSI) وكل جداول اختباراتها، ووحّدنا الأكسجين والضغط والتدفق وأسماء المواد على مقياس واحد.", "We read every combustion record in NASA's PSI database and every test table, and put oxygen, pressure, flow and material names on one scale.") })]],
     ["gap", gapChart(), [
       h("div", { class: "kicker", text: L("ما وجدناه", "What we found") }),
-      h("h2", { text: L(`لم تُختبر أي مادة صلبة فوق ${fmt(solidMax, 1)}% أكسجين`, `No solid material was tested above ${fmt(solidMax, 1)}% oxygen`) }),
-      h("p", { text: L(`${high} تجارب وصلت إلى 30% أو أكثر، لكنها كلها تحرق غازاً أو سائلاً. الأقمشة والبلاستيك التي ستكون داخل القاعدة القمرية لم تُختبر في جوّها، ولا عند ضغط منخفض.`,
-        `${high} investigations reach 30% or more, but all of them burn a gas or a liquid. The fabrics and plastics that will sit inside a Moon base were not tested in its atmosphere, nor at reduced pressure.`) }),
+      h("h2", { text: L(`لم تُختبر أي عيّنة صلبة حقيقية فوق ${fmt(solidMax, 1)}% أكسجين`, `No real solid sample was tested above ${fmt(solidMax, 1)}% oxygen`) }),
+      h("p", { text: L(`${high} تجارب وصلت إلى 30% أو أكثر، لكنها كلها تحرق غازاً أو سائلاً. الأقمشة والبلاستيك التي ستكون داخل القاعدة القمرية لم تُختبر في جوّها، ولا عند ضغط منخفض. أقرب ما وصلت إليه ناسا تجربة BRE: حارقات غاز تقلّد احتراق المواد الصلبة، حتى 34% أكسجين بضغط 8.2 psi. لكنها ليست عيّنات صلبة حقيقية.`,
+        `${high} investigations reach 30% or more, but all of them burn a gas or a liquid. The fabrics and plastics that will sit inside a Moon base were not tested in its atmosphere, nor at reduced pressure. The closest NASA came is BRE: gas burners that emulate burning solids, up to 34% oxygen at 8.2 psi. They are not real solid samples.`) }),
       h("div", { class: "cta" }, h("button", { class: "btn primary", text: L("افتح جاهزية القمر", "Open Moon readiness"), onclick: () => go("moon") }))]],
     ["how", pipeline(), [
       h("div", { class: "kicker", text: L("كيف يعمل TrustFlame", "How TrustFlame works") }),

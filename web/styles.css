@@ -319,6 +319,7 @@ main:has(> #view-story:not([hidden])) { max-width: none; padding: 0; }
 .st-viz { position: absolute; z-index: 2; inset-inline-end: 6vw; top: 50%; transform: translateY(-50%); width: min(44vw, 580px); }
 .viz-title { color: var(--lime); font-weight: 800; font-size: 14px; margin-bottom: 12px; }
 .viz-note { color: var(--muted); font-size: 12.5px; margin-top: 10px; }
+.viz-foot { color: var(--muted); font-size: 12px; margin-top: 6px; line-height: 1.6; }
 .gap-chart .viz-note { color: var(--critical-ink); font-weight: 800; font-size: 14.5px; }
 
 .bignum { text-align: center; }

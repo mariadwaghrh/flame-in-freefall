@@ -80,8 +80,8 @@ function render() {
             : h("div", { class: "sub", text: L("النتيجة غير مسجّلة في جدول هذه التجربة.", "Outcome not recorded in this table.") })))
           : h("div", { class: "empty", text: L("لا يوجد أي اختبار في PSI بهذه الظروف. هذه فجوة في البيانات.", "No PSI test reached these conditions. This is a data gap.") }))),
     h("div", { class: "card warn-card" }, h("b", { text: L("كيف تقرأ هذه الأداة: ", "How to read this: ") }),
-      L("الأداة تعدّ ما اختبرته ناسا فعلاً. عدم وجود اختبار لا يعني أن المادة آمنة أو خطرة، بل يعني أنه لا توجد بيانات، وهذا بالضبط ما يحتاج المهندسون معرفته قبل تصميم قاعدة قمرية.",
-        "The tool counts what NASA actually tested. A missing test does not mean a material is safe or dangerous; it means there is no data, which is exactly what engineers need to know before designing a Moon base.")),
+      L("الأداة تعدّ ما اختبرته ناسا فعلاً. عدم وجود اختبار لا يعني أن المادة آمنة أو خطرة، بل يعني أنه لا توجد بيانات، وهذا بالضبط ما يحتاج المهندسون معرفته قبل تصميم قاعدة قمرية. أقرب ما وصلت إليه ناسا تجربة BRE: حارقات غاز تقلّد احتراق المواد الصلبة، حتى 34% أكسجين بضغط 8.2 psi. لكنها ليست عيّنات صلبة حقيقية.",
+        "The tool counts what NASA actually tested. A missing test does not mean a material is safe or dangerous; it means there is no data, which is exactly what engineers need to know before designing a Moon base. The closest NASA came is BRE: gas burners that emulate burning solids, up to 34% oxygen at 8.2 psi. They are not real solid samples.")),
   );
 }
 // Simple arithmetic on the slider values (no model): share of oxygen vs amount of oxygen (partial pressure).
