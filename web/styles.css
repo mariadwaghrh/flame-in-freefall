@@ -482,3 +482,6 @@ main:has(> #view-story:not([hidden])) { max-width: none; padding: 0; }
 .home-door-n { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: var(--lime); color: var(--lime-ink); font-weight: 900; }
 .home-door b { font-size: 19px; font-weight: 900; } .home-door span:last-child { color: var(--text-2); font-size: 14.5px; }
 p.home-trust { justify-content: center; }
+
+.home-answers { scroll-margin-top: 90px; }
+.home-answers:empty { display: none; }

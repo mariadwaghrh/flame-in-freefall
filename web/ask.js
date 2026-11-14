@@ -137,6 +137,9 @@ function evalLine(e) {
       h("td", { class: "ltr", dir: "ltr" }, h("b", { text: r.q }), h("div", { class: "sub", text: (r.expect === "abstain" ? "Expected: decline" : "Expected: " + r.expected) + " · Got: " + (r.final || r.decision) })))))));
 }
 
+// the home page shows answers in its own list, under the Ask box
+export function askInto(question, log, sendBtn) { if (!scope.busy) ask(question, log, sendBtn); }
+
 async function ask(question, log, sendBtn) {
   scope.busy = true; sendBtn.disabled = true;
   const arQ = /[؀-ۿ]/.test(question);
