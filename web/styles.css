@@ -399,3 +399,17 @@ main:has(> #view-story:not([hidden])) { max-width: none; padding: 0; }
 .ai-ar { margin-top: 10px; padding: 10px 12px; border-radius: 10px; background: var(--surface-2); display: grid; gap: 4px; }
 .ai-ar-label { color: var(--warning-ink); font-weight: 800; font-size: 12.5px; cursor: pointer; }
 .ai-ar { display: block; } .ai-ar[open] .ai-text { margin-top: 6px; }
+
+/* what to test next (Moon page) */
+.next-card { display: grid; gap: 14px; scroll-margin-top: 90px; }
+.next-card h3 { font-size: 22px; font-weight: 900; }
+.next-split { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 14px; align-items: stretch; }
+@media (max-width: 900px) { .next-split { grid-template-columns: minmax(0, 1fr); } .next-vs { display: none; } }
+.next-fact { background: var(--surface-2); border-radius: 12px; padding: 12px 14px; display: grid; gap: 8px; align-content: start; }
+.next-fact > span { color: var(--text-2); font-size: 13.5px; }
+.next-vs { align-self: center; font-size: 34px; font-weight: 900; color: var(--critical-ink); }
+.chip.hot { background: rgba(255, 138, 61, .18); color: var(--flame); }
+.next-line { font-weight: 800; font-size: 16px; color: var(--text); }
+.next-miss { color: var(--critical-ink); font-size: 13px; white-space: nowrap; }
+.next-table td { vertical-align: top; }
+.next-quotes b { display: block; margin-bottom: 6px; font-size: 14px; }

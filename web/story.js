@@ -158,7 +158,7 @@ function render() {
       h("h2", { text: L(`لم تُختبر أي عيّنة صلبة حقيقية فوق ${fmt(solidMax, 1)}% أكسجين`, `No real solid sample was tested above ${fmt(solidMax, 1)}% oxygen`) }),
       h("p", { text: L(`${high} تجارب وصلت إلى 30% أو أكثر، لكنها كلها تحرق غازاً أو سائلاً. الأقمشة والبلاستيك التي ستكون داخل القاعدة القمرية لم تُختبر في جوّها، ولا عند ضغط منخفض. أقرب ما وصلت إليه ناسا تجربة BRE: حارقات غاز تقلّد احتراق المواد الصلبة، حتى 34% أكسجين بضغط 8.2 psi. لكنها ليست عيّنات صلبة حقيقية.`,
         `${high} investigations reach 30% or more, but all of them burn a gas or a liquid. The fabrics and plastics that will sit inside a Moon base were not tested in its atmosphere, nor at reduced pressure. The closest NASA came is BRE: gas burners that emulate burning solids, up to 34% oxygen at 8.2 psi. They are not real solid samples.`) }),
-      h("div", { class: "cta" }, h("button", { class: "btn primary", text: L("افتح جاهزية القمر", "Open Moon readiness"), onclick: () => go("moon") }))]],
+      h("div", { class: "cta" }, h("button", { class: "btn primary", text: L("ماذا يجب أن تختبر ناسا؟", "What should NASA test next?"), onclick: () => { go("moon"); setTimeout(() => document.querySelector(".next-card")?.scrollIntoView({ block: "start" }), 300); } }))]],
     ["how", pipeline(), [
       h("div", { class: "kicker", text: L("كيف يعمل TrustFlame", "How TrustFlame works") }),
       h("h2", { text: L("لا جملة بلا دليل، ولا رقم بلا مصدر", "No sentence without evidence, no number without a source") }),

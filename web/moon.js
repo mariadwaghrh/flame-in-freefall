@@ -79,6 +79,7 @@ function render() {
             ltr(Object.entries(vals).sort((a, b) => b[1] - a[1]).slice(0, 5).map(([v, n]) => `${v} (${n})`).join(" · "))))
             : h("div", { class: "sub", text: L("النتيجة غير مسجّلة في جدول هذه التجربة.", "Outcome not recorded in this table.") })))
           : h("div", { class: "empty", text: L("لا يوجد أي اختبار في PSI بهذه الظروف. هذه فجوة في البيانات.", "No PSI test reached these conditions. This is a data gap.") }))),
+    nextTests(),
     h("div", { class: "card warn-card" }, h("b", { text: L("كيف تقرأ هذه الأداة: ", "How to read this: ") }),
       L("الأداة تعدّ ما اختبرته ناسا فعلاً. عدم وجود اختبار لا يعني أن المادة آمنة أو خطرة، بل يعني أنه لا توجد بيانات، وهذا بالضبط ما يحتاج المهندسون معرفته قبل تصميم قاعدة قمرية. أقرب ما وصلت إليه ناسا تجربة BRE: حارقات غاز تقلّد احتراق المواد الصلبة، حتى 34% أكسجين بضغط 8.2 psi. لكنها ليست عيّنات صلبة حقيقية.",
         "The tool counts what NASA actually tested. A missing test does not mean a material is safe or dangerous; it means there is no data, which is exactly what engineers need to know before designing a Moon base. The closest NASA came is BRE: gas burners that emulate burning solids, up to 34% oxygen at 8.2 psi. They are not real solid samples.")),
@@ -110,6 +111,65 @@ function o2Card() {
     h("blockquote", { class: "quote ltr", dir: "ltr", text: "“The intermediate oxygen concentration used on the Moon will likely be 30% or greater, with a corresponding pressure of 10.2 psi or less. Compared to Earth's atmosphere, that's more than a 40% increase in the oxygen concentration making materials much more flammable.”" }),
     h("div", { class: "eq-src", text: L("من نص تحدي ناسا (Flame in Freefall)", "NASA Space Apps challenge statement (Flame in Freefall)") }));
 }
+// ---------- What to test next ----------
+// Built only from the gaps in NASA's tables: it lists what is missing and where NASA has already burned what.
+// It ranks nothing and predicts nothing.
+const NASA_ATMOSPHERES = "NASA - considered atmosphere for human space missions will be examined: 14.7 psia, 21 % oxygen: 10.2 psia, 26.5 %; and 8.2 psia, 34 % oxygen.";
+const LUCI_FM2 = "We expect such data will be added in the future, for example from the Lunar-g Combustion Investigation (LUCI) and the Flammability of Materials on the Moon (FM2) experiment.";
+const FAMILY_AR = { "MSG / SPICE flow duct": "صندوق القفازات MSG، قناة تدفق SPICE", "Saffire / Cygnus": "Saffire داخل مركبة Cygnus", "Smoke & aerosol instruments": "أجهزة الدخان والهباء",
+  "ACME / CIR": "ACME في رف الاحتراق CIR", "MDCA / CIR": "MDCA في رف الاحتراق CIR" };
+const famName = (f) => (AR() ? FAMILY_AR[f] || f : f);
+
+function nextTests() {
+  const solids = state.materials.filter((m) => m.phase === "solid").sort((a, b) => (b.o2_max ?? -1) - (a.o2_max ?? -1) || b.rows - a.rows);
+  const famsOf = (accs) => [...new Set(accs.map((a) => state.byAcc[a] && state.byAcc[a].family).filter(Boolean))];
+  const high = state.catalog.filter((i) => i.o2_range && i.o2_range[1] >= 30);
+  const highFams = [...new Set(high.map((i) => i.family))];
+  const solidFams = famsOf(solids.flatMap((m) => m.investigations));
+  const gap = (m) => {
+    const miss = [];
+    if (m.o2_max == null) miss.push(L("لا قيمة أكسجين مسجّلة", "no oxygen recorded"));
+    else if (m.o2_max < ui.o2) miss.push(L(`أكسجين ${ui.o2}% (ينقص ${fmt(ui.o2 - m.o2_max, 1)} نقطة)`, `${ui.o2}% oxygen (${fmt(ui.o2 - m.o2_max, 1)} points short)`));
+    if (!m.low_pressure_tested) miss.push(L(`ضغط ${ui.atm} atm أو أقل`, `pressure of ${ui.atm} atm or less`));
+    return miss;
+  };
+  const famChip = (f, hot) => h("span", { class: "chip" + (hot ? " hot" : ""), text: famName(f) });
+  return h("section", { class: "card next-card" },
+    h("div", { class: "card-head" }, h("div", {},
+      h("div", { class: "kicker", text: L("من الفجوة إلى خطة", "From the gap to a plan") }),
+      h("h3", { text: L("ماذا يجب أن تختبر ناسا قبل القاعدة القمرية؟", "What should NASA test before a Moon base?") }),
+      h("p", { class: "sub", text: L("مبنية فقط من الفجوات في جداول ناسا: تعرض ما ينقص، وأين اختبرت ناسا كل مادة من قبل. لا ترتيب ولا تنبؤ.",
+        "Built only from the gaps in NASA's tables: it shows what is missing, and where NASA has already tested each material. No ranking, no prediction.") }))),
+    h("div", { class: "next-split" },
+      h("div", { class: "next-fact" },
+        h("b", { text: L("المواد الصلبة اختُبرت هنا", "Solid materials were tested here") }),
+        h("div", { class: "chips" }, solidFams.map((f) => famChip(f, false))),
+        h("span", { text: L(`أعلى أكسجين سُجّل فيها: ${fmt(Math.max(...solids.filter((m) => m.o2_max != null).map((m) => m.o2_max)), 1)}%`, `highest oxygen recorded there: ${fmt(Math.max(...solids.filter((m) => m.o2_max != null).map((m) => m.o2_max)), 1)}%`) })),
+      h("div", { class: "next-vs ltr", text: "≠" }),
+      h("div", { class: "next-fact" },
+        h("b", { text: L("لهب بأكسجين 30% أو أكثر جرى هنا", "Flames at 30% oxygen or more ran here") }),
+        h("div", { class: "chips" }, highFams.map((f) => famChip(f, true))),
+        h("span", { text: L(`${high.length} تجارب، كلها غاز أو سائل، حتى ${fmt(Math.max(...high.map((i) => i.o2_range[1])), 0)}% أكسجين`,
+          `${high.length} investigations, all gas or liquid, up to ${fmt(Math.max(...high.map((i) => i.o2_range[1])), 0)}% oxygen`) }))),
+    h("p", { class: "next-line", text: L("الأجهزة التي اختبرت المواد الصلبة لم تتجاوز هواء الأرض تقريباً، والأجهزة التي وصلت إلى أكسجين القمر لم تُحرق مادة صلبة واحدة. الاختبار الناقص يقع بينهما بالضبط.",
+      "The hardware that tested solid materials stayed near Earth's air, and the hardware that reached Moon-base oxygen never burned a solid sample. The missing test sits exactly between them.") }),
+    h("div", { class: "table-wrap" }, h("table", { class: "cmp next-table" },
+      h("thead", {}, h("tr", {}, [L("المادة", "Material"), L("أعلى أكسجين اختُبر", "Highest oxygen tested"), L("ما ينقص لهذه الظروف", "Missing for these conditions"), L("أين اختبرتها ناسا", "Where NASA tested it")].map((t) => h("th", { text: t })))),
+      h("tbody", {}, solids.map((m) => h("tr", {},
+        h("td", {}, h("b", { text: fuel(m.name) }), h("div", { class: "sub", text: L(`${m.rows} صف اختبار`, `${m.rows} test rows`) })),
+        h("td", {}, m.o2_max == null ? h("span", { class: "badge meta", text: L("غير مسجّل", "not recorded") }) : h("b", { class: "ltr", text: `${fmt(m.o2_max, 1)}%` })),
+        h("td", {}, gap(m).length ? gap(m).map((g) => h("div", { class: "next-miss", text: "✕ " + g })) : h("span", { class: "badge ok", text: L("مغطّاة", "covered") })),
+        h("td", {}, h("div", { class: "chips" }, famsOf(m.investigations).map((f) => famChip(f, false))),
+          h("div", { class: "sub" }, m.investigations.map((a, i) => [i ? ", " : "", h("button", { class: "linklike", text: short(state.byAcc[a]), onclick: () => openDrawer(a) })])))))))),
+    h("div", { class: "grid-even next-quotes" },
+      h("div", {}, h("b", { text: L("الأجواء التي تدرسها ناسا لمهمات البشر", "The atmospheres NASA considers for crewed missions") }),
+        h("blockquote", { class: "quote ltr", dir: "ltr", text: "“" + NASA_ATMOSPHERES + "”" }),
+        h("div", { class: "eq-src" }, h("button", { class: "linklike", text: L("سجل PSI لتجربة ACME BRE (الهدف) ↗", "PSI record of ACME BRE (objective) ↗"), onclick: () => openDrawer("PSI-20") }))),
+      h("div", {}, h("b", { text: L("ما تتوقع ناسا إضافته", "What NASA expects to add") }),
+        h("blockquote", { class: "quote ltr", dir: "ltr", text: "“" + LUCI_FM2 + "”" }),
+        h("div", { class: "eq-src", text: L("من نص تحدي ناسا (Flame in Freefall)", "NASA Space Apps challenge statement (Flame in Freefall)") }))));
+}
+
 function kpiBox(label, value, hint, alarm = false) {
   return h("div", { class: "kpi" + (alarm ? " alarm" : "") }, h("div", { class: "label", text: label }), h("div", { class: "value", text: value }), h("div", { class: "hint", text: hint }));
 }
