@@ -8,7 +8,8 @@ import { fileURLToPath } from "node:url";
 
 const EDGE = process.env.BROWSER || "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe";
 const BASE = process.env.SITE || "http://localhost:8001";
-const OUT = join(dirname(fileURLToPath(import.meta.url)), "assets");
+const LANG = process.env.LANG_SHOTS || "en";                     // LANG_SHOTS=ar for Arabic screenshots
+const OUT = join(dirname(fileURLToPath(import.meta.url)), "assets", LANG === "en" ? "" : LANG);
 const PORT = 9333, W = 1600, H = 900;
 const SHOTS = [                                  // [file name, url, wait ms, optional script to run first]
   ["scene-1-flame", "/?lang=en&scene=flame#story", 9000],
@@ -27,6 +28,9 @@ const SHOTS = [                                  // [file name, url, wait ms, op
   ["page-data", "/?lang=en#data", 4500],
   ["page-ask", "/?lang=en#ask", 3500, "document.querySelector('.eval') && (document.querySelector('.eval').open = true)"],
   ["page-overview", "/?lang=en#overview", 3500],
+  ["page-moon-plan", "/?lang=en#moon", 3500, "document.querySelector('.next-card').scrollIntoView({ block: 'start' })"],
+  ["page-moon-card", "/?lang=en#moon", 3500, "document.querySelector('.o2-card').scrollIntoView({ block: 'center' })"],
+  ["page-ask-answer", "/?lang=en#ask", 3500, "(async () => { document.querySelectorAll('#view-ask .chip.btn')[2].click(); })()"],
 ];
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -47,7 +51,7 @@ try {
   await send("Emulation.setDeviceMetricsOverride", { width: W, height: H, deviceScaleFactor: 1, mobile: false });
   for (const [name, path, wait, script] of SHOTS) {
     await send("Page.navigate", { url: "about:blank" });
-    await send("Page.navigate", { url: BASE + path });
+    await send("Page.navigate", { url: BASE + path.replace("lang=en", "lang=" + LANG) });
     await sleep(wait);
     if (script) { await send("Runtime.evaluate", { expression: script }); await sleep(500); }
     const { data } = await send("Page.captureScreenshot", { format: "png" });

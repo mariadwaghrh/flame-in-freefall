@@ -115,10 +115,13 @@ T(s, "Computed from the NASA PSI test tables (2,001 rows). Solid materials with 
 card(s, 8.5, 1.65, 4.23, 2.3, "Zero card");
 T(s, "0", { x: 8.8, y: 1.8, w: 3.6, h: 1.0, fontSize: 60, bold: true, color: RED, valign: "middle", objectName: "Zero" });
 T(s, "test rows burn a solid material at 30% oxygen or more, or at reduced pressure", { x: 8.8, y: 2.85, w: 3.65, h: 0.95, fontSize: 14, color: SOFT, objectName: "Zero label" });
-card(s, 8.5, 4.2, 4.23, 2.45, "Six card");
-T(s, "6", { x: 8.8, y: 4.35, w: 3.6, h: 1.0, fontSize: 60, bold: true, color: LIME, valign: "middle", objectName: "Six" });
-T(s, "investigations reach 30% or more, but all burn a gas or a liquid. Closest: BRE, gas burners that emulate solids", { x: 8.8, y: 5.4, w: 3.65, h: 0.95, fontSize: 13, color: SOFT, objectName: "Six label" });
-s.addNotes("هذا اكتشافنا من البيانات: أعلى أكسجين اختُبرت فيه مادة صلبة هو 22.2%، والقاعدة القمرية تحتاج 30%. عدد اختبارات المواد الصلبة عند 30% أو أكثر: صفر. ست تجارب وصلت إلى 30% لكنها كلها غاز أو سائل، وأقربها BRE التي قلّدت المواد الصلبة بحارقات غاز حتى 34%. نحن لا نتنبأ بالخطر، بل نُظهر أين لا توجد بيانات.");
+card(s, 8.5, 4.2, 4.23, 2.45, "Plan card");
+T(s, "THE MISSING TEST", { x: 8.8, y: 4.4, w: 3.65, h: 0.3, fontSize: 12, bold: true, color: LIME, charSpacing: 1, objectName: "Plan head" });
+T(s, [{ text: "Hardware that tested solids: ", options: { bold: true, color: WHITE } }, { text: "max 22.2%", options: { color: SOFT, breakLine: true } },
+      { text: "Hardware that reached 30%+: ", options: { bold: true, color: WHITE } }, { text: "gas and liquid only", options: { color: SOFT, breakLine: true } },
+      { text: "Test real fabrics and plastics at Moon-base air before building it", options: { bold: true, color: FLAME } }],
+  { x: 8.8, y: 4.8, w: 3.65, h: 1.7, fontSize: 13, paraSpaceAfter: 4, objectName: "Plan text" });
+s.addNotes("والبطاقة الثانية هي الخطة: الأجهزة التي اختبرت المواد الصلبة لم تتجاوز 22.2%، والأجهزة التي وصلت إلى 30% أحرقت غازاً وسائلاً فقط. الاختبار الناقص بينهما: مواد حقيقية بجو القاعدة القمرية. وهذا في صفحة جاهزية القمر. هذا اكتشافنا من البيانات: أعلى أكسجين اختُبرت فيه مادة صلبة هو 22.2%، والقاعدة القمرية تحتاج 30%. عدد اختبارات المواد الصلبة عند 30% أو أكثر: صفر. ست تجارب وصلت إلى 30% لكنها كلها غاز أو سائل، وأقربها BRE التي قلّدت المواد الصلبة بحارقات غاز حتى 34%. نحن لا نتنبأ بالخطر، بل نُظهر أين لا توجد بيانات.");
 
 // ---------- 6. how it works ----------
 s = pres.addSlide({ masterName: "CONTENT", sectionTitle: "Solution" });
@@ -143,7 +146,7 @@ s = pres.addSlide({ masterName: "CONTENT", sectionTitle: "Close" });
 s.addText("Impact, and built to last after the hackathon", { placeholder: "title" });
 [["WHO BENEFITS", ["An engineer choosing materials for a Moon base sees in seconds what NASA tested and what it did not", "Arabic-speaking students and researchers read NASA science in their own language"]],
  ["BUILT TO LAST", ["No running cost: open models on one laptop, offline", "6 commands rebuild everything when NASA adds data to PSI", "Open source under Apache-2.0"]],
- ["WHAT COMES NEXT", ["Lunar-gravity data (LUCI, FM2) when NASA publishes it", "A stronger model for Arabic translation", "Analysis of the raw video archive"]]].forEach(([head, items], i) => {
+ ["WHAT COMES NEXT", ["A test plan from the gaps: which materials NASA should test first", "Lunar-gravity data (LUCI, FM2) when NASA publishes it", "Check each number against its exact passage"]]].forEach(([head, items], i) => {
   const x = 0.6 + i * 4.14;
   card(s, x, 1.65, 3.85, 3.2, `Column ${i + 1}`);
   T(s, head, { x: x + 0.3, y: 1.9, w: 3.25, h: 0.35, fontSize: 13, bold: true, color: i === 2 ? FLAME : LIME, charSpacing: 1, objectName: `Column ${i + 1} head` });
