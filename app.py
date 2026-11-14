@@ -78,6 +78,12 @@ def examples():
     return json.load(open(path, encoding="utf-8")) if os.path.exists(path) else {}
 
 
+@app.get("/api/passages")
+def passages():
+    """All knowledge passages (used by the keyword search of the public copy)."""
+    return [{k: c[k] for k in ("cite", "section", "url", "text")} for c in CHUNKS]
+
+
 @app.get("/api/eval")
 def eval_results():
     """Result of src/evaluate.py on the team's test questions (empty if not run yet)."""

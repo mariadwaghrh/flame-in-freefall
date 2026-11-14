@@ -97,7 +97,7 @@ s.addText("TrustFlame delivers the three things NASA asked for", { placeholder: 
   T(s, ours, { x, y: 4.6, w: 3.85, h: 1.0, fontSize: 14, color: WHITE, objectName: `Answer ${i + 1}` });
 });
 card(s, 0.6, 5.8, 12.13, 0.85, "Extras card");
-T(s, [{ text: "Also: ", options: { bold: true, color: FLAME } }, { text: "a Moon readiness tool  ·  an assistant that takes questions in Arabic or English and answers from NASA sources only  ·  a story home page with real ISS flame video", options: { color: WHITE } }],
+T(s, [{ text: "Also: ", options: { bold: true, color: FLAME } }, { text: "a Moon readiness tool  ·  an assistant that takes questions in Arabic or English and answers from NASA sources only  ·  a home page with Ask in front, and a scroll story with real ISS flame video", options: { color: WHITE } }],
   { x: 0.9, y: 5.8, w: 11.5, h: 0.85, fontSize: 14, valign: "middle", objectName: "Extras" });
 s.addNotes("التحدي اقترح ثلاثة أشياء، ونفّذنا الثلاثة: ترتيب التجارب حسب بيئة الطاقم، استخراج بيانات للنمذجة مع تنزيل CSV، وربط الأبحاث بمعدات السلامة باقتباسات حرفية من ناسا. هنا ننتقل إلى العرض الحي للموقع.");
 

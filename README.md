@@ -2,7 +2,7 @@
 
 NASA Space Apps Challenge 2026, challenge **Flame in Freefall** (Amman & Aqaba local event, 13–14 November 2026).
 
-**Live public copy: https://mariadwaghrh.github.io/flame-in-freefall/** (every page works; the Ask page replays saved real runs, because the assistant itself needs the local model).
+**Live public copy: https://mariadwaghrh.github.io/flame-in-freefall/** (every page works; on Ask, the suggested questions show saved real answers and any other question shows the closest NASA passages, because the assistant itself needs the local model).
 
 Built during the hackathon. Every step is a git commit, so the history shows how the project grew.
 
@@ -11,7 +11,8 @@ A bilingual (Arabic / English) dashboard that summarises, ranks and interprets t
 
 | Page | What it shows |
 |---|---|
-| Story (home) | the case told by scrolling: a real ISS flame video, Apollo 1 and Mir in NASA's own words, the Moon atmosphere, the data gap, how the guardrail works, a saved real run, and the system's limits |
+| Home | the problem in one line, Ask in front, what we found, and where to go next |
+| Story | the case told by scrolling: a real ISS flame video, Apollo 1 and Mir in NASA's own words, the Moon atmosphere, the data gap, how the guardrail works, a saved real run, and the system's limits |
 | Overview | key findings, oxygen range of every investigation, top-ranked investigations, real flame images and videos |
 | Investigations | the 24 investigations ranked 0–100 for a chosen crew environment (station, spacecraft, Moon base, rover, Mars base), with filters and details |
 | Moon readiness | how many NASA tests reached a chosen oxygen level and pressure, which materials were tested, what happened to the flame, oxygen share vs oxygen amount |

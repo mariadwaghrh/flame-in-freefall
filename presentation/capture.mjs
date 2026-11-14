@@ -28,6 +28,7 @@ const SHOTS = [                                  // [file name, url, wait ms, op
   ["page-data", "/?lang=en#data", 4500],
   ["page-ask", "/?lang=en#ask", 3500, "document.querySelector('.eval') && (document.querySelector('.eval').open = true)"],
   ["page-overview", "/?lang=en#overview", 3500],
+  ["page-home", "/?lang=en#home", 3500],
   ["page-moon-plan", "/?lang=en#moon", 3500, "document.querySelector('.next-card').scrollIntoView({ block: 'start' })"],
   ["page-moon-card", "/?lang=en#moon", 3500, "document.querySelector('.o2-card').scrollIntoView({ block: 'center' })"],
   ["page-ask-answer", "/?lang=en#ask", 3500, "(async () => { document.querySelectorAll('#view-ask .chip.btn')[2].click(); })()"],

@@ -126,7 +126,8 @@ sequenceDiagram
 | | `src/rag/pipeline.py` | runs the steps and streams progress |
 | | `src/rag/settings.py` | every threshold in one place |
 | Website | `app.py` | FastAPI server: pages, JSON API, video streaming |
-| | `web/story.js` | home page: the story told by scrolling, with real NASA video, quotes and a saved real run |
+| | `web/home.js` | home page: the problem in one line, Ask in front, findings, links |
+| | `web/story.js` | the story told by scrolling, with real NASA video, quotes and a saved real run |
 | | `web/app.js` | overview, investigations, details panel, Arabic / English |
 | | `web/moon.js` | Moon readiness tool |
 | | `web/data.js` | test-data explorer and CSV export |

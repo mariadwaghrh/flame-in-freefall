@@ -30,6 +30,7 @@ def main():
     for name, fn in (("meta", server.meta), ("catalog", server.catalog), ("materials", server.materials), ("tests", server.tests),
                      ("applications", server.applications), ("eval", server.eval_results), ("examples", server.examples), ("summaries", server.summaries)):
         total += write(name, fn())
+    total += write("passages", [{k: c[k] for k in ("cite", "section", "url", "text")} for c in server.CHUNKS])
     for inv in server.CATALOG:
         total += write("tables/" + inv["acc"], server.tables(inv["acc"]))
     # a page at the repository root that forwards to the site, and no Jekyll processing on GitHub Pages

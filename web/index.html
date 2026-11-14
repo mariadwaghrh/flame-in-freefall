@@ -19,13 +19,13 @@
       <div><div class="brand-name">TrustFlame</div><div class="brand-sub" data-i18n="brand_sub"></div></div>
     </div>
     <nav class="tabs" role="tablist">
-      <button role="tab" data-view="story" data-i18n="tab_story"></button>
-      <button role="tab" data-view="overview" data-i18n="tab_overview"></button>
-      <button role="tab" data-view="investigations" data-i18n="tab_investigations"></button>
+      <button role="tab" data-view="home" data-i18n="tab_home"></button>
+      <button role="tab" data-view="ask" data-i18n="tab_ask"></button>
       <button role="tab" data-view="moon" data-i18n="tab_moon"></button>
+      <button role="tab" data-view="investigations" data-i18n="tab_investigations"></button>
       <button role="tab" data-view="equipment" data-i18n="tab_equipment"></button>
       <button role="tab" data-view="data" data-i18n="tab_data"></button>
-      <button role="tab" data-view="ask" data-i18n="tab_ask"></button>
+      <button role="tab" data-view="story" data-i18n="tab_story"></button>
     </nav>
     <button id="lang" class="lang-btn" type="button"></button>
   </header>
@@ -36,7 +36,8 @@
   </div>
 
   <main>
-    <section id="view-story" class="view"></section>
+    <section id="view-home" class="view"></section>
+    <section id="view-story" class="view" hidden></section>
     <section id="view-overview" class="view" hidden></section>
     <section id="view-investigations" class="view" hidden></section>
     <section id="view-moon" class="view" hidden></section>

@@ -35,47 +35,52 @@ function linkItem(item) {
     sourceLine(item));
 }
 
+// One simple card per equipment area; NASA's own sentences are one click away, folded under the card.
+const earthLine = (item) => {
+  if (AR()) return item.ar;
+  const who = item.acc ? short(state.byAcc[item.acc]) : item.source_title;
+  const q = (item.quotes || [item.quote])[0];
+  return `${who}: ${q.length > 110 ? q.slice(0, 107).trim() + "…" : q}`;
+};
+
 function category(c) {
-  const desc = AR() ? c.desc_ar : c.desc_en;
+  const invs = [...new Set(c.links.map((l) => l.acc).filter(Boolean))];
+  const n = nq([...c.links, ...c.earth]);
   return h("section", { class: "card eq-cat", id: "eq-" + c.id },
-    h("div", { class: "card-head" },
-      h("div", {}, h("h3", { text: AR() ? c.name_ar : c.name_en }), h("p", { class: "sub", text: desc })),
-      h("span", { class: "badge meta", text: L(`${nq([...c.links, ...c.earth])} اقتباسات`, `${nq([...c.links, ...c.earth])} quotes`) })),
-    h("div", { class: "eq-cols" },
-      h("div", {}, h("h4", { class: "eq-col-title", text: L("في المركبات والقواعد الفضائية", "In spacecraft and habitats") }), c.links.map(linkItem)),
-      h("div", {}, h("h4", { class: "eq-col-title", text: L("على الأرض", "On Earth") }),
-        c.earth.length ? c.earth.map(linkItem) : h("p", { class: "why", text: L("لا يذكر أي مصدر من ناسا هنا استخداماً على الأرض.", "No NASA source here names a use on Earth.") }))));
+    h("h3", { text: AR() ? c.name_ar : c.name_en }),
+    h("p", { class: "eq-desc", text: AR() ? c.desc_ar : c.desc_en }),
+    h("div", { class: "eq-row" }, h("b", { text: L("التجارب: ", "Investigations: ") }), h("div", { class: "chips" }, invs.map(invChip))),
+    c.earth.length ? h("div", { class: "eq-row eq-earth" }, h("b", { text: L("على الأرض: ", "On Earth: ") }),
+      h("ul", {}, c.earth.map((e) => h("li", {}, SPINOFF.test(e.resource || "") && h("span", { class: "chip spin", text: "NASA Spinoff" }), " ", earthLine(e))))) : null,
+    h("details", { class: "eq-more" },
+      h("summary", { text: L(`اقرأ كلام ناسا الأصلي (${n} اقتباسات)`, `Read NASA's own words (${n} quotes)`) }),
+      h("div", { class: "eq-cols" },
+        h("div", {}, h("h4", { class: "eq-col-title", text: L("في المركبات والقواعد الفضائية", "In spacecraft and habitats") }), c.links.map(linkItem)),
+        h("div", {}, h("h4", { class: "eq-col-title", text: L("على الأرض", "On Earth") }),
+          c.earth.length ? c.earth.map(linkItem) : h("p", { class: "why", text: L("لا يذكر أي مصدر من ناسا هنا استخداماً على الأرض.", "No NASA source here names a use on Earth.") })))));
 }
 
 function render() {
   const root = document.getElementById("view-equipment");
   if (!APPS) { mount(root, h("div", { class: "card empty", text: L("جاري التحميل…", "Loading…") })); loadApplications().then(() => APPS && render()); return; }
   const k = APPS.key_insight;
-  const invs = new Set(APPS.categories.flatMap((c) => [...c.links, ...c.earth]).map((l) => l.acc).filter(Boolean));
   const quotes = nq(APPS.categories.flatMap((c) => [...c.links, ...c.earth])) + nq(APPS.lessons) + k.quotes.length;
   mount(root,
     h("div", { class: "eq-hero" },
-      h("div", { class: "kicker", text: L("من تجارب الجاذبية الصغرى إلى معدات السلامة", "From microgravity experiments to fire-safety equipment") }),
-      h("h1", { text: L("ماذا غيّرت هذه التجارب في معدات السلامة؟", "What did this research change in fire-safety equipment?") }),
-      h("p", { class: "sub", text: L("كل رابط بين تجربة وجهاز يقتبس جملة من ناسا حرفياً، مع رابط المصدر. برنامج البناء يتوقف إذا لم يجد الاقتباس في مصدره، فلا توجد روابط مخترعة.",
-        "Every link between an investigation and a piece of equipment quotes NASA word for word, with a link to the source. The build stops if a quote is not found in its source, so no link is invented.") })),
-    h("div", { class: "kpis eq-kpis" },
-      kpi(L("أنواع معدات", "Equipment areas"), APPS.categories.length),
-      kpi(L("اقتباسات متحقق منها حرفياً", "Quotes checked word for word"), quotes),
-      kpi(L("تجارب مرتبطة", "Investigations linked"), invs.size),
-      kpi(L("فجوات وجدناها", "Gaps we found"), APPS.gaps.length, true)),
+      h("div", { class: "kicker", text: L("من تجارب الفضاء إلى معدات السلامة", "From space experiments to safety equipment") }),
+      h("h1", { text: L("كيف ساعدت تجارب ناسا معدات السلامة من الحرائق؟", "How did NASA's experiments help fire-safety equipment?") }),
+      h("p", { class: "sub", text: L(`خمسة أنواع من المعدات. لكل نوع: ماذا تعلّمت ناسا في الفضاء، وأين يفيد على الأرض. كل ذلك من ${quotes} جملة نقلناها من ناسا حرفياً، والبرنامج يتأكد من كل واحدة.`,
+        `Five kinds of equipment. For each: what NASA learned in space, and where it helps on Earth. All from ${quotes} sentences copied from NASA word for word, each one checked by the code.`) })),
     h("section", { class: "card eq-key" },
       h("div", { class: "kicker", text: L("أهم اكتشاف للقاعدة القمرية", "Key finding for a Moon base") }),
       h("h2", { text: AR() ? k.title_ar : k.title_en }),
       h("p", { text: AR() ? k.ar : k.en }),
-      k.quotes.map(quote),
-      h("div", { class: "eq-link-head" }, invChip(k.acc), sourceLine(k))),
-    h("nav", { class: "chips eq-nav", "aria-label": L("أنواع المعدات", "Equipment areas") },
-      APPS.categories.map((c) => h("button", { class: "chip btn", text: AR() ? c.name_ar : c.name_en, onclick: () => document.getElementById("eq-" + c.id).scrollIntoView({ block: "start" }) }))),
-    APPS.categories.map(category),
+      h("details", { class: "eq-more" }, h("summary", { text: L("اقرأ كلام ناسا الأصلي", "Read NASA's own words") }), k.quotes.map(quote), h("div", { class: "eq-link-head" }, invChip(k.acc), sourceLine(k)))),
+    h("div", { class: "eq-grid" }, APPS.categories.map(category)),
     h("h2", { class: "eq-section", text: L("دروس من حرائق حقيقية", "Lessons from real fires") }),
-    h("div", { class: "grid-even" }, APPS.lessons.map((l) => h("section", { class: "card eq-lesson" },
-      h("h3", { text: AR() ? l.title_ar : l.title_en }), h("p", { text: AR() ? l.ar : l.en }), (l.quotes || [l.quote]).map(quote), sourceLine(l)))),
+    h("div", { class: "eq-lessons" }, APPS.lessons.map((l) => h("section", { class: "card eq-lesson" },
+      h("h3", { text: AR() ? l.title_ar : l.title_en }), h("p", { text: AR() ? l.ar : l.en }),
+      h("details", { class: "eq-more" }, h("summary", { text: L("اقرأ كلام ناسا الأصلي", "Read NASA's own words") }), (l.quotes || [l.quote]).map(quote), sourceLine(l))))),
     h("h2", { class: "eq-section", text: L("ما لا تغطيه بيانات ناسا بعد", "What NASA's data does not cover yet") }),
     h("div", { class: "grid-even" }, APPS.gaps.map((g) => h("div", { class: "insight gap" }, h("p", { class: "big", text: AR() ? g.ar : g.en })))));
 }
