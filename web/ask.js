@@ -129,7 +129,7 @@ async function searchPassages(question, k = 5) {
 function evalLine(e) {
   const answered = e.results.filter((r) => r.expect === "answer"), declined = e.results.filter((r) => r.expect === "abstain");
   return h("details", { class: "eval" },
-    h("summary", {}, h("span", { class: "badge " + (e.passed === e.total ? "ok" : "warn"), text: `${e.passed} / ${e.total}` }),
+    h("summary", {}, h("span", { class: "badge " + (e.passed === e.total ? "ok" : "warn"), text: `${e.passed}/${e.total} (${Math.round(100 * e.passed / e.total)}%)` }),
       L(` اختبرناه على ${e.total} سؤالاً كتبها الفريق من مصادر التحدي (${answered.length} يجب أن يجيب عنها، و${declined.length} يجب أن يرفضها).`,
         ` Tested on ${e.total} questions the team wrote from the challenge resources (${answered.length} to answer, ${declined.length} to decline).`)),
     h("table", { class: "cmp" }, h("tbody", {}, e.results.map((r) => h("tr", {},

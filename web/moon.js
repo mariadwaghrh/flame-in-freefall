@@ -145,21 +145,23 @@ function nextTests() {
           `${high.length} investigations, all gas or liquid, up to ${fmt(Math.max(...high.map((i) => i.o2_range[1])), 0)}% oxygen`) }))),
     h("p", { class: "next-line", text: L("الأجهزة التي اختبرت المواد الصلبة لم تتجاوز هواء الأرض تقريباً، والأجهزة التي وصلت إلى أكسجين القمر لم تُحرق مادة صلبة واحدة. الاختبار الناقص يقع بينهما بالضبط.",
       "The hardware that tested solid materials stayed near Earth's air, and the hardware that reached Moon-base oxygen never burned a solid sample. The missing test sits exactly between them.") }),
-    h("div", { class: "table-wrap" }, h("table", { class: "cmp next-table" },
+    h("details", { class: "eq-more next-more" }, h("summary", { text: L("شوفي كل مادة بالتفصيل: ماذا ينقصها وأين اختُبرت", "See every material: what is missing and where it was tested") }),
+      h("div", { class: "table-wrap" }, h("table", { class: "cmp next-table" },
       h("thead", {}, h("tr", {}, [L("المادة", "Material"), L("أعلى أكسجين اختُبر", "Highest oxygen tested"), L("ما ينقص لهذه الظروف", "Missing for these conditions"), L("أين اختبرتها ناسا", "Where NASA tested it")].map((t) => h("th", { text: t })))),
       h("tbody", {}, solids.map((m) => h("tr", {},
         h("td", {}, h("b", { text: fuel(m.name) }), h("div", { class: "sub", text: L(`صفوف الاختبار: ${m.rows}`, `${m.rows} test rows`) })),
         h("td", {}, m.o2_max == null ? h("span", { class: "badge meta", text: L("غير مسجّل", "not recorded") }) : h("b", { class: "ltr", text: `${fmt(m.o2_max, 1)}%` })),
         h("td", {}, gap(m).length ? gap(m).map((g) => h("div", { class: "next-miss", text: "✕ " + g })) : h("span", { class: "badge ok", text: L("مغطّاة", "covered") })),
         h("td", {}, h("div", { class: "chips" }, famsOf(m.investigations).map((f) => famChip(f, false))),
-          h("div", { class: "sub" }, m.investigations.map((a, i) => [i ? ", " : "", h("button", { class: "linklike", text: short(state.byAcc[a]), onclick: () => openDrawer(a) })])))))))),
-    h("div", { class: "grid-even next-quotes" },
+          h("div", { class: "sub" }, m.investigations.map((a, i) => [i ? ", " : "", h("button", { class: "linklike", text: short(state.byAcc[a]), onclick: () => openDrawer(a) })]))))))))),
+    h("details", { class: "eq-more next-more" }, h("summary", { text: L("كلام ناسا عن أجواء المهمات والتجارب القادمة", "NASA's words on mission atmospheres and the next experiments") }),
+  h("div", { class: "grid-even next-quotes" },
       h("div", {}, h("b", { text: L("الأجواء التي تدرسها ناسا لمهمات البشر", "The atmospheres NASA considers for crewed missions") }),
         h("blockquote", { class: "quote ltr", dir: "ltr", text: "“" + NASA_ATMOSPHERES + "”" }),
         h("div", { class: "eq-src" }, h("button", { class: "linklike", text: L("سجل PSI لتجربة ACME BRE (الهدف) ↗", "PSI record of ACME BRE (objective) ↗"), onclick: () => openDrawer("PSI-20") }))),
       h("div", {}, h("b", { text: L("ما تتوقع ناسا إضافته", "What NASA expects to add") }),
         h("blockquote", { class: "quote ltr", dir: "ltr", text: "“" + LUCI_FM2 + "”" }),
-        h("div", { class: "eq-src", text: L("من نص تحدي ناسا (Flame in Freefall)", "NASA Space Apps challenge statement (Flame in Freefall)") }))));
+        h("div", { class: "eq-src", text: L("من نص تحدي ناسا (Flame in Freefall)", "NASA Space Apps challenge statement (Flame in Freefall)") })))));
 }
 
 function kpiBox(label, value, hint, alarm = false) {

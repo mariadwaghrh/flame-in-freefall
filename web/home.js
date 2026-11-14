@@ -21,7 +21,7 @@ function render() {
   const root = document.getElementById("view-home");
   const solidMax = Math.max(...state.materials.filter((m) => m.phase === "solid" && m.o2_max != null).map((m) => m.o2_max));
   const evalTile = h("b", { class: "ltr", text: "…" });
-  const setEval = (e) => { evalTile.textContent = e && e.total ? `${e.passed}/${e.total}` : "—"; };
+  const setEval = (e) => { evalTile.textContent = e && e.total ? `${e.passed}/${e.total} (${Math.round(100 * e.passed / e.total)}%)` : "—"; };
   if (evals) setEval(evals); else api("/api/eval").then((e) => { evals = e; setEval(e); }).catch(() => setEval(null));
   const door = (n, view, title, text) => h("button", { class: "home-door", onclick: () => go(view) },
     h("span", { class: "home-door-n ltr", text: String(n) }), h("b", { text: title }), h("span", { text: text }));

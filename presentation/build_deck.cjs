@@ -134,7 +134,7 @@ s.addText("How it works: no sentence without evidence, no number without a sourc
   T(s, [{ text: a + "   ", options: { bold: true, color: guard ? LIME : WHITE } }, { text: b, options: { color: SOFT } }], { x: 1.3, y, w: 4.9, h: 0.5, fontSize: 14, valign: "middle", objectName: `Step ${i + 1}` });
 });
 card(s, 0.6, 5.7, 5.6, 0.95, "Test card");
-T(s, [{ text: "18 / 22  ", options: { bold: true, color: LIME, fontSize: 24 } }, { text: "team-written test questions passed", options: { color: WHITE, fontSize: 14 } }], { x: 0.85, y: 5.7, w: 5.2, h: 0.95, valign: "middle", objectName: "Test result" });
+T(s, [{ text: "18/22 (82%)  ", options: { bold: true, color: LIME, fontSize: 24 } }, { text: "team-written test questions passed", options: { color: WHITE, fontSize: 14 } }], { x: 0.85, y: 5.7, w: 5.2, h: 0.95, valign: "middle", objectName: "Test result" });
 s.addImage({ path: A("crop-real-run.png"), x: 6.6, y: 1.6, w: 6.13, h: 4.3, altText: "A saved real run: two sentences marked supported with their NASA evidence, and an off-topic question declined", objectName: "Real run" });
 T(s, "A saved real run of the system, not a mock-up. Limits we state: 1 to 2 minutes per answer on a laptop, the Arabic translation is approximate, PSI has no lunar-gravity data yet.",
   { x: 6.6, y: 6.0, w: 6.13, h: 0.65, fontSize: 11, color: MUTED, objectName: "Limits" });

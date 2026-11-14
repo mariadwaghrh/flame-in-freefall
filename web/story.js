@@ -98,7 +98,7 @@ function proof() {
 
 function honesty() {
   const evalTile = h("div", { class: "tile" }, h("b", { class: "ltr", text: "…" }), h("span", { text: L("في اختبار كتبه الفريق من مصادر التحدي", "on the test our team wrote from the challenge resources") }));
-  const set = (e) => { if (e && e.total) evalTile.firstChild.textContent = `${e.passed} / ${e.total}`; else evalTile.hidden = true; };
+  const set = (e) => { if (e && e.total) evalTile.firstChild.textContent = `${e.passed}/${e.total} (${Math.round(100 * e.passed / e.total)}%)`; else evalTile.hidden = true; };
   if (extras.evals) set(extras.evals); else api("/api/eval").then((e) => { extras.evals = e || {}; set(e); }).catch(() => set(null));
   return h("div", { class: "st-viz tiles" },
     evalTile,
