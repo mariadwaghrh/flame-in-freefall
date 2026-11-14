@@ -73,7 +73,7 @@ function render() {
           h("div", { class: "sub", text: L("وماذا حدث للهب، حيث سجّلت ناسا النتيجة في الجدول.", "And what happened to the flame, where NASA's table records it.") }))),
         Object.keys(byInv).length ? Object.entries(byInv).sort((a, b) => b[1].rows - a[1].rows).map(([acc, e]) => h("div", { class: "moon-inv" },
           h("div", { class: "card-head", style: "margin:0" }, h("button", { class: "linklike", text: short(state.byAcc[acc]), onclick: () => openDrawer(acc) }),
-            h("span", { class: "sub", text: L(`${e.rows} اختبار، ${e.both} منها بضغط ≤ ${ui.atm}`, `${e.rows} rows, ${e.both} at ≤ ${ui.atm} atm`) })),
+            h("span", { class: "sub", text: L(`صفوف الاختبار: ${e.rows}، منها ${e.both} بضغط ≤ ${ui.atm}`, `${e.rows} rows, ${e.both} at ≤ ${ui.atm} atm`) })),
           h("div", { class: "sub", text: Object.entries(e.fuels).map(([f, n]) => `${fuel(f)} (${n})`).join(L("، ", ", ")) }),
           Object.keys(e.outcomes).length ? Object.entries(e.outcomes).map(([k, vals]) => h("div", { class: "moon-outcome" }, h("b", { text: (AR() ? OUTCOME_AR[k] || k : k) + ": " }),
             ltr(Object.entries(vals).sort((a, b) => b[1] - a[1]).slice(0, 5).map(([v, n]) => `${v} (${n})`).join(" · "))))
@@ -85,32 +85,24 @@ function render() {
         "The tool counts what NASA actually tested. A missing test does not mean a material is safe or dangerous; it means there is no data, which is exactly what engineers need to know before designing a Moon base. The closest NASA came is BRE: gas burners that emulate burning solids, up to 34% oxygen at 8.2 psi. They are not real solid samples.")),
   );
 }
-// Simple arithmetic on the slider values (no model): share of oxygen vs amount of oxygen (partial pressure).
-const PSI_PER_ATM = 14.696, EARTH = { o2: 21, atm: 1 };
+// Simple comparison with Earth's air for the chosen oxygen level, and NASA's own words on what it means.
+const EARTH_O2 = 21;
 function o2Card() {
-  const psi = (atm) => atm * PSI_PER_ATM, pp = (o2, atm) => psi(atm) * o2 / 100;
-  const more = ((ui.o2 - EARTH.o2) / EARTH.o2) * 100, ratio = pp(ui.o2, ui.atm) / pp(EARTH.o2, EARTH.atm);
-  const col = (title, o2, atm, hi) => h("div", { class: "o2-col" + (hi ? " hi" : "") }, h("div", { class: "label", text: title }),
-    h("div", { class: "o2-row" }, h("span", { text: L("نسبة الأكسجين", "Oxygen share") }), h("b", { class: "ltr", text: `${fmt(o2, 0)}%` })),
-    h("div", { class: "o2-row" }, h("span", { text: L("الضغط", "Pressure") }), h("b", { class: "ltr", text: `${fmt(psi(atm), 1)} psi` })),
-    h("div", { class: "o2-row" }, h("span", { text: L("كمية الأكسجين (الضغط الجزئي)", "Oxygen amount (partial pressure)") }), h("b", { class: "ltr", text: `${fmt(pp(o2, atm), 2)} psi` })));
-  const same = Math.abs(ratio - 1) < 0.1;
+  const more = ((ui.o2 - EARTH_O2) / EARTH_O2) * 100;
+  const bar = (label, v, hot) => h("div", { class: "o2-bar" + (hot ? " hot" : "") },
+    h("span", { class: "o2-bar-label", text: label }),
+    h("div", { class: "o2-bar-track" }, h("i", { style: `width:${Math.min(100, v)}%` })),
+    h("b", { class: "ltr", text: `${fmt(v, 0)}%` }));
   return h("section", { class: "card o2-card" },
     h("div", { class: "card-head" }, h("div", {},
-      h("h3", { text: L("نفس كمية الأكسجين تقريباً، لكن نسبته في الهواء أعلى", "About the same amount of oxygen, but a bigger share of the air") }),
-      h("div", { class: "sub", text: L("حساب بسيط من أرقام المؤشّر: كمية الأكسجين = الضغط × نسبة الأكسجين.", "Simple arithmetic on the slider values: oxygen amount = pressure × oxygen share.") }))),
-    h("div", { class: "o2-grid" },
-      col(L("الأرض", "Earth"), EARTH.o2, EARTH.atm, false),
-      col(L("الظروف المختارة", "Selected conditions"), ui.o2, ui.atm, true),
-      h("div", { class: "o2-col" },
-        h("div", { class: "label", text: L("الفرق عن هواء الأرض", "Compared with Earth's air") }),
-        h("div", { class: "o2-big ltr", text: `${more >= 0 ? "+" : ""}${fmt(more, 0)}%` }),
-        h("div", { class: "sub", text: L("في نسبة الأكسجين", "in oxygen share") }),
-        h("div", { class: "o2-big ltr small", text: `×${fmt(ratio, 2)}` }),
-        h("div", { class: "sub", text: same ? L("في كمية الأكسجين: تقريباً مثل الأرض", "in oxygen amount: about the same as Earth") : L("في كمية الأكسجين", "in oxygen amount") }))),
+      h("h3", { text: more > 0 ? L(`الهواء هنا فيه أكسجين أكثر من الأرض بـ ${fmt(more, 0)}%`, `This air holds ${fmt(more, 0)}% more oxygen than Earth's`)
+        : L("الهواء هنا فيه أكسجين مثل الأرض أو أقل", "This air holds as much oxygen as Earth's, or less") }),
+      h("div", { class: "sub", text: L("كلما زاد الأكسجين في الهواء، اشتعلت المواد أسهل واحترقت أسرع.", "The more oxygen in the air, the more easily materials ignite and the faster they burn.") }))),
+    h("div", { class: "o2-bars" }, bar(L("هواء الأرض", "Earth's air"), EARTH_O2, false), bar(L("الظروف المختارة", "Selected conditions"), ui.o2, true)),
     h("blockquote", { class: "quote ltr", dir: "ltr", text: "“The intermediate oxygen concentration used on the Moon will likely be 30% or greater, with a corresponding pressure of 10.2 psi or less. Compared to Earth's atmosphere, that's more than a 40% increase in the oxygen concentration making materials much more flammable.”" }),
     h("div", { class: "eq-src", text: L("من نص تحدي ناسا (Flame in Freefall)", "NASA Space Apps challenge statement (Flame in Freefall)") }));
 }
+
 // ---------- What to test next ----------
 // Built only from the gaps in NASA's tables: it lists what is missing and where NASA has already burned what.
 // It ranks nothing and predicts nothing.
@@ -156,7 +148,7 @@ function nextTests() {
     h("div", { class: "table-wrap" }, h("table", { class: "cmp next-table" },
       h("thead", {}, h("tr", {}, [L("المادة", "Material"), L("أعلى أكسجين اختُبر", "Highest oxygen tested"), L("ما ينقص لهذه الظروف", "Missing for these conditions"), L("أين اختبرتها ناسا", "Where NASA tested it")].map((t) => h("th", { text: t })))),
       h("tbody", {}, solids.map((m) => h("tr", {},
-        h("td", {}, h("b", { text: fuel(m.name) }), h("div", { class: "sub", text: L(`${m.rows} صف اختبار`, `${m.rows} test rows`) })),
+        h("td", {}, h("b", { text: fuel(m.name) }), h("div", { class: "sub", text: L(`صفوف الاختبار: ${m.rows}`, `${m.rows} test rows`) })),
         h("td", {}, m.o2_max == null ? h("span", { class: "badge meta", text: L("غير مسجّل", "not recorded") }) : h("b", { class: "ltr", text: `${fmt(m.o2_max, 1)}%` })),
         h("td", {}, gap(m).length ? gap(m).map((g) => h("div", { class: "next-miss", text: "✕ " + g })) : h("span", { class: "badge ok", text: L("مغطّاة", "covered") })),
         h("td", {}, h("div", { class: "chips" }, famsOf(m.investigations).map((f) => famChip(f, false))),
