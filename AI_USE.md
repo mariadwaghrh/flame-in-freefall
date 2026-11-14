@@ -2,6 +2,9 @@
 
 The Space Apps rules require every project to say where and how SI tools were used. This file is kept up to date during the hackathon.
 
+## The idea
+The idea and the design of the solution are the team's own. SI tools were used to build it, not to choose how to solve the challenge.
+
 ## Development
 - **Claude (Anthropic), through Claude Code**: used as a coding assistant to write and debug the code in this repository, step by step with the team. Code it generated was reviewed and run by the team before each commit.
 - Team research: test questions in `data/curated/eval_questions.json` and lesson quotes in `data/curated/applications.json` were written by team members from the challenge resources; every quote is checked word for word by the code.
