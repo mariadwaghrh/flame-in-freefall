@@ -3,6 +3,26 @@
 // src/applications.py stops the build if a quote is not found in its source.
 import { h, mount } from "./charts.js?v=1";
 import { state, L, AR, RENDER, api, short, openDrawer, closeDrawer, drawerExtras, go } from "./app.js?v=1";
+import { icon } from "./icons.js?v=1";
+const AREA_ICON = { detection: "smoke", suppression: "extinguisher", ventilation: "wind", materials: "layers", models: "cpu" };
+// real NASA images and video from investigations linked to each area (only where PSI has a clear picture of one of them)
+const AREA_MEDIA = {
+  suppression: { src: "media/still-PSI-26.jpg", acc: "PSI-26", ar: "لقطة حقيقية من كاميرا تجربة BASS، التي أطفأت اللهب بالنيتروجين", en: "Real camera frame from BASS, which put flames out with nitrogen" },
+  ventilation: { src: "media/PSI-25_1.jpg", acc: "PSI-25", ar: "صورة حقيقية: لهب BASS-II في تدفق هواء على المحطة", en: "Real photo: a BASS-II flame in air flow on the ISS" },
+  models: { src: "media/PSI-107_1.mp4", video: true, start: 3, end: 12, acc: "PSI-107", ar: "فيديو حقيقي: لهب في قناة تدفق SPICE على المحطة", en: "Real video: a flame in the SPICE flow duct on the ISS" },
+};
+function areaMedia(id) {
+  const m = AREA_MEDIA[id];
+  if (!m) return null;
+  let el;
+  if (m.video) {
+    el = h("video", { src: `${m.src}#t=${m.start}`, muted: true, playsinline: true, autoplay: true, preload: "metadata", "aria-hidden": "true" });
+    el.muted = true;
+    el.addEventListener("timeupdate", () => { if (el.currentTime >= m.end) el.currentTime = m.start; });
+    el.addEventListener("ended", () => { el.currentTime = m.start; el.play().catch(() => {}); });
+  } else el = h("img", { src: m.src, alt: AR() ? m.ar : m.en, loading: "lazy" });
+  return h("figure", { class: "eq-media" }, el, h("figcaption", {}, (AR() ? m.ar : m.en) + " · ", h("span", { class: "ltr", text: `NASA PSI (${m.acc})` })));
+}
 
 let APPS = null;
 export async function loadApplications() { try { APPS = await api("/api/applications"); } catch (e) { APPS = null; } }
@@ -47,7 +67,8 @@ function category(c) {
   const invs = [...new Set(c.links.map((l) => l.acc).filter(Boolean))];
   const n = nq([...c.links, ...c.earth]);
   return h("section", { class: "card eq-cat", id: "eq-" + c.id },
-    h("h3", { text: AR() ? c.name_ar : c.name_en }),
+    h("h3", { class: "eq-title" }, icon(AREA_ICON[c.id] || "flame", "eq-ic"), AR() ? c.name_ar : c.name_en),
+    areaMedia(c.id),
     h("p", { class: "eq-desc", text: AR() ? c.desc_ar : c.desc_en }),
     h("div", { class: "eq-row" }, h("b", { text: L("التجارب: ", "Investigations: ") }), h("div", { class: "chips" }, invs.map(invChip))),
     c.earth.length ? h("div", { class: "eq-row eq-earth" }, h("b", { text: L("على الأرض: ", "On Earth: ") }),
@@ -79,7 +100,7 @@ function render() {
     h("div", { class: "eq-grid" }, APPS.categories.map(category)),
     h("h2", { class: "eq-section", text: L("دروس من حرائق حقيقية", "Lessons from real fires") }),
     h("div", { class: "eq-lessons" }, APPS.lessons.map((l) => h("section", { class: "card eq-lesson" },
-      h("h3", { text: AR() ? l.title_ar : l.title_en }), h("p", { text: AR() ? l.ar : l.en }),
+      h("h3", { class: "eq-title" }, icon("flame", "eq-ic hot"), AR() ? l.title_ar : l.title_en), h("p", { text: AR() ? l.ar : l.en }),
       h("details", { class: "eq-more" }, h("summary", { text: L("اقرأ كلام ناسا الأصلي", "Read NASA's own words") }), (l.quotes || [l.quote]).map(quote), sourceLine(l))))),
     h("h2", { class: "eq-section", text: L("ما لا تغطيه بيانات ناسا بعد", "What NASA's data does not cover yet") }),
     h("div", { class: "grid-even" }, APPS.gaps.map((g) => h("div", { class: "insight gap" }, h("p", { class: "big", text: AR() ? g.ar : g.en })))));

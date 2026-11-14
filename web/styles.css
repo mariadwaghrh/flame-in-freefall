@@ -485,3 +485,22 @@ p.home-trust { justify-content: center; }
 
 .home-answers { scroll-margin-top: 90px; }
 .home-answers:empty { display: none; }
+
+/* icons */
+.ic { display: inline-grid; place-items: center; flex: none; }
+.ic svg { width: 1.15em; height: 1.15em; display: block; }
+[dir="rtl"] .ic.flip svg { transform: scaleX(-1); }
+.home-door-ic { width: 46px; height: 46px; border-radius: 12px; background: rgba(228, 242, 74, .12); color: var(--lime); }
+.home-door-ic svg { width: 26px; height: 26px; }
+.home-go { display: inline-flex; align-items: center; gap: 4px; color: var(--lime) !important; font-weight: 800; font-size: 13.5px !important; }
+.home-trust-ic { width: 30px; height: 30px; border-radius: 50%; background: rgba(12, 163, 12, .18); color: var(--good-ink); }
+.home-trust-ic svg { width: 18px; height: 18px; }
+.btn .ic svg { width: 20px; height: 20px; }
+.eq-title { display: flex; align-items: center; gap: 10px; }
+.eq-ic { width: 38px; height: 38px; border-radius: 10px; background: rgba(57, 135, 229, .16); color: #7fb0ff; }
+.eq-ic svg { width: 22px; height: 22px; }
+.eq-ic.hot { background: rgba(255, 138, 61, .16); color: var(--flame); }
+
+.eq-media { margin: 0; display: grid; gap: 4px; }
+.eq-media img, .eq-media video { width: 100%; height: 170px; object-fit: cover; border-radius: 12px; background: #05060f; display: block; }
+.eq-media figcaption { font-size: 12px; color: var(--muted); }

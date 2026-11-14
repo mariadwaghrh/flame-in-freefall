@@ -3,6 +3,7 @@
 import { h, mount, fmt } from "./charts.js?v=1";
 import { state, L, AR, RENDER, api, go, onLangChange } from "./app.js?v=1";
 import { askInto, SUGGEST } from "./ask.js?v=1";
+import { icon } from "./icons.js?v=1";
 
 let evals = null;
 const answers = h("div", { class: "view home-answers" });   // answers stay here while you move between pages
@@ -11,7 +12,7 @@ function askBox() {
   const input = h("input", { type: "search", dir: "auto", class: "home-input",
     placeholder: L("مثال: هل إيقاف التهوية يطفئ الحريق في أكسجين عالٍ؟", "e.g. Does shutting off ventilation put out a fire in high oxygen?"),
     "aria-label": L("سؤالك", "Your question") });
-  const btn = h("button", { class: "btn primary big", text: L("اسأل ناسا", "Ask NASA") });
+  const btn = h("button", { class: "btn primary big" }, icon("search"), L("اسأل ناسا", "Ask NASA"));
   const run = (q) => { q = (q || input.value).trim(); if (!q) return; input.value = ""; askInto(q, answers, btn);
     setTimeout(() => answers.scrollIntoView({ behavior: "smooth", block: "start" }), 50); };
   btn.addEventListener("click", () => run());
@@ -27,8 +28,8 @@ function render() {
   const evalTile = h("b", { class: "ltr", text: "…" });
   const setEval = (e) => { evalTile.textContent = e && e.total ? `${e.passed}/${e.total} (${Math.round(100 * e.passed / e.total)}%)` : "—"; };
   if (evals) setEval(evals); else api("/api/eval").then((e) => { evals = e; setEval(e); }).catch(() => setEval(null));
-  const door = (n, view, title, text) => h("button", { class: "home-door", onclick: () => go(view) },
-    h("span", { class: "home-door-n ltr", text: String(n) }), h("b", { text: title }), h("span", { text: text }));
+  const door = (ic, view, title, text) => h("button", { class: "home-door", onclick: () => go(view) },
+    icon(ic, "home-door-ic"), h("b", { text: title }), h("span", { text: text }), h("span", { class: "home-go" }, L("افتح", "Open"), " ", icon("arrow", "flip")));
 
   mount(root,
     h("section", { class: "home-hero" },
@@ -41,11 +42,11 @@ function render() {
         askBox()),
       h("div", { class: "home-credit ltr", text: "Photo: BASS-II flame test aboard the ISS, NASA PSI (PSI-25)" })),
     h("div", { class: "home-doors" },
-      door(1, "investigations", L("قارن التجارب", "Compare the experiments"), L("التجارب الأربع والعشرون مرتّبة من 100، مع تنزيل البيانات.", "All 24 ranked out of 100, with data to download.")),
-      door(2, "moon", L("جاهزية القمر", "Moon readiness"), L(`ماذا اختُبر عند 30% أكسجين؟ المواد الصلبة توقفت عند ${fmt(solidMax, 1)}%.`, `What was tested at 30% oxygen? Solid materials stop at ${fmt(solidMax, 1)}%.`)),
-      door(3, "ask", L("اسأل المساعد الموثوق", "Ask the verified assistant"), L("جواب من مصادر ناسا فقط، وإذا لم يجد دليلاً يقول: لا أعرف.", "Answers from NASA sources only; with no evidence it says: I don't know."))),
+      door("search", "investigations", L("قارن التجارب", "Compare the experiments"), L("التجارب الأربع والعشرون مرتّبة من 100، مع تنزيل البيانات.", "All 24 ranked out of 100, with data to download.")),
+      door("moon", "moon", L("جاهزية القمر", "Moon readiness"), L(`ماذا اختُبر عند 30% أكسجين؟ المواد الصلبة توقفت عند ${fmt(solidMax, 1)}%.`, `What was tested at 30% oxygen? Solid materials stop at ${fmt(solidMax, 1)}%.`)),
+      door("shield", "ask", L("اسأل المساعد الموثوق", "Ask the verified assistant"), L("جواب من مصادر ناسا فقط، وإذا لم يجد دليلاً يقول: لا أعرف.", "Answers from NASA sources only; with no evidence it says: I don't know."))),
     answers,
-    h("p", { class: "home-trust" }, evalTile, h("span", { text: L("أسئلة كتبها الفريق من مصادر التحدي أجاب عنها بشكل صحيح.", "team-written questions from the challenge sources answered correctly.") })));
+    h("p", { class: "home-trust" }, icon("check", "home-trust-ic"), evalTile, h("span", { text: L("أسئلة كتبها الفريق من مصادر التحدي أجاب عنها بشكل صحيح.", "team-written questions from the challenge sources answered correctly.") })));
 }
 const num0 = (v) => Number(v).toLocaleString("en-US");
 
